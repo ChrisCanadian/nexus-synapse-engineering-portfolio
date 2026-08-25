@@ -6,103 +6,112 @@
 <title>Nexus Synapse — Request Watch</title>
 <style>
 :root{
-  --bg:#07131f;
-  --panel:#0d1c29;
-  --panel2:#102333;
-  --line:#2a4657;
-  --cyan:#43d9e8;
-  --teal:#20a8b6;
-  --white:#f2f7fa;
-  --steel:#a8b9c3;
-  --muted:#748997;
-  --green:#64d19a;
+  --bg:#07131f; --bg2:#0a1a27; --panel:#0d1d2a; --panel2:#102332;
+  --line:#294658; --line2:#3d5b6c; --cyan:#43d9e8; --teal:#20a8b6;
+  --white:#f3f8fa; --steel:#a8b9c3; --muted:#738995; --green:#67d19b;
+  --amber:#d9b96d;
 }
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030a10}
-body{
-  display:grid;place-items:center;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--white)
-}
-#fit{
-  width:1600px;height:900px;transform-origin:center center;position:absolute;
-}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#03090f}
+body{display:grid;place-items:center;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--white)}
+#fit{position:absolute;width:1600px;height:900px;transform-origin:center center}
 .canvas{
-  width:1600px;height:900px;padding:25px 28px 20px;
-  background:
-    radial-gradient(circle at 12% 0%,rgba(32,168,182,.08),transparent 31%),
-    linear-gradient(180deg,#081520 0%,var(--bg) 100%);
-  overflow:hidden
+  width:1600px;height:900px;padding:22px 28px 18px;overflow:hidden;
+  background:radial-gradient(circle at 12% 0%,rgba(32,168,182,.08),transparent 31%),
+             linear-gradient(180deg,#081520 0%,var(--bg) 100%);
 }
 header{
-  height:78px;display:flex;justify-content:space-between;align-items:flex-start;
-  border-bottom:1px solid #203848;padding-bottom:13px
+  height:72px;display:flex;justify-content:space-between;align-items:flex-start;
+  border-bottom:1px solid #203848;padding-bottom:11px
 }
-.brand{display:flex;gap:14px;align-items:center}
-.logo{width:49px;height:49px;filter:drop-shadow(0 0 9px rgba(67,217,232,.2))}
-h1{font-size:25px;letter-spacing:.055em;margin:0;font-weight:820;line-height:1.05}
-.tagline{font-size:12px;color:var(--steel);margin-top:5px;letter-spacing:.025em}
-.disclosure{
-  max-width:510px;font-size:10.5px;line-height:1.35;color:#a8b8c1;
-  border-left:2px solid var(--teal);padding-left:11px;margin-top:1px
-}
+.brand{display:flex;align-items:center;gap:13px}
+.logo{width:46px;height:46px;filter:drop-shadow(0 0 8px rgba(67,217,232,.18))}
+h1{font-size:24px;letter-spacing:.055em;margin:0;font-weight:830;line-height:1.05}
+.tagline{font-size:11.5px;color:var(--steel);margin-top:5px;letter-spacing:.025em}
+.disclosure{max-width:500px;font-size:9.8px;line-height:1.38;color:#a6b7c0;border-left:2px solid var(--teal);padding-left:10px}
 .disclosure strong{color:var(--cyan)}
-.panel{
-  border:1px solid #1f3b4e;background:linear-gradient(180deg,var(--panel2),var(--panel));
-  border-radius:10px
-}
-.journey{height:287px;margin-top:16px;padding:14px 17px 12px}
-.head{display:flex;justify-content:space-between;align-items:flex-end;height:33px}
-.kicker{font-size:12px;color:var(--cyan);font-weight:850;letter-spacing:.12em;text-transform:uppercase}
-.small{font-size:9px;color:var(--muted)}
-.tracker{height:186px;position:relative;margin-top:8px;padding:0 26px;display:grid;grid-template-columns:repeat(8,1fr)}
-.rail{position:absolute;left:74px;right:74px;top:35px;height:2px;background:#476071;border-radius:999px}
-.fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--cyan));box-shadow:0 0 12px rgba(67,217,232,.38);transition:width .55s ease}
+.panel{border:1px solid #1f3b4e;background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:10px}
+.kicker{font-size:11px;color:var(--cyan);font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+.small{font-size:8.8px;color:var(--muted)}
+
+/* Journey */
+.journey{height:245px;margin-top:14px;padding:12px 15px 10px}
+.head{height:28px;display:flex;justify-content:space-between;align-items:flex-end}
+.tracker{height:162px;position:relative;margin-top:4px;padding:0 28px;display:grid;grid-template-columns:repeat(8,1fr)}
+.rail{position:absolute;left:76px;right:76px;top:31px;height:2px;background:#425c6d;border-radius:999px}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--cyan));box-shadow:0 0 12px rgba(67,217,232,.38);transition:width .48s ease}
 .traveler{
-  position:absolute;top:23px;left:0;width:24px;height:24px;border-radius:6px;z-index:5;
-  transform:translate(-50%,0);display:grid;place-items:center;background:#0c2a34;color:var(--cyan);
+  position:absolute;top:20px;left:0;width:22px;height:22px;border-radius:5px;z-index:5;
+  transform:translate(-50%,0);display:grid;place-items:center;background:#0b2933;color:var(--cyan);
   border:1px solid var(--cyan);box-shadow:0 0 14px rgba(67,217,232,.42);
-  transition:left .55s cubic-bezier(.24,.82,.25,1),opacity .18s ease
+  transition:left .48s cubic-bezier(.24,.82,.25,1),opacity .18s ease
 }
-.traveler svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7}
+.traveler svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.7}
 .station{text-align:center;position:relative;z-index:2}
 .node{
-  width:50px;height:50px;border-radius:50%;margin:10px auto 8px;background:#091620;border:1.7px solid #677a87;
-  display:grid;place-items:center;color:#afbec7;transition:.28s ease
+  width:44px;height:44px;border-radius:50%;margin:8px auto 7px;background:#091620;border:1.6px solid #667a87;
+  display:grid;place-items:center;color:#b1c0c9;transition:.25s ease
 }
-.node svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.station.done .node{border-color:#328895;color:#7bdce5;background:#0a2028}
-.station.active .node{border-color:var(--cyan);color:var(--cyan);background:#0b232c;box-shadow:0 0 0 4px rgba(67,217,232,.07),0 0 18px rgba(67,217,232,.30)}
-.label{font-size:11px;font-weight:790;line-height:1.1;min-height:24px}
+.node svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.station.done .node{border-color:#328894;color:#7bdce5;background:#0a2028}
+.station.active .node{border-color:var(--cyan);color:var(--cyan);background:#0b232c;box-shadow:0 0 0 4px rgba(67,217,232,.06),0 0 16px rgba(67,217,232,.30)}
+.label{font-size:10px;font-weight:800;line-height:1.08;min-height:21px}
 .station.active .label{color:var(--cyan)}
-.meta{font-size:8.4px;color:#8296a3;line-height:1.25;margin-top:4px;min-height:22px}
-.tag{display:inline-block;margin-top:4px;font-size:7px;letter-spacing:.08em;text-transform:uppercase;color:#758b98;border:1px solid #355264;border-radius:3px;padding:2px 5px}
-.station.active .tag{color:var(--cyan);border-color:#247a85}
+.meta{font-size:7.6px;color:#8296a3;line-height:1.2;margin-top:3px;min-height:18px}
+.tag{display:inline-block;margin-top:3px;font-size:6.4px;letter-spacing:.08em;text-transform:uppercase;color:#748a97;border:1px solid #355263;border-radius:3px;padding:1px 4px}
+.station.active .tag{color:var(--cyan);border-color:#247985}
 .strip{
-  height:29px;border-top:1px solid #1b3343;display:flex;justify-content:space-between;align-items:flex-end;
-  gap:18px;padding:7px 4px 0;font-size:9px;color:#8397a3
+  height:27px;border-top:1px solid #1b3343;display:flex;justify-content:space-between;align-items:flex-end;
+  gap:18px;padding:6px 3px 0;font-size:8.5px;color:#8397a3
 }
 .strip strong{color:var(--cyan)}
 .summary{color:#cbd7dd}
 .historic{text-align:right;white-space:nowrap}
 
-.board{height:458px;margin-top:13px;padding:13px 15px 12px}
-.boardHead{height:34px;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:9px}
-.grid{height:377px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:8px}
-.card{
-  border:1px solid #2a4657;border-left:3px solid #415b6a;border-radius:6px;background:#0a1721;
-  padding:9px 10px 8px;position:relative;transition:.28s ease;overflow:hidden
+/* Responsibility thumbnails */
+.respPanel{height:118px;margin-top:11px;padding:10px 13px 11px}
+.respHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:7px}
+.thumbs{display:grid;grid-template-columns:repeat(12,1fr);gap:6px}
+.thumb{
+  height:62px;border:1px solid #294758;border-radius:6px;background:#091722;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  color:#8095a1;transition:.24s ease;position:relative;text-align:center;padding:4px
 }
-.card.active{border-color:#267983;border-left-color:var(--cyan);background:#0b2028;box-shadow:inset 0 0 15px rgba(67,217,232,.025)}
-.title{font-size:11px;font-weight:820;margin-bottom:5px;padding-right:48px}
-.state{position:absolute;top:9px;right:9px;font-size:6.8px;letter-spacing:.1em;font-weight:900;color:#687d89}
-.card.active .state{color:var(--green)}
-.desc{font-size:8.8px;line-height:1.3;color:#a4b5bf}
-.tech{font-size:7.7px;line-height:1.24;color:#718894;margin-top:5px}
-.tech b{color:#90a6b2}
+.thumb .dot{width:7px;height:7px;border-radius:50%;background:#526a78;box-shadow:none;transition:.24s ease}
+.thumb .tn{font-size:8.2px;font-weight:790;line-height:1.05}
+.thumb.active{
+  color:#d9f5f7;border-color:#2a818b;background:#0b222a;
+  box-shadow:inset 0 0 12px rgba(67,217,232,.03)
+}
+.thumb.active .dot{background:var(--green);box-shadow:0 0 9px rgba(103,209,155,.6)}
+
+/* Road-sign info panel */
+.sign{height:366px;margin-top:11px;padding:13px 16px 12px;position:relative;overflow:hidden}
+.sign::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.08;
+  background:repeating-linear-gradient(180deg,transparent 0 3px,rgba(255,255,255,.05) 3px 4px)
+}
+.signTop{display:grid;grid-template-columns:230px 1fr 330px;gap:12px;align-items:stretch;height:63px;position:relative;z-index:1}
+.signBlock{
+  border:1px solid #2a4658;background:#091822;border-radius:5px;padding:9px 11px
+}
+.signLabel{font-size:7px;letter-spacing:.13em;color:#708995;text-transform:uppercase;font-weight:900}
+.signValue{font-size:16px;font-weight:860;letter-spacing:.02em;color:var(--cyan);margin-top:4px}
+.signSummary{font-size:10px;line-height:1.35;color:#d5e0e5;margin-top:4px}
+.signTech{font-size:8.5px;line-height:1.34;color:#9bb0bb;margin-top:4px}
+.rows{margin-top:10px;display:grid;gap:6px;position:relative;z-index:1}
+.row{
+  min-height:39px;border:1px solid #243f50;background:#08151f;border-radius:4px;
+  display:grid;grid-template-columns:190px 1fr;align-items:center;gap:10px;padding:7px 10px;
+  transition:.2s ease
+}
+.rowName{font-size:9.5px;font-weight:850;color:#e3eef2}
+.rowText{font-size:9.1px;line-height:1.28;color:#a9bac4}
+.row .mini{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:7px;box-shadow:0 0 8px rgba(103,209,155,.55)}
+.empty{color:#607684;font-size:9px;padding:15px 3px}
 .footer{
-  height:32px;display:flex;justify-content:space-between;align-items:flex-end;margin-top:7px;
-  font-size:7.9px;color:#6f8490;line-height:1.25
+  height:26px;display:flex;justify-content:space-between;align-items:flex-end;margin-top:6px;
+  font-size:7.5px;color:#6d8390;line-height:1.22
 }
 .footer strong{color:#90a5b1}
 </style>
@@ -115,57 +124,33 @@ h1{font-size:25px;letter-spacing:.055em;margin:0;font-weight:820;line-height:1.0
     <svg class="logo" viewBox="0 0 64 64" aria-label="Nexus Synapse mark">
       <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#63e4ec"/><stop offset="1" stop-color="#159cab"/></linearGradient></defs>
       <path d="M32 4 56 18v28L32 60 8 46V18Z" fill="none" stroke="url(#g)" stroke-width="2.2"/>
-      <path d="M17 45V19l23 26V19M25 19v12l15 17M47 19v26" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="square"/>
+      <path d="M17 45V19l23 26V19M25 19v12l15 17M47 19v26" fill="none" stroke="url(#g)" stroke-width="4"/>
     </svg>
     <div>
       <h1>NEXUS SYNAPSE — REQUEST WATCH</h1>
       <div class="tagline">One runtime · bounded responsibilities · one request moving through the system</div>
     </div>
   </div>
-  <div class="disclosure"><strong>PUBLIC-SAFE V5 TARGET VIEW.</strong> Current production is used as a parity baseline. Animation timing is illustrative; historic benchmark timings are labeled separately until current V5 station spans are connected.</div>
+  <div class="disclosure"><strong>PUBLIC-SAFE V5 TARGET VIEW.</strong> Current production is a parity baseline only. Animation pacing is illustrative. Historic benchmark timings remain explicitly labeled until current V5 station spans are connected.</div>
 </header>
 
 <section class="panel journey">
   <div class="head">
-    <div><div class="kicker">Request Journey</div><div class="small">Delivery-tracker view of the governed turn</div></div>
-    <div class="small">Auto-loop · 2.25 s station dwell · 0.55 s handoff</div>
+    <div><div class="kicker">Request Journey</div><div class="small">Delivery-tracker view</div></div>
+    <div class="small">Auto-loop · 2.6 s station dwell · 0.48 s handoff</div>
   </div>
   <div class="tracker" id="tracker">
     <div class="rail"><div class="fill" id="fill"></div></div>
     <div class="traveler" id="traveler"><svg viewBox="0 0 24 24"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></div>
 
-    <div class="station active">
-      <div class="node"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
-      <div class="label">Request</div><div class="meta">trusted intake<br>actor / scope</div><div class="tag">receiving</div>
-    </div>
-    <div class="station">
-      <div class="node"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="5"/><path d="m14 14 5 5"/></svg></div>
-      <div class="label">Analysis</div><div class="meta">historic NLP avg<br>1.09 s</div><div class="tag">inspection</div>
-    </div>
-    <div class="station">
-      <div class="node"><svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4Z"/><path d="m4 12 8 4 8-4M4 17l8 4 8-4"/></svg></div>
-      <div class="label">State Assembly</div><div class="meta">authorized context<br>parallel fan-in</div><div class="tag">staging</div>
-    </div>
-    <div class="station">
-      <div class="node"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-      <div class="label">SSR</div><div class="meta">bounded context<br>composition</div><div class="tag">assembly</div>
-    </div>
-    <div class="station">
-      <div class="node"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a3 3 0 0 0 3 3h1V4Zm6 0a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-3 3h-1V4Z"/><path d="M10 8h4M10 12h4M10 16h4"/></svg></div>
-      <div class="label">Model Inference</div><div class="meta">historic LLM avg<br>8.50 s</div><div class="tag">inference</div>
-    </div>
-    <div class="station">
-      <div class="node"><svg viewBox="0 0 24 24"><path d="m5 19 6-6M14 10l5-5M13 5l6 6M4 9l4-4 4 4-4 4Z"/></svg></div>
-      <div class="label">Tool / Proof</div><div class="meta">authorize · execute<br>receipt</div><div class="tag">workcell</div>
-    </div>
-    <div class="station">
-      <div class="node"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4Z"/><path d="M8 9h8M8 12h5"/></svg></div>
-      <div class="label">Response</div><div class="meta">validate +<br>deliver</div><div class="tag">final inspection</div>
-    </div>
-    <div class="station">
-      <div class="node"><svg viewBox="0 0 24 24"><path d="M4 7c0-2 3.6-4 8-4s8 2 8 4-3.6 4-8 4-8-2-8-4Z"/><path d="M4 7v5c0 2 3.6 4 8 4s8-2 8-4V7M4 12v5c0 2 3.6 4 8 4s8-2 8-4v-5"/></svg></div>
-      <div class="label">Continuity Update</div><div class="meta">persist + async<br>follow-on work</div><div class="tag">shipping</div>
-    </div>
+    <div class="station active"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div><div class="label">Request</div><div class="meta">trusted intake<br>actor / scope</div><div class="tag">receiving</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="5"/><path d="m14 14 5 5"/></svg></div><div class="label">Analysis</div><div class="meta">historic NLP avg<br>1.09 s</div><div class="tag">inspection</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4Z"/><path d="m4 12 8 4 8-4M4 17l8 4 8-4"/></svg></div><div class="label">State Assembly</div><div class="meta">authorized context<br>parallel fan-in</div><div class="tag">staging</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><div class="label">SSR</div><div class="meta">bounded context<br>composition</div><div class="tag">assembly</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a3 3 0 0 0 3 3h1V4Zm6 0a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-3 3h-1V4Z"/><path d="M10 8h4M10 12h4M10 16h4"/></svg></div><div class="label">Model Inference</div><div class="meta">historic LLM avg<br>8.50 s</div><div class="tag">inference</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="m5 19 6-6M14 10l5-5M13 5l6 6M4 9l4-4 4 4-4 4Z"/></svg></div><div class="label">Tool / Proof</div><div class="meta">authorize · execute<br>receipt</div><div class="tag">workcell</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4Z"/><path d="M8 9h8M8 12h5"/></svg></div><div class="label">Response</div><div class="meta">validate +<br>deliver</div><div class="tag">final inspection</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 7c0-2 3.6-4 8-4s8 2 8 4-3.6 4-8 4-8-2-8-4Z"/><path d="M4 7v5c0 2 3.6 4 8 4s8-2 8-4V7M4 12v5c0 2 3.6 4 8 4s8-2 8-4v-5"/></svg></div><div class="label">Continuity Update</div><div class="meta">persist + async<br>follow-on work</div><div class="tag">shipping</div></div>
   </div>
   <div class="strip">
     <div><strong id="current">Request</strong> · <span class="summary" id="summary">Resolve trusted actor and session scope.</span></div>
@@ -173,101 +158,99 @@ h1{font-size:25px;letter-spacing:.055em;margin:0;font-weight:820;line-height:1.0
   </div>
 </section>
 
-<section class="panel board">
-  <div class="boardHead">
-    <div><div class="kicker">Responsibility Board</div><div class="small">What is active at the current station</div></div>
-    <div class="small">Fixed owners · information changes as the request moves</div>
+<section class="panel respPanel">
+  <div class="respHead">
+    <div><div class="kicker">Responsibility Status</div><div class="small">Thumbnails show participation only</div></div>
+    <div class="small">Active responsibilities illuminate as the request moves</div>
   </div>
-  <div class="grid">
-    <div class="card active" data-r="actor"><div class="state">ACTIVE</div><div class="title">Trusted Actor / Scope</div><div class="desc"></div></div>
-    <div class="card" data-r="nlp"><div class="state">STANDBY</div><div class="title">NLP</div><div class="desc"></div><div class="tech"><b>Current dependencies:</b> Stanza · BART large-MNLI · DistilRoBERTa · VADER · all-MiniLM-L6-v2</div></div>
-    <div class="card" data-r="focus"><div class="state">STANDBY</div><div class="title">Focus / Salience</div><div class="desc"></div></div>
-    <div class="card" data-r="identity"><div class="state">STANDBY</div><div class="title">Identity / Character Sheet</div><div class="desc"></div></div>
-
-    <div class="card" data-r="memory"><div class="state">STANDBY</div><div class="title">Memory / Continuity</div><div class="desc"></div></div>
-    <div class="card" data-r="modes"><div class="state">STANDBY</div><div class="title">Modes / Gauges</div><div class="desc"></div></div>
-    <div class="card" data-r="goals"><div class="state">STANDBY</div><div class="title">Goals / Open Loops</div><div class="desc"></div></div>
-    <div class="card" data-r="tools"><div class="state">STANDBY</div><div class="title">Tools / Capability Policy</div><div class="desc"></div></div>
-
-    <div class="card" data-r="ssr"><div class="state">STANDBY</div><div class="title">SSR Composer</div><div class="desc"></div></div>
-    <div class="card" data-r="provider"><div class="state">STANDBY</div><div class="title">Provider / Inference</div><div class="desc"></div></div>
-    <div class="card" data-r="proof"><div class="state">STANDBY</div><div class="title">Evidence / Self-Correction</div><div class="desc"></div></div>
-    <div class="card" data-r="persist"><div class="state">STANDBY</div><div class="title">Persistence / Async Work</div><div class="desc"></div></div>
+  <div class="thumbs">
+    <div class="thumb active" data-r="actor"><div class="dot"></div><div class="tn">Actor / Scope</div></div>
+    <div class="thumb" data-r="nlp"><div class="dot"></div><div class="tn">NLP</div></div>
+    <div class="thumb" data-r="focus"><div class="dot"></div><div class="tn">Focus / Salience</div></div>
+    <div class="thumb" data-r="identity"><div class="dot"></div><div class="tn">Identity</div></div>
+    <div class="thumb" data-r="memory"><div class="dot"></div><div class="tn">Memory</div></div>
+    <div class="thumb" data-r="modes"><div class="dot"></div><div class="tn">Modes / Gauges</div></div>
+    <div class="thumb" data-r="goals"><div class="dot"></div><div class="tn">Goals / Loops</div></div>
+    <div class="thumb" data-r="tools"><div class="dot"></div><div class="tn">Tools / Policy</div></div>
+    <div class="thumb" data-r="ssr"><div class="dot"></div><div class="tn">SSR</div></div>
+    <div class="thumb" data-r="provider"><div class="dot"></div><div class="tn">Provider</div></div>
+    <div class="thumb" data-r="proof"><div class="dot"></div><div class="tn">Evidence / Proof</div></div>
+    <div class="thumb" data-r="persist"><div class="dot"></div><div class="tn">Persistence / Async</div></div>
   </div>
+</section>
+
+<section class="panel sign">
+  <div class="signTop">
+    <div class="signBlock">
+      <div class="signLabel">Current Station</div>
+      <div class="signValue" id="signStation">REQUEST</div>
+    </div>
+    <div class="signBlock">
+      <div class="signLabel">What Is Happening</div>
+      <div class="signSummary" id="signSummary">Authenticate the request and establish trusted user/team/session scope.</div>
+    </div>
+    <div class="signBlock">
+      <div class="signLabel">Named Dependencies / Notes</div>
+      <div class="signTech" id="signTech">Runtime-owned authentication and scope resolution. Model text is not identity authority.</div>
+    </div>
+  </div>
+  <div class="rows" id="rows"></div>
+
   <div class="footer">
-    <div><strong>Public-safe:</strong> ownership, flow and named dependencies only. Private thresholds, formulas, queries, prompt text and activation logic withheld.</div>
-    <div>Request Watch v0.3 · presentation-fit 16:9</div>
+    <div><strong>Public-safe boundary:</strong> responsibility ownership, flow and named dependencies only. Thresholds, formulas, queries, prompt text and private activation logic withheld.</div>
+    <div>Request Watch v0.4 · presentation-fit</div>
   </div>
 </section>
 </div>
 </div>
 
 <script>
-const DWELL=2250, MOVE=550, RESET=500;
+const DWELL=2600, MOVE=480, RESET=480;
 const stages=[
- {n:"Request",s:"Resolve trusted actor and session scope.",a:{actor:"Authenticate the request; establish trusted user/team/session scope and correlation identity."}},
- {n:"Analysis",s:"Run advisory analysis and converge parallel turn signals.",a:{actor:"Preserve trusted scope through analysis.",nlp:"Intent, topic, emotion-context, confidence and linguistic signals run as advisory analysis.",focus:"Consume turn/session signals; evaluate focus-state and salience inputs."}},
- {n:"State Assembly",s:"Acquire authorized state in parallel before composition.",a:{identity:"Project eligible identity/Character Sheet state.",memory:"Retrieve scoped session continuity and eligible memory evidence.",modes:"Resolve mode overlay and gauge projection.",goals:"Load eligible goals, tasks, decisions and open loops.",tools:"Build actor-authorized, dispatchable capability view."}},
- {n:"SSR",s:"Compose the minimum eligible operating context.",a:{ssr:"Order, budget and compose eligible sections with provenance.",identity:"Supply identity projection.",memory:"Supply scoped continuity/memory.",modes:"Supply behavioral overlay/gauges.",goals:"Supply active-work state.",tools:"Supply authorized capability contract.",nlp:"Supply advisory turn-state signals.",focus:"Supply advisory focus/salience signals."}},
- {n:"Model Inference",s:"Hand the governed context to the interchangeable inference engine.",a:{provider:"Route to a capability-compatible model/provider and record invocation provenance.",ssr:"Completed context package is consumed by inference.",tools:"Authorized schemas remain proposal-only."}},
- {n:"Tool / Proof",s:"Validate, authorize, execute and observe evidence when action is proposed.",a:{tools:"Proposal → validation → authorization → execution → observed result.",provider:"Continue inference only after actual tool results return.",proof:"Require receipt/evidence before success claims.",actor:"Trusted actor scope remains the execution boundary."}},
- {n:"Response",s:"Validate the draft against evidence and deliver a truthful answer.",a:{proof:"Check draft/tool/artifact claims against receipts and bounded correction rules.",provider:"Synthesize final user-facing response from governed context and observed results.",tools:"Provide verified outcomes to synthesis when used."}},
- {n:"Continuity Update",s:"Persist the turn, then dispatch non-blocking async follow-on work.",a:{persist:"Commit turn/receipts; enqueue summaries, learning, reminders, reflection and other async work.",memory:"Update continuity sources/candidates under governed persistence rules.",goals:"Persist actual task/decision/follow-up changes when produced."}}
+ {n:"Request",s:"Authenticate the request and establish trusted user/team/session scope.",t:"Runtime-owned authentication and scope resolution. Model text is not identity authority.",a:{actor:"Resolve trusted actor, user/team/session scope and correlation identity."}},
+ {n:"Analysis",s:"Run advisory turn analysis. Independent classifications/signals may execute in parallel and converge into structured turn state.",t:"Current proven dependencies: Stanza · facebook/bart-large-mnli · DistilRoBERTa emotion classifier · VADER · all-MiniLM-L6-v2.",a:{actor:"Carry trusted scope through analysis.",nlp:"Produce intent, topic, emotion-context, confidence and linguistic signals.",focus:"Receive turn/session signals; evaluate focus-state and salience inputs."}},
+ {n:"State Assembly",s:"Acquire authorized runtime state in parallel before deterministic composition.",t:"State owners remain independent; acquisition fans in rather than making the model fetch its own operating state.",a:{identity:"Project eligible versioned identity / Character Sheet state.",memory:"Retrieve scoped session continuity and eligible memory evidence.",modes:"Resolve active mode overlay and gauge projection.",goals:"Load eligible goals, tasks, decisions, pins and open loops.",tools:"Build the actor-authorized, dispatchable capability view."}},
+ {n:"SSR",s:"Compose the minimum eligible operating state into a bounded context package.",t:"Public view intentionally omits exact ranking, thresholds, prompt text, gauge math and private section-selection logic.",a:{ssr:"Order, budget and compose eligible sections with source/version provenance.",identity:"Supply identity projection.",memory:"Supply scoped continuity/memory.",modes:"Supply behavioral overlay/gauges.",goals:"Supply active-work state.",tools:"Supply authorized capability contract.",nlp:"Supply advisory turn-state signals.",focus:"Supply advisory focus/salience signals."}},
+ {n:"Model Inference",s:"Hand the governed operating context to an interchangeable inference engine.",t:"Provider/model is an inference dependency inside the runtime, not owner of identity, memory, authority or canonical state.",a:{provider:"Route to a capability-compatible model/provider and record invocation provenance.",ssr:"Completed operating-context package is consumed by inference.",tools:"Authorized schemas remain available for proposal only."}},
+ {n:"Tool / Proof",s:"When action is proposed, runtime policy validates, authorizes, executes and observes the result.",t:"Proposal ≠ authorization ≠ execution ≠ receipt. A model claim cannot substitute for an observed result.",a:{tools:"Validate proposal → authorize → execute → return observed result.",provider:"Continue inference only after actual tool results return.",proof:"Require evidence/receipt before success claims.",actor:"Trusted actor scope remains the execution boundary."}},
+ {n:"Response",s:"Validate the draft against available evidence and deliver a truthful final result.",t:"V5 target includes receipt-aware bounded correction before final delivery.",a:{proof:"Check draft/tool/artifact claims against receipts and validators.",provider:"Synthesize the final user-facing response from governed context and observed results.",tools:"Expose verified outcomes to final synthesis when used."}},
+ {n:"Continuity Update",s:"Persist the completed turn, then dispatch non-blocking follow-on work asynchronously.",t:"Post-turn work may include summaries, learning, reminders, reflection and maintenance. These should not block the ordinary response.",a:{persist:"Commit turn/receipts and enqueue bounded asynchronous work.",memory:"Update continuity sources/candidates under governed persistence rules.",goals:"Persist actual task/decision/follow-up changes when produced."}}
 ];
-const defaults={
- actor:"Owns trusted user/team/session scope.",
- nlp:"Produces advisory intent/topic/emotion-context and confidence-labeled signals.",
- focus:"Evaluates focus/salience without becoming canonical user truth.",
- identity:"Owns versioned identity and Character Sheet projection.",
- memory:"Owns scoped continuity, recall evidence and correction boundaries.",
- modes:"Owns behavioral overlays and gauge projection.",
- goals:"Owns eligible goals, tasks, decisions and open-loop state.",
- tools:"Owns capability visibility, authorization, execution and observed results.",
- ssr:"Owns deterministic eligibility, ordering, budgeting and context composition.",
- provider:"Owns provider/model routing and invocation provenance.",
- proof:"Owns receipt-aware validation and bounded correction.",
- persist:"Owns durable turn persistence, outbox and async follow-on work."
-};
-const stations=[...document.querySelectorAll(".station")],cards=[...document.querySelectorAll(".card")];
-const traveler=document.getElementById("traveler"),fill=document.getElementById("fill"),tracker=document.getElementById("tracker");
-const cur=document.getElementById("current"),summary=document.getElementById("summary");
+const names={actor:"Trusted Actor / Scope",nlp:"NLP",focus:"Focus / Salience",identity:"Identity / Character Sheet",memory:"Memory / Continuity",modes:"Modes / Gauges",goals:"Goals / Open Loops",tools:"Tools / Capability Policy",ssr:"SSR Composer",provider:"Provider / Inference",proof:"Evidence / Self-Correction",persist:"Persistence / Async Work"};
+const stations=[...document.querySelectorAll(".station")], thumbs=[...document.querySelectorAll(".thumb")];
+const tracker=document.getElementById("tracker"),traveler=document.getElementById("traveler"),fill=document.getElementById("fill");
+const cur=document.getElementById("current"),summary=document.getElementById("summary"),rows=document.getElementById("rows");
+const signStation=document.getElementById("signStation"),signSummary=document.getElementById("signSummary"),signTech=document.getElementById("signTech");
 let idx=0,timer;
 
-function center(i){
-  const n=stations[i].querySelector(".node"),tr=tracker.getBoundingClientRect(),nr=n.getBoundingClientRect();
-  return nr.left-tr.left+nr.width/2;
-}
+function center(i){const n=stations[i].querySelector(".node"),tr=tracker.getBoundingClientRect(),nr=n.getBoundingClientRect();return nr.left-tr.left+nr.width/2}
 function show(i,instant=false){
-  idx=i;
-  stations.forEach((e,j)=>{e.classList.toggle("active",j===i);e.classList.toggle("done",j<i)});
-  cur.textContent=stages[i].n;summary.textContent=stages[i].s;
-  cards.forEach(c=>{
-    const k=c.dataset.r,on=stages[i].a[k];
-    c.classList.toggle("active",!!on);
-    c.querySelector(".state").textContent=on?"ACTIVE":"STANDBY";
-    c.querySelector(".desc").textContent=on||defaults[k];
-  });
-  const x=center(i),first=center(0),last=center(stations.length-1),pct=((x-first)/(last-first))*100;
-  traveler.style.transition=instant?"none":`left ${MOVE}ms cubic-bezier(.24,.82,.25,1),opacity .18s ease`;
-  fill.style.transition=instant?"none":`width ${MOVE}ms cubic-bezier(.24,.82,.25,1)`;
-  traveler.style.left=x+"px";fill.style.width=Math.max(0,Math.min(100,pct))+"%";
+ idx=i;const stage=stages[i];
+ stations.forEach((e,j)=>{e.classList.toggle("active",j===i);e.classList.toggle("done",j<i)});
+ thumbs.forEach(t=>t.classList.toggle("active",!!stage.a[t.dataset.r]));
+ cur.textContent=stage.n;summary.textContent=stage.s;signStation.textContent=stage.n.toUpperCase();signSummary.textContent=stage.s;signTech.textContent=stage.t;
+ rows.innerHTML="";
+ Object.entries(stage.a).forEach(([k,v])=>{
+   const r=document.createElement("div");r.className="row";
+   r.innerHTML=`<div class="rowName"><span class="mini"></span>${names[k]}</div><div class="rowText">${v}</div>`;
+   rows.appendChild(r);
+ });
+ const x=center(i),first=center(0),last=center(stations.length-1),pct=((x-first)/(last-first))*100;
+ traveler.style.transition=instant?"none":`left ${MOVE}ms cubic-bezier(.24,.82,.25,1),opacity .18s ease`;
+ fill.style.transition=instant?"none":`width ${MOVE}ms cubic-bezier(.24,.82,.25,1)`;
+ traveler.style.left=x+"px";fill.style.width=Math.max(0,Math.min(100,pct))+"%";
 }
 function loop(){
-  clearTimeout(timer);
-  timer=setTimeout(()=>{
-    if(idx<stages.length-1){show(idx+1);loop();}
-    else{
-      setTimeout(()=>{
-        traveler.style.opacity=0;
-        setTimeout(()=>{show(0,true);traveler.style.opacity=1;loop();},180);
-      },RESET);
-    }
-  },DWELL);
+ clearTimeout(timer);
+ timer=setTimeout(()=>{
+   if(idx<stages.length-1){show(idx+1);loop();}
+   else{setTimeout(()=>{traveler.style.opacity=0;setTimeout(()=>{show(0,true);traveler.style.opacity=1;loop()},170)},RESET)}
+ },DWELL)
 }
 function fit(){
-  const scale=Math.min(window.innerWidth/1600,window.innerHeight/900);
-  document.getElementById("fit").style.transform=`scale(${scale})`;
-  show(idx,true);
+ const scale=Math.min(window.innerWidth/1600,window.innerHeight/900);
+ document.getElementById("fit").style.transform=`scale(${scale})`;
+ show(idx,true)
 }
 window.addEventListener("resize",fit);
 document.addEventListener("visibilitychange",()=>{if(document.hidden)clearTimeout(timer);else loop()});
