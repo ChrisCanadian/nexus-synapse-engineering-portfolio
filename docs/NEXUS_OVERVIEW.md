@@ -20,7 +20,7 @@ If you come from operations, manufacturing, logistics, quality, healthcare, fina
 
 ## The engineering definition
 
-Nexus Synapse is a **state-conditioned, policy-bearing LLM orchestration and continuity runtime**.
+Nexus Synapse is a **continuity-first, state-conditioned, policy-bearing AI runtime around replaceable model inference**.
 
 The central design idea is:
 
@@ -30,7 +30,7 @@ This separation makes the system more inspectable and testable without requiring
 
 ## Why this matters
 
-In Nexus, responsibilities that are often left implicit in model behavior are increasingly represented as explicit runtime responsibilities:
+In Nexus, responsibilities that are often left implicit in model behavior are represented as explicit runtime responsibilities:
 
 - identity and continuity live in persistent state rather than only in a prompt;
 - memory selection is a runtime responsibility with scoped boundaries;
@@ -38,7 +38,7 @@ In Nexus, responsibilities that are often left implicit in model behavior are in
 - evidence such as receipts, artifacts, and logs supports completion claims;
 - testing and verification are treated as part of the architecture.
 
-The language model remains important for generation, interpretation, and some analysis. It does not own authentication, trusted user scope, durable persistence, tool authorization, or post-generation verification.
+The language model remains important for generation, interpretation, and some analysis. It does not own authentication, trusted user scope, durable persistence, tool authorization, or final release inspection.
 
 For a domain reader, that can be translated more simply:
 
@@ -47,38 +47,53 @@ For a domain reader, that can be translated more simply:
 - **a recommendation is not the same as an executed action;**
 - **a statement that work completed is not the same as evidence that it completed.**
 
-## Current high-level model
+## Current high-level process model
 
-At a sanitized level, a turn can be described as:
+The current approved public process projection is:
 
 ```text
 authenticated request
         ↓
-analysis and focus signals
+trusted actor / session / scope
         ↓
-memory selection and fallback
+advisory analysis + focus / salience
         ↓
-prompt/context assembly
-(identity, preferences, capabilities, context)
+authorized context acquisition / kitting
         ↓
-optional advisory cognition
+Structured State Reconstruction (SSR)
         ↓
-provider routing
+governance + provider route planning
         ↓
-optional governed tool execution
+replaceable model inference
         ↓
-response
+optional governed tool / artifact work
+        ↺ bounded model continuation when required
         ↓
-deterministic guards
+draft response + observed receipts / evidence
         ↓
-background persistence and learning
+receipt-aware final inspection / bounded correction
+        ↓
+ordered response delivery
+        ↓
+transaction close + durable outbox
+        ↓
+asynchronous continuity / learning / support work
 ```
 
-This diagram is intentionally high level. The public portfolio does not disclose the private production call graph, exact subsystem interfaces, retrieval rules, or deployment configuration.
+This is the V5 target process architecture, reconciled against the current-production responsibility pattern. It is not a claim that V5 code/test evidence automatically equals dogfood activation, sustained durability, or production deployment.
+
+For the actual visual hierarchy, use:
+
+- [Request Watch v0.6](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/)
+- [Master Process Map v0.6](../process-architecture/diagrams/master-process-map-v0.6.svg)
+- [Value Stream v0.2](../process-architecture/diagrams/value-stream-v0.2.svg)
+- [000 — Governed Turn — Scope & Process Index](../process-architecture/processes/000-GOVERNED-TURN.md)
+
+The public portfolio does not disclose private thresholds, exact subsystem interfaces, retrieval/selection rules, private prompt contents, or deployment configuration.
 
 ![Governance lineage and runtime critique](https://drive.google.com/uc?export=view&id=1iqL3Gjzn6ljr1nto5KRbW5EHL9Mr6Om6)
 
-*Public conceptual synthesis of the shift toward explicit runtime oversight. It should not be read as a literal current deployment graph or a claim that every illustrated lane is active on every turn.*
+*Older public conceptual synthesis of the shift toward explicit runtime oversight. It should not be read as a literal current deployment graph or as superseding the version-controlled Process Architecture release.*
 
 ## The seven public repositories
 
@@ -94,7 +109,7 @@ The private Nexus runtime is not published. Instead, seven bounded repositories 
 | [OpenAI-compatible Router](https://github.com/ChrisCanadian/OpenAI-compatible-router) | Let model/provider transport change without rebuilding the surrounding application. |
 | [ChrisAI Runtime](https://github.com/ChrisCanadian/chrisai-runtime) | Run an evidence-constrained reconstruction of the flat-file runtime that preceded Nexus. |
 
-For the formal evidence status and claim ceiling of each repository, see the [Repository Map](REPOSITORY_MAP.md).
+For the formal evidence status and claim ceiling of each repository, see the [Repository Map](REPOSITORY_MAP.md) and [Current Public Snapshot](CURRENT_PUBLIC_SNAPSHOT.md).
 
 ## How it evolved
 
@@ -135,6 +150,18 @@ Earlier project documents used `SSR` in several related ways, including retrieva
 
 Not every SSR path implies active vector search.
 
+## Evidence boundary
+
+The public architecture now deliberately separates several evidence questions:
+
+- **current-production pattern** — what the existing runtime provides as the behavioral/parity source;
+- **V5 code-backed** — what exists in the pinned V5 reconstruction;
+- **V5 acceptance-tested** — what the pinned CI/acceptance evidence has exercised;
+- **V5 hardening** — explicit guards/recovery/receipt/authority treatment added beyond production parity;
+- **dogfood activation / durability** — separate operational claims requiring deployment evidence.
+
+See [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md), [Production Evidence Status](PRODUCTION_EVIDENCE_STATUS.md), and [Current Public Snapshot](CURRENT_PUBLIC_SNAPSHOT.md).
+
 ## Public versus private
 
 This portfolio explains architecture and publishes bounded evidence surfaces.
@@ -151,17 +178,19 @@ See [PUBLIC_BOUNDARY.md](../PUBLIC_BOUNDARY.md).
 
 ## Full technical reference
 
-For the current responsibility-level architecture, deployed-state corrections, and explicit evidence ceiling, see:
+For the production responsibility-level architecture and its retained deployed-state evidence boundary, see:
 
 - [Public Technical Reference v1.1 — canonical Markdown](reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
 - [Public Technical Reference v1.1 — rendered PDF](https://drive.google.com/file/d/1KWoHkrHek5o_3T-FGKK7qLbRgb9Oi19N/view)
 
-The reference distinguishes the August 14, 2026 deployed-code/read-only-state audit from older isolated execution receipts.
+That reference preserves its stated August 14, 2026 deployed-code/read-only-state reconciliation date. Newer V5/process-architecture evidence belongs in the current Process Architecture and snapshot documents rather than silently rewriting the historical evidence date.
 
 ## Continue reading
 
 ### Domain / operations readers
 
+- [Public Process Architecture](PROCESS_ARCHITECTURE.md)
+- [000 — Governed Turn — Scope & Process Index](../process-architecture/processes/000-GOVERNED-TURN.md)
 - [Nexus Synapse for Domain Experts](DOMAIN_EXPERT_ORIENTATION.md)
 - [Visual Gallery](NEXUS_VISUAL_GALLERY.md)
 - [Repository Map](REPOSITORY_MAP.md)
@@ -170,6 +199,9 @@ The reference distinguishes the August 14, 2026 deployed-code/read-only-state au
 
 ### AI / software / systems readers
 
+- [Public Process Architecture](PROCESS_ARCHITECTURE.md)
+- [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md)
+- [Current Public Snapshot](CURRENT_PUBLIC_SNAPSHOT.md)
 - [Current Production Responsibilities](CURRENT_PRODUCTION_RESPONSIBILITIES.md)
 - [Nexus Terminology → Conventional Systems Concepts](NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)
 - [Production Evidence Status](PRODUCTION_EVIDENCE_STATUS.md)
