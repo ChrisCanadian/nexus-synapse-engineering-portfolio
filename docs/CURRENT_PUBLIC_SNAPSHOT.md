@@ -19,21 +19,19 @@ This is a reconciliation snapshot, not a claim that every repository changed on 
 | Repository | Audited / reconciled head | Reconciliation result |
 |---|---|---|
 | Nexus Proof Runtime | `8660a3c3477d64fe203d5cda8335bbd367c5df9d` | **CORRECTED** — README/checklist no longer describe published `v0.1.1` as a pending release candidate. |
-| Live Runtime Acceptance Rig | `db87ff7fb61932379a366fea94035f3134602d4b` | **CURRENT** in initial drift pass; no material README/release contradiction found. |
-| Nexus Mode Card Creator | `468cae066142a73edfc4e9845f4dfd8a2e9e2ccc` | **CURRENT** in initial drift pass; bounded authoring claim remains explicit. |
-| Nexus Memory Kernel | `a29bdb88f9569ac416522261deabe27f50226916` | **CURRENT** in initial drift pass; public reference-kernel boundary remains explicit. |
-| Nexus Black-Box Validation Gateway | `8dbfc04d40ba068cfd2d0d32a7228ac705db307e` | **CURRENT** in initial drift pass; failed August 18 fixed-invariant result remains controlling, separate unseen challenge pass remains separate. |
-| OpenAI-compatible Router | `f7e27f89` (full head pinned by the 2026-08-26 audit record) | **CURRENT** in initial drift pass; generic infrastructure boundary remains explicit. |
-| ChrisAI Runtime | `8a692b93` (full head pinned by the 2026-08-26 audit record) | **CURRENT** in initial drift pass; historical reconstruction boundary remains explicit. |
-
-> The shortened Router/ChrisAI hashes above are retained from the reconciliation record. The next monthly full pass should refresh them to full SHAs in this table.
+| Live Runtime Acceptance Rig | `db87ff7fb61932379a366fea94035f3134602d4b` | **CURRENT** — README/package/release state is consistent at `v0.1.1`; framework-success vs target-acceptance boundaries remain explicit. |
+| Nexus Mode Card Creator | `468cae066142a73edfc4e9845f4dfd8a2e9e2ccc` | **CURRENT** — package is `0.1.2`; bounded authoring scope remains explicit. Historical “pre-release exercise” wording correctly describes when that exercise occurred. |
+| Nexus Memory Kernel | `a29bdb88f9569ac416522261deabe27f50226916` | **CURRENT** — README/package agree at `0.1.0`; public reference-kernel boundary remains explicit. |
+| Nexus Black-Box Validation Gateway | `8dbfc04d40ba068cfd2d0d32a7228ac705db307e` | **CURRENT** — package/README agree at `0.2.0`; failed August 18 fixed-invariant result remains controlling, separate unseen challenge pass remains separate. |
+| OpenAI-compatible Router | `f7e27f898c16d6b18acb602a448b077bb2844f01` | **CURRENT** — package/README agree at `0.2.0`; generic infrastructure and independent-implementation boundaries remain explicit. |
+| ChrisAI Runtime | `8a692b93824b02c85d4dbafd0f2fcb96690363be` | **CURRENT** — package/README agree at `0.1.0`; historical reconstruction boundary remains explicit. |
 
 ## Engineering portfolio / process architecture
 
 - Process Architecture v0.6 controlled release commit: `dca16981e742755164968d4fb47b824935226b78`.
-- Request Watch GitHub Pages v0.6 deployment branch was updated during the same release sequence; the live page is: `https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/`.
-- Portfolio reconciliation baseline immediately before this snapshot: `29056755714fa32808fa0c3fa074e6aea535211f`.
-- The snapshot file itself is a subsequent documentation-control commit; use Git history for the exact snapshot-file revision.
+- Request Watch GitHub Pages v0.6 deployment is live at: `https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/`.
+- Portfolio reconciliation documents were corrected after the v0.6 release to align the README, Process Architecture guide, Visual Gallery, Repository Map, reconciliation control, and this snapshot with the current public source hierarchy.
+- Use Git history for the exact current portfolio revision; this snapshot pins the external/runtime/public-repository evidence inputs used by the pass rather than pretending a document can permanently self-pin its own future commit.
 
 ## Corrections made in this reconciliation pass
 
@@ -46,6 +44,7 @@ This is a reconciliation snapshot, not a claim that every repository changed on 
 7. Reconciled `docs/REPOSITORY_MAP.md` and added the Process Architecture release set.
 8. Corrected Nexus Proof Runtime's stale `v0.1.1` release-candidate wording and archived the completed initial-release checklist.
 9. Added `RECONCILIATION_CONTROL.md` so future drift checks have explicit triggers/cadence/source routing.
+10. Rechecked README/package/release-or-status consistency across the remaining six bounded public repositories; no material contradiction requiring a code/document edit was found.
 
 ## Next reconciliation triggers
 
