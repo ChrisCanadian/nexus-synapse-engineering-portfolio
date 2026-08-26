@@ -1,7 +1,7 @@
 # 000 — Governed Turn — Scope & Process Index
 
 **Document ID:** `PA-000`  
-**Release:** v0.6  
+**Release:** v0.7  
 **Classification:** PUBLIC-SAFE  
 **Canonical public record:** this GitHub repository and its commit history  
 **Governing control register:** [PA-CTRL-000](../controls/CONTROL_REGISTER.md)
@@ -32,6 +32,10 @@ Final Inspection / Delivery
 Transaction Close / Async Continuity
 ```
 
+## Per-turn interpretation
+
+This is the governed process model for **one turn**, not a catalog of optional subsystems that Nexus occasionally bolts onto inference. Every turn is processed through this responsibility chain. Conditional gates decide whether a branch performs work, is skipped, degrades, retries, re-enters, or emits a bounded failure for that particular turn. Therefore, **per-turn process scope does not imply that every conditional branch fires on every turn**.
+
 ## Governing controls
 
 Each process WI links to its applicable `CTRL-*` public control family. Those documents identify what is governed at each release/authorization/inspection point. **They are not evidence that V5 already binds an approved control revision into every runtime decision receipt.**
@@ -39,10 +43,10 @@ Each process WI links to its applicable `CTRL-*` public control family. Those do
 ## Visuals
 
 - [Request Watch v0.6 — live presentation](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/)
-- [Master Process Map v0.6 — SVG](https://drive.google.com/file/d/101Sgnz2eD5c4zHYq49Hu-d2LBuDHmyAR/view)
-- [Master Process Map v0.6 — interactive HTML](https://drive.google.com/file/d/1HP5CtbCsoyrhawymOs9kVZM80bdU9xGZ/view)
+- [Master Process Map v0.7 — primary HTML viewer](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html)
+- [Master Process Map v0.7 — released SVG](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.svg)
 - [Value Stream v0.2](../diagrams/value-stream-v0.2.svg)
 
 ## Evidence discipline
 
-The process library separates documentation from evidence tiers. See **[Process Architecture Evidence Status](../EVIDENCE_STATUS.md)**. A visual tree never promotes code/test evidence to deployment Activation or sustained Durability by itself.
+The process library separates documentation from evidence tiers. See **[Process Architecture Evidence Status](../EVIDENCE_STATUS.md)** and the **[Control Traceability Matrix](../traceability/CONTROL_TRACEABILITY.md)**. A visual tree never promotes code/test evidence to deployment Activation, sustained Durability, or independent verification by itself.
