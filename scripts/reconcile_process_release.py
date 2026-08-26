@@ -23,8 +23,6 @@ TARGETS = (
     "process-architecture/README.md",
 )
 
-# Exact text/version updates. URL normalization is handled separately below so an
-# absolute URL can never be accidentally prefixed by an old relative path.
 REPLACEMENTS = (
     ("Master Process Map v0.6", "Master Process Map v0.7"),
     ("the full Master Process Map v0.6", "the full Master Process Map v0.7"),
@@ -36,8 +34,8 @@ REPLACEMENTS = (
     ("dogfood activation", "staging activation"),
 )
 
-# Known historical/current pointer shapes that should resolve to the primary HTML
-# presentation. Keep the raw SVG published, but do not make it the default viewer.
+# All known historical/current pointer shapes normalize to the primary HTML viewer.
+# The raw SVG remains published separately as the released vector representation.
 MONSTER_POINTERS = (
     "process-architecture/diagrams/master-process-map-v0.6.svg",
     "process-architecture/diagrams/master-process-map-v0.6.html",
@@ -46,11 +44,13 @@ MONSTER_POINTERS = (
     "master-process-map-v0.6.svg",
     "master-process-map-v0.6.html",
     "https://drive.google.com/file/d/101Sgnz2eD5c4zHYq49Hu-d2LBuDHmyAR/view",
-    # Repair the malformed absolute URLs produced by the earlier naive replacement.
+    # Malformed absolute URLs produced by the earlier naive replacement.
     f"process-architecture/diagrams/{MONSTER_SVG}",
     f"process-architecture/diagrams/{MONSTER_HTML}",
     f"./diagrams/{MONSTER_SVG}",
     f"./diagrams/{MONSTER_HTML}",
+    f"../{MONSTER_SVG}",
+    f"../{MONSTER_HTML}",
 )
 
 
@@ -66,6 +66,8 @@ def reconcile(root: Path) -> int:
         for old, new in REPLACEMENTS:
             updated = updated.replace(old, new)
 
+        # Longest/broken forms are listed explicitly so absolute URLs can never be
+        # accidentally interpreted as local relative paths by Markdown or the validator.
         for old in MONSTER_POINTERS:
             updated = updated.replace(old, MONSTER_HTML)
 
