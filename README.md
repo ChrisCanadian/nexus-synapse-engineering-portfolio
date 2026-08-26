@@ -6,12 +6,12 @@
 > Nexus Synapse moves continuity, state, context, authority, tools, and evidence into an explicit runtime around interchangeable model inference.
 
 <p align="center">
-  <a href="https://raw.githack.com/ChrisCanadian/nexus-synapse-engineering-portfolio/gh-pages/index.html">
+  <a href="https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/">
     <img src="assets/request-watch-readme.svg" width="960" alt="Animated Nexus Request Watch showing a request moving through runtime stations">
   </a>
 </p>
 
-<p align="center"><strong>Request Watch v0.4.1</strong> — a public-safe animated view of a request moving through Nexus. Click the animation for the live HTML version; the <a href="https://drive.google.com/file/d/1NIdSnrbs-ncfEuKrfl8tqVj_mFQYeIDY/view">MP4 playback</a> remains available in Drive.</p>
+<p align="center"><strong>Request Watch v0.4.1</strong> — a public-safe animated view of a request moving through Nexus. Click the animation for the live GitHub Pages version; the <a href="https://drive.google.com/file/d/1NIdSnrbs-ncfEuKrfl8tqVj_mFQYeIDY/view">MP4 playback</a> remains available in Drive.</p>
 
 <p align="center">
   <a href="docs/PROCESS_ARCHITECTURE.md"><strong>Process Architecture</strong></a> ·
