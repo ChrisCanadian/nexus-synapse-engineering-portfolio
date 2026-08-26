@@ -4,7 +4,7 @@ Testing and evidence did not arrive at the end. They evolved alongside the archi
 
 ![Verification evolution](https://drive.google.com/uc?export=view&id=1oH06oBn2Kk8ffKBqP2W1-7L2dLRAdnKy)
 
-*Public verification-evolution map. The levels describe increasing evidence strength; they are not substitutes for one another.*
+*Public verification-evolution map. The levels describe increasing evidence strength; they are not substitutes for one another. The image predates the current v0.6 process/evidence notation; current text and pinned evidence records win if labels differ.*
 
 ## Stage 1 — Exploratory probes and diagnostic scripts
 
@@ -52,7 +52,7 @@ Testing and evidence did not arrive at the end. They evolved alongside the archi
 
 **Evidence state:** `OPERATIONALLY VERIFIED` at dated deployment states.
 
-**Why it mattered:** Unit tests alone cannot establish that a distributed runtime path is actually reachable and active. Operational evidence became part of the architecture.
+**Why it mattered:** Unit tests alone cannot establish that a runtime path is actually reachable and active. Operational evidence became part of the architecture.
 
 ## Stage 5 — Behavioral auditing
 
@@ -111,7 +111,7 @@ The early Nexus pilot should not be read as external certification. Its value wa
 - Redacted evidence bundles.
 - Explicit `PASS / FAIL / SKIP` semantics.
 
-**Evidence state:** `ACCEPTANCE-CAMPAIGN VERIFIED`.
+**Evidence state:** `ACCEPTANCE-CAMPAIGN VERIFIED` describes campaign integrity, not automatic target PASS.
 
 **Why it mattered:** Campaign integrity and target outcome became separate concepts. A framework can operate correctly and preserve evidence even when the tested target legitimately fails an acceptance check.
 
@@ -124,11 +124,26 @@ The early Nexus pilot should not be read as external certification. Its value wa
 3. Executor performs the consequence.
 4. Receipt records what occurred.
 5. Artifacts carry durable evidence.
-6. Claims are verified against that evidence.
+6. Claims are checked against that evidence.
 
-**Evidence state:** `RECEIPT-BACKED PROOF` — in the public reference kernel, not a claim that the standalone kernel is a production Nexus subsystem.
+**Evidence state:** `RECEIPT-BACKED PROOF` in the public reference kernel, not a claim that the standalone kernel is a production Nexus subsystem.
 
 **Why it mattered:** The control pattern became independently executable and inspectable without exposing the full identity, memory, and SSR runtime.
+
+## Stage 10 — Evidence-addressable process architecture
+
+**What it looks like**
+
+- Process maps distinguish responsibility owners, equipment, state handoffs, inspection gates, queues/WIP, custody, governing control artifacts, and async/rework paths.
+- Major V5 process families carry explicit evidence-tier labels rather than leaving implementation status to reader inference.
+- `CTRL-*` control-family documents identify what governs material decision families.
+- Process documentation is versioned in Git and reconciled to pinned production/V5/public-repository evidence.
+
+**Evidence state:** `DOCUMENTED / EVIDENCE-ADDRESSABLE`.
+
+**Important limitation:** A process map remains documentation/navigation evidence. Its badges point to separate implementation/test/deployment evidence. The map does not prove activation or durability by being detailed.
+
+**Current traceability gap:** The public docs can identify the governing control family; V5 is not yet claimed to attach the exact approved `control_id + approved_revision` to every PASS/FAIL decision receipt.
 
 ## Verification maturity model
 
@@ -140,22 +155,30 @@ The early Nexus pilot should not be read as external certification. Its value wa
 | 4 | Operational smoke + logs | Real path activation at a dated deployment state |
 | 5 | Assertion-heavy deterministic suite | Repeatable contract and failure invariants |
 | 6 | Exact-commit CI/container | Environment-bounded reproducibility |
-| 7 | Protected-state acceptance | Safe real-boundary behavior and durable readback |
+| 7 | Protected-state acceptance | Safe real-boundary behavior and durable readback for the exercised claim |
 | 8 | Receipts/artifact verification | Consequence-backed completion claims |
+| 9 | Evidence-addressable controlled documentation | Versioned navigation from public claims/processes to the evidence tier that supports them |
 
-These levels are cumulative evidence strengths, not replacements. A deterministic test suite cannot prove a tunnel is reachable; a live smoke cannot prove every failure invariant.
+These levels are complementary evidence forms, not a magical ladder where one high-number artifact proves everything below it. A deterministic suite cannot prove a tunnel is reachable; a live smoke cannot prove every failure invariant; a beautiful process map cannot prove its boxes are active.
 
 ## Portfolio evidence states
 
-This repository also uses broad claim labels:
+The portfolio now uses the following broad claim ladder:
 
 | State | Meaning |
 |---|---|
-| `IMPLEMENTED` | Source code and call-site evidence exist. Not necessarily deployed. |
-| `TESTED` | Exercised by a retained test, benchmark, CI run, smoke, or acceptance artifact. |
-| `DOCUMENTED` | Design or plan exists without sufficient implementation evidence at that date. |
+| `DOCUMENTED` | Design/responsibility/claim is recorded without a stronger runtime evidence tier being implied. |
+| `CODE-BACKED / IMPLEMENTED` | Concrete source/schema/call-site evidence materially represents the responsibility; not necessarily exercised or deployed. |
+| `TESTED / EXERCISED` | Assertion-bearing tests, retained runs, benchmarks, CI, smoke, audit, or acceptance evidence exercise the bounded claim. |
+| `ACTIVATED / DEPLOYED` | Evidence shows the path is operationally enabled/reachable in the identified environment. |
+| `DURABLE / SUSTAINED` | Evidence shows the relevant state/effect survives the required lifecycle, restart, or time boundary. |
+| `INDEPENDENTLY VERIFIED` | An applicable external/independent validation event supports the bounded claim. |
 | `ARCHIVED / SUPERSEDED` | The path existed but was replaced, disabled, or is no longer authoritative. |
 | `LINEAGE-INFERRED` | A relationship is reconstructed across sources rather than explicitly stated contemporaneously. |
+
+A higher tier is not inferred from a lower tier.
+
+For V5/process architecture specifically, public labels such as `CURRENT-PROD PATTERN`, `V5 CODE-BACKED`, `V5 ACCEPTANCE-TESTED`, `V5 HARDENING`, `DOGFOOD ACTIVATION`, and `TRACEABILITY GAP` are defined in [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md).
 
 ## The verification through-line
 
@@ -165,9 +188,14 @@ Later architecture increasingly required the runtime to expose what it selected,
 
 Testing became the mechanism by which fluent model narration progressively lost the power to certify itself.
 
+The newer documentation-control layer applies the same rule to public claims: an undated README or diagram does not get to certify that it is still current merely because it exists.
+
 ## Related public artifacts
 
 - [Nexus Proof Runtime](https://github.com/ChrisCanadian/nexus-proof-runtime)
 - [Live Runtime Acceptance Rig](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig)
+- [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md)
+- [Current Public Snapshot](CURRENT_PUBLIC_SNAPSHOT.md)
+- [Reconciliation and Publication Control](RECONCILIATION_CONTROL.md)
 - [Proof Runtime case study](../case-studies/proof-runtime.md)
 - [Acceptance Rig case study](../case-studies/acceptance-rig.md)
