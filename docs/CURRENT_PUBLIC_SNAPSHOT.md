@@ -11,8 +11,9 @@ This is a reconciliation snapshot, not a claim that every repository changed on 
 | Surface | Pinned revision / evidence | Interpretation |
 |---|---|---|
 | Current production runtime code | `ChrisCanadian/nexus-synapse-runtime@2514a11366f8e7f345bb854c0cfaee8c7b40dddd` | Production parity/code reference. Live deployment claims still require live/deployment evidence. |
-| V5 reconstruction | `ChrisCanadian/nexus-v5-reconstruction@cea8d9c3cea1c17b4cffc0a70f195582fedd5fb5` | V5 code snapshot used by Process Architecture v0.6 evidence labels. |
-| V5 CI evidence | GitHub Actions run `32967121290` — `success` | Canonical capability validation, compile/migrations, behavioral/failure tests, browser event-contract tests, deployable image build, Compose/single-writer validation, and container tests. Does not by itself claim dogfood activation/durability. |
+| V5 authoritative working/qualified line | `reconstruction/cloud-benchmark-wrapup-20260824` at reconciled head `3c155d1abfbc3945da84c432bb6901212e6a8975` | Current V5 working/qualified evidence anchor used by Process Architecture v0.7. |
+| V5 current-head CI evidence | GitHub Actions run `32991544397` — `success` | Green validation and container evidence across the current V5 head. Code/test qualification remains distinct from deployment activation. |
+| V5 accepted staging release | `cea8d9c3cea1c17b4cffc0a70f195582fedd5fb5`; protected Actions run `32967673812` | `build-test-image`, `validate`, `prod-parity-gate`, and `deploy-test` succeeded; `deploy-production` was skipped. Supports **STAGING ACTIVATED**, not production activation or durability. |
 
 ## Public bounded repositories
 
@@ -28,9 +29,12 @@ This is a reconciliation snapshot, not a claim that every repository changed on 
 
 ## Engineering portfolio / process architecture
 
-- Process Architecture v0.6 controlled release commit: `dca16981e742755164968d4fb47b824935226b78`.
+- Process Architecture current release: **v0.7**.
 - Request Watch GitHub Pages v0.6 deployment is live at: `https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/`.
-- Portfolio reconciliation documents were corrected after the v0.6 release to align the README, Process Architecture guide, Visual Gallery, Repository Map, reconciliation control, evidence model, architectural history, overview, production-evidence pages, technical-reference navigation, and this snapshot with the current public source hierarchy.
+- Master Process Map v0.7 primary viewer: `https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html`.
+- Master Process Map v0.7 released SVG representation: `https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.svg`.
+- The v0.7 Monster controlled-source manifest pins joined Base64, gzip, and final SVG checksums before publication; generated assets are released only after checksum verification.
+- GitHub is the canonical approved public process-documentation record; GitHub Pages is the presentation surface; Drive remains a working/distribution/backup surface rather than public revision authority.
 - Use Git history for the exact current portfolio revision; this snapshot pins the external/runtime/public-repository evidence inputs used by the pass rather than pretending a document can permanently self-pin its own future commit.
 
 ## Corrections made in this reconciliation pass
@@ -38,7 +42,7 @@ This is a reconciliation snapshot, not a claim that every repository changed on 
 1. Published Process Architecture v0.6 and moved canonical public process documentation into GitHub.
 2. Updated Request Watch to v0.6 and synchronized traveler arrival with station/detail/governance activation.
 3. Updated Master Process Map to v0.6 with governing-control and evidence-tier semantics.
-4. Reconciled `docs/PROCESS_ARCHITECTURE.md` to v0.6 and GitHub-first public authority.
+4. Reconciled `docs/PROCESS_ARCHITECTURE.md` to GitHub-first public authority.
 5. Reconciled `docs/NEXUS_VISUAL_GALLERY.md` to current Request Watch/Master/Value Stream versions.
 6. Reconciled the portfolio README to current process versions, evidence-tier language, and GitHub/Pages/Drive roles.
 7. Reconciled `docs/REPOSITORY_MAP.md` and added the Process Architecture release set.
@@ -50,18 +54,24 @@ This is a reconciliation snapshot, not a claim that every repository changed on 
 13. Reconciled `docs/ARCHITECTURAL_EVOLUTION.md`: Epoch H now describes the V5 target reconstruction as code-backed and acceptance-tested with activation/durability separate, Epoch I covers the full seven-artifact public proof program, and the process/reconciliation phase is represented explicitly.
 14. Reconciled `docs/GLOSSARY.md` so V5 is neither described as already production nor reduced to an aspirational/isolated design; added terminology for production pattern, V5 hardening, activation, controlled artifacts, and Process Architecture.
 15. Expanded `docs/VERIFICATION_AND_EVIDENCE.md` to the evidence ladder `DOCUMENTED → IMPLEMENTED/CODE-BACKED → TESTED → ACTIVATED → DURABLE → INDEPENDENTLY_VERIFIED`, while keeping archival/lineage states separate and adding evidence-addressable process architecture as a documentation maturity layer rather than runtime proof.
-16. Reconciled `evidence/claims-and-evidence.json` to the same evidence ladder and added machine-readable claims for Process Architecture v0.6, V5 code/test status, governing control families, traceability limits, bounded public artifacts, and dated production-reference authority.
+16. Reconciled `evidence/claims-and-evidence.json` to the same evidence ladder and added machine-readable claims for Process Architecture, V5 code/test status, governing control families, traceability limits, bounded public artifacts, and dated production-reference authority.
 17. Clarified `docs/reference/README.md` so Public Technical Reference v1.1 is canonical for its dated August production-reference revision, not a forever-current Nexus master document; newer V5/process/evidence state routes to the current snapshot and process/evidence pages.
 18. Preserved dated historical evidence where it remained correct rather than rewriting history for cosmetic consistency, including the August 17 black-box integration-candidate receipt and the Mode Card Creator's pre-release exercise note.
 19. Verified the README Request Watch preview asset itself is v0.6 and synchronized conceptually with the live Pages presentation, including station-specific governance/quality controls and traveler/station timing.
 20. Verified the current-production response/guard ordering against `core/minimal_response_engine.py` before deciding not to rewrite the dated production technical reference to mimic the hardened V5 target flow.
+21. Promoted the Master Process Map to **v0.7**, adding explicit `V5 STAGING ACTIVATED` evidence semantics while keeping current production, staging activation, production activation, and durability as separate claims.
+22. Added checksum-gated controlled-source publication for the v0.7 Monster; corrupted/truncated source chunks failed closed rather than publishing a damaged representation.
+23. Corrected the process-asset publisher so brand-new/untracked generated SVG/HTML files are staged before change detection; the earlier implementation incorrectly treated untracked assets as “already current.”
+24. Corrected the process-pointer reconciler after it generated malformed `process-architecture/diagrams/https://...` links; the primary Master Process Map link now targets the GitHub Pages HTML viewer while the raw SVG remains a separate released vector representation.
+25. Reconciled V5 evidence to the current working/qualified head and current-head green CI, and separately recorded the accepted protected staging release without promoting it to production or durability evidence.
 
 ## Reconciliation conclusion
 
-This pass found and corrected both **status drift** and **architecture-document drift**. The bounded public repositories are internally consistent at their pinned heads after the Proof Runtime correction. The portfolio now distinguishes:
+This pass found and corrected **status drift, architecture-document drift, and release-pipeline defects**. The portfolio now distinguishes:
 
-- dated production evidence from V5 target evidence;
-- code-backed/tested from activated/durable;
+- dated/current-production evidence from V5 target evidence;
+- working/qualified V5 revision from staging-released revision;
+- code-backed/tested from staging-activated, production-activated, and durable;
 - public process documentation from runtime proof;
 - GitHub-controlled public records from Pages presentation and Drive distribution/working copies;
 - historical truth from current-summary language.
@@ -73,7 +83,7 @@ The next full pass should begin from the pinned evidence inputs above and the th
 This snapshot should be refreshed immediately if any of the following changes materially:
 
 - production release/live-runtime evidence;
-- V5 code/test/dogfood status;
+- V5 working/qualified/staging/production/durability status;
 - any public bounded repository release/head in a claim-bearing way;
 - process architecture version/evidence status;
 - public technical reference revision;
