@@ -41,12 +41,12 @@ jobs:
         working-directory: source
         shell: bash
         run: |
-          if git diff --quiet -- README.md docs/PROCESS_ARCHITECTURE.md docs/NEXUS_OVERVIEW.md docs/NEXUS_VISUAL_GALLERY.md docs/REPOSITORY_MAP.md process-architecture/README.md; then
+          git add README.md docs/PROCESS_ARCHITECTURE.md docs/NEXUS_OVERVIEW.md docs/NEXUS_VISUAL_GALLERY.md docs/REPOSITORY_MAP.md process-architecture/README.md
+          if git diff --cached --quiet; then
             echo "Current-summary process pointers are already current."
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md docs/PROCESS_ARCHITECTURE.md docs/NEXUS_OVERVIEW.md docs/NEXUS_VISUAL_GALLERY.md docs/REPOSITORY_MAP.md process-architecture/README.md
             git commit -m "Reconcile public process pointers to Master Process Map v0.7"
             git push origin HEAD:main
           fi
@@ -66,12 +66,14 @@ jobs:
         working-directory: pages
         shell: bash
         run: |
-          if git diff --quiet -- master-process-map-v0.7.svg master-process-map-v0.7.html; then
+          # Stage first so both tracked modifications and brand-new generated files are detected.
+          # `git diff` alone ignores untracked files, which previously caused a false "already current" result.
+          git add master-process-map-v0.7.svg master-process-map-v0.7.html
+          if git diff --cached --quiet; then
             echo "Generated process assets are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add master-process-map-v0.7.svg master-process-map-v0.7.html
           git commit -m "Publish Master Process Map v0.7"
           git push origin HEAD:gh-pages
