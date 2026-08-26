@@ -1,0 +1,123 @@
+name: Scheduled Reconciliation
+
+on:
+  schedule:
+    # GitHub cron is UTC. 13:15 UTC is ~09:15 EDT / 08:15 EST.
+    - cron: "15 13 * * 1"
+    # Monthly full pass on the first day of each month.
+    - cron: "45 13 1 * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Reconciliation depth"
+        required: true
+        default: "weekly"
+        type: choice
+        options:
+          - weekly
+          - monthly
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: nexus-portfolio-reconciliation
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      # Optional fine-grained token with read-only Contents/Metadata access to
+      # nexus-synapse-runtime and nexus-v5-reconstruction. Without it, private
+      # checks are reported as PARTIAL rather than falsely passing.
+      NEXUS_RECONCILE_TOKEN: ${{ secrets.NEXUS_RECONCILE_TOKEN }}
+
+    steps:
+      - name: Check out portfolio
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve reconciliation mode
+        id: mode
+        shell: bash
+        run: |
+          mode="weekly"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            mode="${{ inputs.mode }}"
+          elif [[ "${{ github.event.schedule }}" == "45 13 1 * *" ]]; then
+            mode="monthly"
+          fi
+          echo "mode=${mode}" >> "$GITHUB_OUTPUT"
+          echo "Reconciliation mode: ${mode}"
+
+      - name: Validate local portfolio controls
+        run: python scripts/check_portfolio_integrity.py
+
+      - name: Check pinned source revisions
+        id: reconcile
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          python scripts/check_reconciliation.py \
+            --mode "${{ steps.mode.outputs.mode }}" \
+            --report reconciliation-report.md
+          code=$?
+          echo "code=${code}" >> "$GITHUB_OUTPUT"
+          if [[ "${code}" == "2" ]]; then
+            exit 1
+          fi
+          if [[ "${code}" == "3" ]]; then
+            echo "::warning::Reconciliation is PARTIAL because one or more private sources could not be checked."
+          fi
+          exit 0
+
+      - name: Publish report to job summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f reconciliation-report.md ]]; then
+            cat reconciliation-report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "# Nexus Reconciliation Report" >> "$GITHUB_STEP_SUMMARY"
+            echo "Report generation failed before an artifact was produced." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload reconciliation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nexus-reconciliation-${{ steps.mode.outputs.mode }}-${{ github.run_id }}
+          path: reconciliation-report.md
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Open or update drift issue
+        if: steps.reconcile.outcome == 'failure'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="[reconciliation] Drift detected"
+          existing="$(gh issue list --state open --json number,title --jq '.[] | select(.title == "[reconciliation] Drift detected") | .number' | head -n 1)"
+          if [[ -z "$existing" ]]; then
+            gh issue create \
+              --title "$title" \
+              --body-file reconciliation-report.md
+          else
+            gh issue comment "$existing" \
+              --body-file reconciliation-report.md
+          fi
+
+      - name: Fail workflow on confirmed drift
+        if: steps.reconcile.outcome == 'failure'
+        run: |
+          echo "Pinned source drift or a reconciliation error requires review."
+          exit 1
