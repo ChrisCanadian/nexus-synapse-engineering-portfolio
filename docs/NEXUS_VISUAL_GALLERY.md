@@ -7,26 +7,32 @@ The portfolio documents and evidence files remain the claim-bearing source. Thes
 ## Request Watch — watch the runtime move
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1NIdSnrbs-ncfEuKrfl8tqVj_mFQYeIDY/view">
-    <img src="https://drive.google.com/uc?export=view&id=1tdAB4qAyewZSk8Sm9G_XcLqa75ElU1-m" width="960" alt="Animated Nexus Request Watch showing a request moving through runtime stations">
+  <a href="https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/">
+    <img src="../assets/request-watch-readme.svg" width="960" alt="Animated Nexus Request Watch showing a request moving through runtime stations">
   </a>
 </p>
 
-*Request Watch v0.4.1. Click the animation for the Drive-playable MP4. Its timing is illustrative, not live runtime takt.*
+*Request Watch v0.6. Click the animation for the live GitHub Pages version. Its timing is illustrative, not live runtime takt. The moving token is the WIP unit; station/detail/governance state changes after arrival so the viewer has one unambiguous active station.*
 
-The process-architecture release set now gives three complementary views:
+The current process-architecture release set gives three complementary views:
 
-- **[Master Process Map v0.4](https://drive.google.com/drive/folders/1IMBTV6jCgvny9R7cHaC7t3xDKwlNgdv6)** — the deliberately monstrous full topology.
-- **[Value Stream v0.2](https://drive.google.com/drive/folders/1nJfxZPd6GO68QfWrTiWQnSuNgLuDU_tj)** — compact governed-turn + WIP/outbox + async-support view.
-- **[000 — Governed Turn — Scope & Process Index](https://docs.google.com/document/d/1QNbGg-9jtjbGt7_wq3ZqSkKxTgRtAwcnGaudEHi7cN8/edit)** — ISO-style hyperlink navigation through the eight process families.
+- **[Master Process Map v0.6](../process-architecture/diagrams/master-process-map-v0.6.svg)** — the deliberately monstrous full topology, including governing control families, material decision trees, and evidence-tier badges.
+- **[Value Stream v0.2](../process-architecture/diagrams/value-stream-v0.2.svg)** — compact governed-turn + WIP/outbox + async-support view.
+- **[000 — Governed Turn — Scope & Process Index](../process-architecture/processes/000-GOVERNED-TURN.md)** — ISO-style hyperlink navigation through the eight process families.
 
-For notation, publication boundaries, and the public/private release model, see **[Public Process Architecture](PROCESS_ARCHITECTURE.md)**.
+For notation, governing controls, evidence tiers, publication boundaries, and the public/private release model, see **[Public Process Architecture](PROCESS_ARCHITECTURE.md)** and the **[canonical GitHub process binder](../process-architecture/README.md)**.
+
+## Process-architecture evidence rule
+
+The Monster is a navigation/documentation artifact; it does not promote itself into runtime evidence. v0.6 therefore shows separate evidence classes such as **CURRENT-PROD PATTERN**, **V5 CODE-BACKED**, **V5 ACCEPTANCE-TESTED**, and **V5 HARDENING**, while keeping dogfood activation/durability as a separate operational claim.
+
+See **[Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md)**.
 
 ## Animated system tour
 
 ![Nexus animated system tour](https://drive.google.com/uc?export=view&id=1OM2jeCOqsgvPKtwLNkFtp2cLGchtY7BY)
 
-*Quick Nexus-only visual tour. This animation intentionally excludes the long technical-reference preview and should not be read as a literal runtime execution trace.*
+*Quick Nexus-only visual tour. This older presentation animation is retained as an orientation aid and should not be read as a literal runtime execution trace or as superseding Request Watch.*
 
 ## Architectural evolution
 
@@ -81,6 +87,9 @@ This dashboard is a visual orientation aid for the portfolio's evidence vocabula
 ## Start with the text behind the pictures
 
 - [Public Process Architecture](PROCESS_ARCHITECTURE.md)
+- [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md)
+- [Current Public Snapshot](CURRENT_PUBLIC_SNAPSHOT.md)
+- [Reconciliation and Publication Control](RECONCILIATION_CONTROL.md)
 - [Current Production Responsibilities](CURRENT_PRODUCTION_RESPONSIBILITIES.md)
 - [Production Evidence Status](PRODUCTION_EVIDENCE_STATUS.md)
 - [Architectural Evolution](ARCHITECTURAL_EVOLUTION.md)
