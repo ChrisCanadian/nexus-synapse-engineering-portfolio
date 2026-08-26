@@ -11,6 +11,9 @@ import argparse
 from pathlib import Path
 
 PAGES = "https://chriscanadian.github.io/nexus-synapse-engineering-portfolio"
+MONSTER_HTML = f"{PAGES}/master-process-map-v0.7.html"
+MONSTER_SVG = f"{PAGES}/master-process-map-v0.7.svg"
+
 TARGETS = (
     "README.md",
     "docs/PROCESS_ARCHITECTURE.md",
@@ -20,17 +23,34 @@ TARGETS = (
     "process-architecture/README.md",
 )
 
+# Exact text/version updates. URL normalization is handled separately below so an
+# absolute URL can never be accidentally prefixed by an old relative path.
 REPLACEMENTS = (
     ("Master Process Map v0.6", "Master Process Map v0.7"),
     ("the full Master Process Map v0.6", "the full Master Process Map v0.7"),
-    ("master-process-map-v0.6.svg", f"{PAGES}/master-process-map-v0.7.svg"),
-    ("master-process-map-v0.6.html", f"{PAGES}/master-process-map-v0.7.html"),
-    ("https://drive.google.com/file/d/101Sgnz2eD5c4zHYq49Hu-d2LBuDHmyAR/view", f"{PAGES}/master-process-map-v0.7.html"),
+    ("Open the Monster v0.6", "Open the Monster v0.7"),
     ("## v0.6 evidence + governance release", "## v0.7 evidence + governance release"),
     ("DOGFOOD ACTIVATION", "V5 STAGING ACTIVATED"),
     ("dogfood activation / durability", "staging activation / durability"),
     ("dogfood activation/durability", "staging activation/durability"),
     ("dogfood activation", "staging activation"),
+)
+
+# Known historical/current pointer shapes that should resolve to the primary HTML
+# presentation. Keep the raw SVG published, but do not make it the default viewer.
+MONSTER_POINTERS = (
+    "process-architecture/diagrams/master-process-map-v0.6.svg",
+    "process-architecture/diagrams/master-process-map-v0.6.html",
+    "./diagrams/master-process-map-v0.6.svg",
+    "./diagrams/master-process-map-v0.6.html",
+    "master-process-map-v0.6.svg",
+    "master-process-map-v0.6.html",
+    "https://drive.google.com/file/d/101Sgnz2eD5c4zHYq49Hu-d2LBuDHmyAR/view",
+    # Repair the malformed absolute URLs produced by the earlier naive replacement.
+    f"process-architecture/diagrams/{MONSTER_SVG}",
+    f"process-architecture/diagrams/{MONSTER_HTML}",
+    f"./diagrams/{MONSTER_SVG}",
+    f"./diagrams/{MONSTER_HTML}",
 )
 
 
@@ -42,8 +62,12 @@ def reconcile(root: Path) -> int:
             raise SystemExit(f"Missing controlled summary document: {relative}")
         original = path.read_text(encoding="utf-8")
         updated = original
+
         for old, new in REPLACEMENTS:
             updated = updated.replace(old, new)
+
+        for old in MONSTER_POINTERS:
+            updated = updated.replace(old, MONSTER_HTML)
 
         updated = updated.replace(
             "code/test evidence does not imply controlled deployment activation or durability",
@@ -57,10 +81,12 @@ def reconcile(root: Path) -> int:
             "code/test evidence does not imply deployment activation or sustained durability",
             "code/test evidence does not imply production activation or sustained durability; staging activation is evidenced separately",
         )
+
         if updated != original:
             path.write_text(updated, encoding="utf-8")
             changed += 1
             print(f"reconciled {relative}")
+
     print(f"current-summary documents changed: {changed}")
     return changed
 
