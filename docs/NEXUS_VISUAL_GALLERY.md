@@ -4,6 +4,24 @@ This page is intentionally visual-first.
 
 The portfolio documents and evidence files remain the claim-bearing source. These graphics are **orientation aids**: they show Nexus as a system, its history, and its engineering philosophy without reducing the project to the public repositories extracted from it.
 
+## Request Watch — watch the runtime move
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1NIdSnrbs-ncfEuKrfl8tqVj_mFQYeIDY/view">
+    <img src="https://drive.google.com/uc?export=view&id=1tdAB4qAyewZSk8Sm9G_XcLqa75ElU1-m" width="960" alt="Animated Nexus Request Watch showing a request moving through runtime stations">
+  </a>
+</p>
+
+*Request Watch v0.4.1. Click the animation for the Drive-playable MP4. Its timing is illustrative, not live runtime takt.*
+
+The process-architecture release set now gives three complementary views:
+
+- **[Master Process Map v0.4](https://drive.google.com/drive/folders/1IMBTV6jCgvny9R7cHaC7t3xDKwlNgdv6)** — the deliberately monstrous full topology.
+- **[Value Stream v0.2](https://drive.google.com/drive/folders/1nJfxZPd6GO68QfWrTiWQnSuNgLuDU_tj)** — compact governed-turn + WIP/outbox + async-support view.
+- **[000 — Governed Turn — Scope & Process Index](https://docs.google.com/document/d/1QNbGg-9jtjbGt7_wq3ZqSkKxTgRtAwcnGaudEHi7cN8/edit)** — ISO-style hyperlink navigation through the eight process families.
+
+For notation, publication boundaries, and the public/private release model, see **[Public Process Architecture](PROCESS_ARCHITECTURE.md)**.
+
 ## Animated system tour
 
 ![Nexus animated system tour](https://drive.google.com/uc?export=view&id=1OM2jeCOqsgvPKtwLNkFtp2cLGchtY7BY)
@@ -62,6 +80,7 @@ This dashboard is a visual orientation aid for the portfolio's evidence vocabula
 
 ## Start with the text behind the pictures
 
+- [Public Process Architecture](PROCESS_ARCHITECTURE.md)
 - [Current Production Responsibilities](CURRENT_PRODUCTION_RESPONSIBILITIES.md)
 - [Production Evidence Status](PRODUCTION_EVIDENCE_STATUS.md)
 - [Architectural Evolution](ARCHITECTURAL_EVOLUTION.md)
