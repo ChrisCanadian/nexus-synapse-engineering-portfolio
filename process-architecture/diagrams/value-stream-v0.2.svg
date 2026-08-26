@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#081824"/><stop offset="1" stop-color="#06111b"/></linearGradient>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#6d8797"/></marker>
+  <marker id="dashArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#78909e"/></marker>
+  <style>
+    .title{font:800 34px Arial,sans-serif;fill:#f3f8fa;letter-spacing:1px}.sub{font:400 17px Arial,sans-serif;fill:#98acb8}
+    .station{fill:#0d2230;stroke:#3d7188;stroke-width:2}.num{font:800 16px Arial,sans-serif;fill:#43d9e8;letter-spacing:1px}
+    .name{font:800 24px Arial,sans-serif;fill:#f3f8fa}.body{font:400 17px Arial,sans-serif;fill:#b4c5ce}
+    .state{fill:#102633;stroke:#4c8da2;stroke-width:2}.stateText{font:700 16px Arial,sans-serif;fill:#d9edf2}
+    .gate{fill:#2a2416;stroke:#d5b75e;stroke-width:2}.gateText{font:700 14px Arial,sans-serif;fill:#f2df9a}
+    .asyncBox{fill:#101922;stroke:#596f7d;stroke-width:1.5;stroke-dasharray:8 6}.asyncTitle{font:800 18px Arial,sans-serif;fill:#a9bac4}.asyncText{font:400 15px Arial,sans-serif;fill:#91a4af}
+    .queue{fill:#2b2414;stroke:#d4ad54;stroke-width:2}.queueText{font:800 17px Arial,sans-serif;fill:#f2dfa1}
+    .store{fill:#0a2830;stroke:#43d9e8;stroke-width:2.5}.storeText{font:800 17px Arial,sans-serif;fill:#e5f8fa}
+    .note{font:400 13px Arial,sans-serif;fill:#748995}.flow{fill:none;stroke:#6d8797;stroke-width:3;marker-end:url(#arrow)}
+    .dash{fill:none;stroke:#78909e;stroke-width:2.5;stroke-dasharray:9 7;marker-end:url(#dashArrow)}
+  </style>
+</defs>
+<rect width="1920" height="1080" fill="url(#bg)"/>
+<text x="70" y="68" class="title">NEXUS SYNAPSE V5 — GOVERNED TURN VALUE STREAM</text>
+<text x="70" y="99" class="sub">High-level work flow · inspection/rework · transaction close · verified asynchronous support lane</text>
+<text x="1780" y="75" text-anchor="end" class="sub">v0.2 · PUBLIC-SAFE</text>
+
+<rect x="70" y="155" width="390" height="165" rx="14" class="station"/>
+<text x="95" y="188" class="num">00 · RECEIVING / TRUST</text><text x="95" y="225" class="name">Trusted Intake</text>
+<text x="95" y="258" class="body">Authenticate actor + scope</text><text x="95" y="283" class="body">Create immutable TurnRequest</text>
+<polygon points="492,215 530,177 568,215 530,253" class="gate"/><text x="530" y="210" text-anchor="middle" class="gateText">RELEASE</text><text x="530" y="229" text-anchor="middle" class="gateText">?</text>
+
+<rect x="600" y="155" width="390" height="165" rx="14" class="station"/>
+<text x="625" y="188" class="num">01 · ANALYSIS / INSPECTION</text><text x="625" y="225" class="name">Advisory Turn Analysis</text>
+<text x="625" y="258" class="body">NLP + focus / salience</text><text x="625" y="283" class="body">Parallel signals → confidence state</text>
+
+<rect x="1020" y="155" width="390" height="165" rx="14" class="station"/>
+<text x="1045" y="188" class="num">02 · CONTEXT KITTING</text><text x="1045" y="225" class="name">Authorized State Acquisition</text>
+<text x="1045" y="258" class="body">Identity · memory · continuity</text><text x="1045" y="283" class="body">Modes · goals · authorized tools</text>
+
+<rect x="1440" y="155" width="410" height="165" rx="14" class="station"/>
+<text x="1465" y="188" class="num">03 · SSR / CONTEXT ASSEMBLY</text><text x="1465" y="225" class="name">Deterministic Context Build</text>
+<text x="1465" y="258" class="body">Eligibility · order · budget</text><text x="1465" y="283" class="body">Provenance · redaction · receipt</text>
+
+<path d="M460 237 H492" class="flow"/><path d="M568 237 H600" class="flow"/><path d="M990 237 H1020" class="flow"/><path d="M1410 237 H1440" class="flow"/>
+<polygon points="660,355 945,355 925,405 640,405" class="state"/><text x="793" y="385" text-anchor="middle" class="stateText">NLPState + FocusState</text>
+<polygon points="1080,355 1365,355 1345,405 1060,405" class="state"/><text x="1213" y="385" text-anchor="middle" class="stateText">Authorized Context Kit</text>
+<polygon points="1490,355 1800,355 1780,405 1470,405" class="state"/><text x="1635" y="375" text-anchor="middle" class="stateText">Context Receipt</text><text x="1635" y="395" text-anchor="middle" class="stateText">+ Provider Plan</text>
+
+<path d="M1645 320 V460 H285 V505" class="flow"/>
+
+<rect x="70" y="505" width="390" height="170" rx="14" class="station"/>
+<text x="95" y="538" class="num">04 · FORKLIFT / INFERENCE</text><text x="95" y="575" class="name">Inference Dispatch</text>
+<text x="95" y="608" class="body">Route planner → provider adapter</text><text x="95" y="633" class="body">Interchangeable LLM inference</text>
+
+<polygon points="492,565 530,527 568,565 530,603" class="gate"/><text x="530" y="560" text-anchor="middle" class="gateText">TOOL</text><text x="530" y="579" text-anchor="middle" class="gateText">?</text>
+
+<rect x="600" y="505" width="390" height="170" rx="14" class="station"/>
+<text x="625" y="538" class="num">05 · TOOL WORKCELL / PROOF</text><text x="625" y="575" class="name">Authorize · Execute · Observe</text>
+<text x="625" y="608" class="body">Typed request + policy gate</text><text x="625" y="633" class="body">Tool / artifact receipt</text>
+
+<rect x="1020" y="505" width="390" height="170" rx="14" class="station"/>
+<text x="1045" y="538" class="num">06 · FINAL INSPECTION</text><text x="1045" y="575" class="name">Receipt-Aware Release</text>
+<text x="1045" y="608" class="body">Claim / policy verification</text><text x="1045" y="633" class="body">Bounded correction + recheck</text>
+
+<rect x="1440" y="505" width="410" height="170" rx="14" class="station"/>
+<text x="1465" y="538" class="num">07 · TRANSACTION CLOSE</text><text x="1465" y="575" class="name">Persist + Release Async Work</text>
+<text x="1465" y="608" class="body">Turn + receipts + durable outbox</text><text x="1465" y="633" class="body">Response already delivered</text>
+
+<path d="M460 590 H492" class="flow"/><path d="M568 590 H600" class="flow"/><path d="M990 590 H1020" class="flow"/><path d="M1410 590 H1440" class="flow"/>
+
+<path d="M795 505 V458 H265 V505" class="dash"/><text x="520" y="447" text-anchor="middle" class="note">observed result → model continuation / bounded re-entry</text>
+
+<polygon points="1480,715 1810,715 1788,785 1458,785" class="queue"/><text x="1634" y="746" text-anchor="middle" class="queueText">WIP / OUTBOX</text>
+<text x="1634" y="770" text-anchor="middle" class="body">queued · claimed · running · retrying · dead-letter</text>
+
+<rect x="70" y="855" width="1780" height="145" rx="16" class="asyncBox"/>
+<text x="95" y="891" class="asyncTitle">ASYNCHRONOUS SUPPORT / CONTINUOUS IMPROVEMENT — NON-BLOCKING AFTER TRANSACTION COMMIT</text>
+<rect x="100" y="920" width="250" height="52" rx="9" class="asyncBox"/><text x="225" y="951" text-anchor="middle" class="asyncText">Learning / Preferences</text>
+<rect x="380" y="920" width="250" height="52" rx="9" class="asyncBox"/><text x="505" y="951" text-anchor="middle" class="asyncText">Summaries / Digests</text>
+<rect x="660" y="920" width="250" height="52" rx="9" class="asyncBox"/><text x="785" y="951" text-anchor="middle" class="asyncText">Reflection / Thinker</text>
+<rect x="940" y="920" width="250" height="52" rx="9" class="asyncBox"/><text x="1065" y="951" text-anchor="middle" class="asyncText">Reminders / Notifications</text>
+<rect x="1220" y="920" width="250" height="52" rx="9" class="asyncBox"/><text x="1345" y="951" text-anchor="middle" class="asyncText">Index / Correction</text>
+<rect x="1530" y="907" width="280" height="76" rx="38" class="store"/><text x="1670" y="936" text-anchor="middle" class="storeText">NEXUS DURABLE STATE</text>
+<text x="1670" y="960" text-anchor="middle" class="asyncText">one canonical custody boundary</text>
+
+<path d="M1645 675 V715" class="dash"/><path d="M1634 785 V825 H225 V920" class="dash"/><path d="M1634 785 V825 H505 V920" class="dash"/>
+<path d="M1634 785 V825 H785 V920" class="dash"/><path d="M1634 785 V825 H1065 V920" class="dash"/><path d="M1634 785 V825 H1345 V920" class="dash"/>
+<path d="M1470 946 H1530" class="dash"/>
+
+<text x="70" y="1042" class="note">Solid = synchronous/control handoff · Dashed = async / continuation path · No current live takt, WIP count, or queue-age metrics are claimed in this release.</text>
+</svg>
