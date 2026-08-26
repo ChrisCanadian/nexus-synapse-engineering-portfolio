@@ -11,16 +11,17 @@
   </a>
 </p>
 
-<p align="center"><strong>Request Watch v0.4.1</strong> — a public-safe animated view of a request moving through Nexus. Click the animation for the live GitHub Pages version; the <a href="https://drive.google.com/file/d/1NIdSnrbs-ncfEuKrfl8tqVj_mFQYeIDY/view">MP4 playback</a> remains available in Drive.</p>
+<p align="center"><strong>Request Watch v0.6</strong> — a public-safe animated view of a request moving through Nexus. Click the animation for the live GitHub Pages version.</p>
 
 <p align="center">
   <a href="docs/PROCESS_ARCHITECTURE.md"><strong>Process Architecture</strong></a> ·
-  <a href="https://drive.google.com/drive/folders/1IMBTV6jCgvny9R7cHaC7t3xDKwlNgdv6"><strong>Master Process Map</strong></a> ·
-  <a href="https://drive.google.com/drive/folders/1nJfxZPd6GO68QfWrTiWQnSuNgLuDU_tj"><strong>Value Stream</strong></a> ·
-  <a href="https://docs.google.com/document/d/1QNbGg-9jtjbGt7_wq3ZqSkKxTgRtAwcnGaudEHi7cN8/edit"><strong>000 Scope / Process Index</strong></a>
+  <a href="process-architecture/diagrams/master-process-map-v0.6.svg"><strong>Master Process Map</strong></a> ·
+  <a href="process-architecture/diagrams/value-stream-v0.2.svg"><strong>Value Stream</strong></a> ·
+  <a href="process-architecture/processes/000-GOVERNED-TURN.md"><strong>000 Scope / Process Index</strong></a> ·
+  <a href="process-architecture/EVIDENCE_STATUS.md"><strong>Evidence Status</strong></a>
 </p>
 
-*The animation is an explanatory presentation artifact. Its timing is illustrative, not live runtime takt.*
+*The animation is an explanatory presentation artifact. Its timing is illustrative, not live runtime takt. In v0.6 the moving token is the WIP unit: station/detail/governance state changes after the token arrives.*
 
 ---
 
@@ -112,20 +113,21 @@ A useful question for this path is:
 Start with:
 
 1. **[Public Process Architecture](docs/PROCESS_ARCHITECTURE.md)** — see the governed runtime as a process before diving into the code/evidence surfaces.
-2. **[Current Production Responsibilities](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)** — shortest current-architecture view.
-3. **[Nexus Terminology → Conventional Systems Concepts](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)** — translates project terms into conventional engineering concepts.
-4. **[Production Evidence Status](docs/PRODUCTION_EVIDENCE_STATUS.md)** — what is production-inspected, isolated, reconstructed, historical, or not demonstrated.
-5. **[Public Technical Reference v1.1](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)** — full current public-safe technical reference.
+2. **[Process Architecture Evidence Status](process-architecture/EVIDENCE_STATUS.md)** — separates production pattern, V5 code/test evidence, hardening, activation, durability and traceability claims.
+3. **[Current Production Responsibilities](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)** — shortest current-production architecture view.
+4. **[Nexus Terminology → Conventional Systems Concepts](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)** — translates project terms into conventional engineering concepts.
+5. **[Production Evidence Status](docs/PRODUCTION_EVIDENCE_STATUS.md)** — what is production-inspected, isolated, reconstructed, historical, or not demonstrated.
+6. **[Public Technical Reference v1.1](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)** — public-safe technical reference; its production reconciliation date is stated inside the document.
 
 ### I mostly want to see the system
 
-Start with **[Public Process Architecture](docs/PROCESS_ARCHITECTURE.md)**, then browse the **[Visual Gallery](docs/NEXUS_VISUAL_GALLERY.md)**.
+Start with **[Request Watch](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/)**, then **[Public Process Architecture](docs/PROCESS_ARCHITECTURE.md)** and the **[Visual Gallery](docs/NEXUS_VISUAL_GALLERY.md)**.
 
-The process-architecture set includes Request Watch, the full Master Process Map, the compact Value Stream, and an ISO-style linked Process Library.
+The process-architecture set includes Request Watch v0.6, the full Master Process Map v0.6, the compact Value Stream v0.2, an ISO-style linked Process Library, governing control families, and explicit evidence-tier labels.
 
 ![Nexus Synapse visual tour](https://drive.google.com/uc?export=view&id=1OM2jeCOqsgvPKtwLNkFtp2cLGchtY7BY)
 
-*Animated Nexus system tour. It is an orientation aid, not a literal runtime trace.*
+*Older animated Nexus system tour retained as an orientation aid. It does not supersede Request Watch and is not a literal runtime trace.*
 
 ---
 
@@ -145,7 +147,7 @@ Nexus Synapse itself remains private. These seven repositories expose bounded, i
 
 These seven repositories are related by lineage, validation strategy, and design philosophy. They are **not public modules intended to be assembled into a copy of Nexus Synapse**.
 
-For formal purpose/evidence/claim-ceiling language, see **[Public Repository and Artifact Map](docs/REPOSITORY_MAP.md)**.
+For formal purpose/evidence/claim-ceiling language, see **[Public Repository and Artifact Map](docs/REPOSITORY_MAP.md)**. For the pinned heads used in the latest cross-repository reconciliation, see **[Current Public Snapshot](docs/CURRENT_PUBLIC_SNAPSHOT.md)**.
 
 Current validation status: the public Gateway and Router are released and tested at v0.2. A retained August 18, 2026 campaign against the existing Nexus deployment completed, but the fixed-invariant result **failed**: deterministic session mapping and all six persistence barriers were observed, while cross-conversation continuity and correction persistence failed. A separate unseen challenge passed. Those partial results do not convert the campaign into a pass, so no deployed-Nexus validation-pass claim is made.
 
@@ -157,21 +159,23 @@ The public Nexus work is intentionally split by purpose. These surfaces are rela
 
 | Surface | What belongs there | Why it exists |
 |---|---|---|
-| **This engineering portfolio** | Current public-safe architecture, terminology translation, evidence status, case studies, visual orientation, and the canonical Markdown technical reference | Version-controlled engineering front door and public claim/evidence map |
-| **[Public Process Architecture](docs/PROCESS_ARCHITECTURE.md)** | Request Watch, Master Process Map, Value Stream, linked Process Library, notation and publication boundary | Shows how Nexus performs work without publishing private implementation tolerances |
+| **This engineering portfolio** | Current public-safe architecture, terminology translation, evidence status, case studies, visual orientation, reconciliation controls, and the canonical Markdown technical reference | Version-controlled engineering front door and public claim/evidence map |
+| **[`process-architecture/`](process-architecture/README.md)** | Canonical approved public Request Watch/Master/Value Stream documentation, linked Process Library, governing controls, evidence status, and release records | Git-addressable public process binder with exact revision history |
+| **[GitHub Pages Request Watch](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/)** | Executable public presentation of Request Watch | Presentation layer; follows the version-controlled public release rather than replacing it |
 | **Seven public GitHub repositories** | Executable bounded artifacts, validation/infrastructure surfaces, and a historical reconstruction | Let specific responsibilities and historical lineage be inspected without publishing the private runtime |
 | **Nexus Synapse Research Library (Google Sites)** | Long-form research, project history, explanatory material, visuals, and reader-friendly presentation copies | Research/presentation layer; it does **not** supersede the version-controlled engineering claims here |
-| **`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`** | Current public-safe technical reference | Canonical, diffable source for the technical reference |
-| **Rendered PDF / Drive technical reference** | Rendered export of the canonical Markdown | Distribution convenience; follows the repository source rather than replacing it |
+| **`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`** | Public-safe technical reference with its own stated reconciliation date | Canonical, diffable source for that technical-reference revision |
+| **Rendered PDF / Drive copies** | Rendered exports, playback/distribution copies, and private working/control binder material | Distribution/working convenience; follows GitHub-approved public sources where applicable rather than replacing them |
 | **Historical SSR gist** | Early Structured-SQL-RAG / warehouse-style retrieval lineage and historical benchmark material | Shows where part of the architecture came from; not the current SSR implementation |
 
 Quick routing rule:
 
-- **Want to see how a turn moves through Nexus?** Open [Public Process Architecture](docs/PROCESS_ARCHITECTURE.md).
-- **Current architecture or evidence ceiling?** Stay in this portfolio.
-- **Runnable/testable code for one bounded claim?** Open the corresponding public repository.
+- **Want to watch how a turn moves through Nexus?** Open [Request Watch](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/).
+- **Want the current approved process architecture?** Open the [`process-architecture/` binder](process-architecture/README.md).
+- **Current production architecture or evidence ceiling?** Use the current-production/evidence documents in this portfolio.
+- **What exists or is tested specifically in V5?** Use the pinned V5 snapshot and acceptance evidence referenced from [Process Architecture Evidence Status](process-architecture/EVIDENCE_STATUS.md).
+- **Runnable/testable code for one bounded public claim?** Open the corresponding public repository.
 - **Longer narrative, history, or presentation material?** Use the Research Library.
-- **Rendered technical document?** Use the PDF, but treat the Markdown source here as authoritative.
 
 ---
 
@@ -211,14 +215,14 @@ The full translation — including current caveats for Dyad/nodes, reflections, 
 
 ## Public technical reference: source of truth
 
-The **version-controlled Markdown file in this repository is the canonical public technical reference**:
+The **version-controlled Markdown file in this repository is the canonical public technical reference for that revision**:
 
 - **Canonical source:** [`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
 - **Rendered distribution copy:** [PDF in the Nexus Synapse Research Library / Drive](https://drive.google.com/file/d/1KWoHkrHek5o_3T-FGKK7qLbRgb9Oi19N/view)
 
-The current reference was reconciled against an **August 14, 2026 read-only inspection of the deployed production implementation and state**. Older July execution evidence remains useful, but is labeled as isolated production-target execution rather than silently treated as a current live-production trace.
+The current reference states the deployed-production evidence date against which it was reconciled. Newer V5/process-architecture evidence does not silently rewrite the reference's historical evidence date; use [Process Architecture Evidence Status](process-architecture/EVIDENCE_STATUS.md) and [Current Public Snapshot](docs/CURRENT_PUBLIC_SNAPSHOT.md) for newer pinned V5/public-repository state.
 
-The change-control rule is simple: **Markdown first, PDF second.** Architectural claim changes should be diffable in repository history before a new rendered export is published.
+The change-control rule is simple: **Markdown first, rendered copy second.** Architectural claim changes should be diffable in repository history before a new rendered export is published.
 
 ---
 
@@ -296,17 +300,22 @@ The portfolio uses evidence labels because code presence is not automatically a 
 
 | Label | Meaning |
 |---|---|
-| **IMPLEMENTED** | Concrete executable code/schema materially represents the responsibility |
-| **TESTED** | Assertion-bearing tests, retained runs, benchmarks, or audits support the claim |
-| **DOCUMENTED / PLANNED** | The design is documented but evidence is insufficient for implemented/tested |
+| **DOCUMENTED** | Responsibility/design is recorded but no stronger evidence tier is implied |
+| **CODE-BACKED / IMPLEMENTED** | Concrete executable code/schema materially represents the responsibility |
+| **TESTED / EXERCISED** | Assertion-bearing tests, retained runs, benchmarks, or audits support the claim |
+| **ACTIVATED / DEPLOYED** | Evidence shows the path is operationally enabled/reachable in the identified environment |
+| **DURABLE / SUSTAINED** | Evidence shows relevant state/effects survive the required lifecycle/restart/time boundary |
+| **INDEPENDENTLY VERIFIED** | An applicable external/independent validation event supports the bounded claim |
 | **ARCHIVED / SUPERSEDED** | The path existed but was replaced, disabled, or is no longer authoritative |
 | **LINEAGE-INFERRED** | The relationship was reconstructed across sources rather than stated contemporaneously |
+
+A higher tier is not inferred from a lower tier. The formal cadence and correction rules are in **[Reconciliation and Publication Control](docs/RECONCILIATION_CONTROL.md)**.
 
 ![Nexus evidence-strength dashboard](https://drive.google.com/uc?export=view&id=1t_iO2oe8ZaH7BCGQwrX35v0pcVliOXxr)
 
 *Visual orientation only. The version-controlled evidence pages remain authoritative if a visual and current text ever disagree.*
 
-For the distinction between deployed inspection, isolated execution, public proof, and historical/reconstructed evidence, see **[Production Evidence Status](docs/PRODUCTION_EVIDENCE_STATUS.md)** and **[Sanitized Evidence Receipts](evidence/SANITIZED_EVIDENCE_RECEIPTS.md)**.
+For the distinction between deployed inspection, isolated execution, public proof, and historical/reconstructed evidence, see **[Production Evidence Status](docs/PRODUCTION_EVIDENCE_STATUS.md)**, **[Process Architecture Evidence Status](process-architecture/EVIDENCE_STATUS.md)** and **[Sanitized Evidence Receipts](evidence/SANITIZED_EVIDENCE_RECEIPTS.md)**.
 
 ---
 
@@ -382,27 +391,30 @@ More: [`ABOUT_CHRIS.md`](ABOUT_CHRIS.md)
 
 1. [`docs/DOMAIN_EXPERT_ORIENTATION.md`](docs/DOMAIN_EXPERT_ORIENTATION.md)
 2. [`docs/PROCESS_ARCHITECTURE.md`](docs/PROCESS_ARCHITECTURE.md)
-3. [`docs/NEXUS_OVERVIEW.md`](docs/NEXUS_OVERVIEW.md)
-4. [`docs/NEXUS_VISUAL_GALLERY.md`](docs/NEXUS_VISUAL_GALLERY.md)
-5. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
-6. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
-7. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
+3. [`process-architecture/processes/000-GOVERNED-TURN.md`](process-architecture/processes/000-GOVERNED-TURN.md)
+4. [`docs/NEXUS_OVERVIEW.md`](docs/NEXUS_OVERVIEW.md)
+5. [`docs/NEXUS_VISUAL_GALLERY.md`](docs/NEXUS_VISUAL_GALLERY.md)
+6. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
+7. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
+8. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
 
 ### AI / software / systems path
 
 1. [`docs/PROCESS_ARCHITECTURE.md`](docs/PROCESS_ARCHITECTURE.md)
-2. [`docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md`](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)
-3. [`docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md`](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)
-4. [`docs/PRODUCTION_EVIDENCE_STATUS.md`](docs/PRODUCTION_EVIDENCE_STATUS.md)
-5. [`docs/NEXUS_OVERVIEW.md`](docs/NEXUS_OVERVIEW.md)
-6. [`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
-7. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
-8. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
-9. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
-10. [`case-studies/`](case-studies/) — including the [Memory Kernel case study](case-studies/memory-kernel.md), [Black-Box Validation + BYO Router case study](case-studies/blackbox-validation-and-byo-router.md), and [ChrisAI Runtime case study](case-studies/chrisai-runtime.md)
-11. [`CREDITS_AND_ATTRIBUTION.md`](CREDITS_AND_ATTRIBUTION.md) — authorship, provenance operations, permission boundaries, and Moon Source reference lineage
-12. [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
-13. [`evidence/claims-and-evidence.json`](evidence/claims-and-evidence.json)
+2. [`process-architecture/EVIDENCE_STATUS.md`](process-architecture/EVIDENCE_STATUS.md)
+3. [`docs/CURRENT_PUBLIC_SNAPSHOT.md`](docs/CURRENT_PUBLIC_SNAPSHOT.md)
+4. [`docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md`](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)
+5. [`docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md`](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)
+6. [`docs/PRODUCTION_EVIDENCE_STATUS.md`](docs/PRODUCTION_EVIDENCE_STATUS.md)
+7. [`docs/NEXUS_OVERVIEW.md`](docs/NEXUS_OVERVIEW.md)
+8. [`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
+9. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
+10. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
+11. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
+12. [`case-studies/`](case-studies/) — including the [Memory Kernel case study](case-studies/memory-kernel.md), [Black-Box Validation + BYO Router case study](case-studies/blackbox-validation-and-byo-router.md), and [ChrisAI Runtime case study](case-studies/chrisai-runtime.md)
+13. [`CREDITS_AND_ATTRIBUTION.md`](CREDITS_AND_ATTRIBUTION.md) — authorship, provenance operations, permission boundaries, and Moon Source reference lineage
+14. [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
+15. [`evidence/claims-and-evidence.json`](evidence/claims-and-evidence.json)
 
 ---
 
@@ -415,7 +427,7 @@ This portfolio does **not** claim:
 - that every implemented subsystem is fully tested;
 - independent certification of the private runtime;
 - that the retained August 18, 2026 deployed-target campaign passed the fixed-invariant suite;
-- that isolated V5 reconstruction work is automatically the accepted production path;
+- that V5 code/test evidence automatically means controlled dogfood activation, sustained durability, or production deployment;
 - that the public Proof Runtime, Memory Kernel, Acceptance Rig, Validation Gateway, Router, or ChrisAI reconstruction reproduces the private parent system;
 - that public artifacts are complete representations of Nexus Synapse;
 - that receipt/hash verification establishes semantic truth;
@@ -442,8 +454,11 @@ The point is narrower:
 
 ### Supporting public material
 
-- [Nexus Process Architecture — Public Releases](https://drive.google.com/drive/folders/1uhNpMfOIaJsdOmtT0EFw3HsYbiFiQtHU)
+- [Canonical Public Process Architecture binder](process-architecture/README.md)
+- [Live Request Watch](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/)
 - [Public Process Architecture guide](docs/PROCESS_ARCHITECTURE.md)
+- [Current Public Snapshot](docs/CURRENT_PUBLIC_SNAPSHOT.md)
+- [Reconciliation and Publication Control](docs/RECONCILIATION_CONTROL.md)
 - [Nexus Synapse Research Library](https://sites.google.com/view/nexus-synapse-research-library/home)
 - [Historical SSR gist](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752)
 - [Christopher Campbell on GitHub](https://github.com/ChrisCanadian)
@@ -453,8 +468,8 @@ The point is narrower:
 
 ## Status
 
-This portfolio is a living engineering record.
+This portfolio is a living engineering record governed by **[Reconciliation and Publication Control](docs/RECONCILIATION_CONTROL.md)**.
 
-Where current evidence changes, the intended practice is to update the **evidence label first**, then update the claim.
+Where current evidence changes, update the evidence status/claim ceiling first, then update the dependent summary. The latest pinned cross-repository reconciliation is recorded in **[Current Public Snapshot](docs/CURRENT_PUBLIC_SNAPSHOT.md)**.
 
 **Architecture can evolve. Evidence should remain traceable.**
