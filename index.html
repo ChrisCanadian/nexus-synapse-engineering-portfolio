@@ -33,6 +33,8 @@ h1{font-size:24px;letter-spacing:.055em;margin:0;font-weight:830;line-height:1.0
 .panel{border:1px solid #1f3b4e;background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:10px}
 .kicker{font-size:11px;color:var(--cyan);font-weight:850;letter-spacing:.12em;text-transform:uppercase}
 .small{font-size:8.8px;color:var(--muted)}
+
+/* Journey */
 .journey{height:245px;margin-top:14px;padding:12px 15px 10px}
 .head{height:28px;display:flex;justify-content:space-between;align-items:flex-end}
 .tracker{height:162px;position:relative;margin-top:4px;padding:0 28px;display:grid;grid-template-columns:repeat(8,1fr)}
@@ -65,6 +67,8 @@ h1{font-size:24px;letter-spacing:.055em;margin:0;font-weight:830;line-height:1.0
 .strip strong{color:var(--cyan)}
 .summary{color:#cbd7dd}
 .historic{text-align:right;white-space:nowrap}
+
+/* Responsibility thumbnails */
 .respPanel{height:118px;margin-top:11px;padding:10px 13px 11px}
 .respHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:7px}
 .thumbs{display:grid;grid-template-columns:repeat(12,1fr);gap:6px}
@@ -80,90 +84,219 @@ h1{font-size:24px;letter-spacing:.055em;margin:0;font-weight:830;line-height:1.0
   box-shadow:inset 0 0 12px rgba(67,217,232,.03)
 }
 .thumb.active .dot{background:var(--green);box-shadow:0 0 9px rgba(103,209,155,.6)}
+
+/* Road-sign info panel */
 .sign{height:366px;margin-top:11px;padding:13px 16px 12px;position:relative;overflow:hidden}
 .sign::before{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:.08;
   background:repeating-linear-gradient(180deg,transparent 0 3px,rgba(255,255,255,.05) 3px 4px)
 }
 .signTop{display:grid;grid-template-columns:230px 1fr 330px;gap:12px;align-items:stretch;height:63px;position:relative;z-index:1}
-.signBlock{border:1px solid #2a4658;background:#091822;border-radius:5px;padding:9px 11px}
+.signBlock{
+  border:1px solid #2a4658;background:#091822;border-radius:5px;padding:9px 11px
+}
 .signLabel{font-size:7px;letter-spacing:.13em;color:#708995;text-transform:uppercase;font-weight:900}
 .signValue{font-size:16px;font-weight:860;letter-spacing:.02em;color:var(--cyan);margin-top:4px}
 .signSummary{font-size:10px;line-height:1.35;color:#d5e0e5;margin-top:4px}
 .signTech{font-size:8.5px;line-height:1.34;color:#9bb0bb;margin-top:4px}
-.rows{margin-top:10px;display:grid;gap:6px;position:relative;z-index:1}
+.signBody{margin-top:10px;display:grid;grid-template-columns:1fr 420px;gap:10px;height:248px;position:relative;z-index:1}
+.rows{margin-top:0;display:grid;grid-template-columns:repeat(2,1fr);gap:6px;align-content:start;overflow:hidden}
 .row{
-  min-height:39px;border:1px solid #243f50;background:#08151f;border-radius:4px;
-  display:grid;grid-template-columns:190px 1fr;align-items:center;gap:10px;padding:7px 10px;
+  min-height:51px;border:1px solid #243f50;background:#08151f;border-radius:4px;
+  display:grid;grid-template-columns:145px 1fr;align-items:center;gap:8px;padding:7px 9px;
   transition:.2s ease
 }
+.govCard{height:248px;border:1px solid #594e68;background:linear-gradient(180deg,#151724,#0a1520);border-radius:6px;padding:12px 13px;position:relative;overflow:hidden;transition:.28s ease;display:flex;flex-direction:column}
+.govCard::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 95% 0%,rgba(217,185,109,.10),transparent 34%);pointer-events:none}
+.govCard.active{border-color:#a78655;box-shadow:inset 0 0 18px rgba(217,185,109,.035),0 0 14px rgba(217,185,109,.08)}
+.govTop{display:flex;justify-content:space-between;align-items:center;gap:10px;position:relative;z-index:1}
+.govKicker{font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:#b8a370;font-weight:900}
+.govStatus{font-size:7px;letter-spacing:.12em;color:#e5c77d;border:1px solid #7a6740;border-radius:3px;padding:2px 5px;text-transform:uppercase}
+.govTitle{font-size:16px;font-weight:860;color:#f1dc9f;margin-top:10px;position:relative;z-index:1}
+.govText{font-size:9.35px;line-height:1.38;color:#c6c0ae;margin-top:7px;position:relative;z-index:1;flex:0 1 auto}
+.govRef{font-size:7.4px;line-height:1.30;color:#958d7b;margin-top:auto;padding-top:6px;border-top:1px solid #38352e;position:relative;z-index:1;flex:none}
+.govRef strong{color:#b8a370}
+.controlLamps{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:5px;margin-top:8px;position:relative;z-index:1;flex:none}
+.controlLamp{border:1px solid #7f6c43;border-radius:4px;padding:4px 3px;text-align:center;font-size:6.45px;font-weight:850;letter-spacing:.045em;color:#f0d286;background:#261f12;box-shadow:0 0 8px rgba(217,185,109,.10)}
 .rowName{font-size:9.5px;font-weight:850;color:#e3eef2}
 .rowText{font-size:9.1px;line-height:1.28;color:#a9bac4}
 .row .mini{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:7px;box-shadow:0 0 8px rgba(103,209,155,.55)}
-.footer{height:26px;display:flex;justify-content:space-between;align-items:flex-end;margin-top:6px;font-size:7.5px;color:#6d8390;line-height:1.22}
+.empty{color:#607684;font-size:9px;padding:15px 3px}
+.footer{
+  height:26px;display:flex;justify-content:space-between;align-items:flex-end;margin-top:6px;
+  font-size:7.5px;color:#6d8390;line-height:1.22
+}
 .footer strong{color:#90a5b1}
 </style>
 </head>
 <body>
-<div id="fit"><div class="canvas">
+<div id="fit">
+<div class="canvas">
 <header>
   <div class="brand">
-    <svg class="logo" viewBox="0 0 64 64" aria-label="Nexus Synapse mark"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#63e4ec"/><stop offset="1" stop-color="#159cab"/></linearGradient></defs><path d="M32 4 56 18v28L32 60 8 46V18Z" fill="none" stroke="url(#g)" stroke-width="2.2"/><path d="M17 45V19l23 26V19M25 19v12l15 17M47 19v26" fill="none" stroke="url(#g)" stroke-width="4"/></svg>
-    <div><h1>NEXUS SYNAPSE — REQUEST WATCH</h1><div class="tagline">One runtime · bounded responsibilities · one request moving through the system</div></div>
+    <svg class="logo" viewBox="0 0 64 64" aria-label="Nexus Synapse mark">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#63e4ec"/><stop offset="1" stop-color="#159cab"/></linearGradient></defs>
+      <path d="M32 4 56 18v28L32 60 8 46V18Z" fill="none" stroke="url(#g)" stroke-width="2.2"/>
+      <path d="M17 45V19l23 26V19M25 19v12l15 17M47 19v26" fill="none" stroke="url(#g)" stroke-width="4"/>
+    </svg>
+    <div>
+      <h1>NEXUS SYNAPSE — REQUEST WATCH</h1>
+      <div class="tagline">One runtime · bounded responsibilities · one request moving through the system</div>
+    </div>
   </div>
-  <div class="disclosure"><strong>PUBLIC-SAFE V5 TARGET VIEW.</strong> Current production is a parity baseline only. Animation pacing is illustrative. Historic benchmark timings remain explicitly labeled until current V5 station spans are connected.</div>
+  <div class="disclosure"><strong>PUBLIC-SAFE V5 VIEW.</strong> The governed-turn process shape is reconciled from current production and hardened in V5. V5 code/test evidence is versioned separately; controlled dogfood activation is not implied by this animation. Pacing is illustrative.</div>
 </header>
+
 <section class="panel journey">
-  <div class="head"><div><div class="kicker">Request Journey</div><div class="small">Delivery-tracker view</div></div><div class="small">Auto-loop · 2.6 s station dwell · 0.48 s handoff</div></div>
+  <div class="head">
+    <div><div class="kicker">Request Journey</div><div class="small">Delivery-tracker view</div></div>
+    <div class="small">Auto-loop · 2.6 s station dwell · 0.48 s handoff</div>
+  </div>
   <div class="tracker" id="tracker">
     <div class="rail"><div class="fill" id="fill"></div></div>
     <div class="traveler" id="traveler"><svg viewBox="0 0 24 24"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></div>
-    <div class="station active"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div><div class="label">Request</div><div class="meta">trusted intake<br>actor / scope</div><div class="tag">receiving</div></div>
-    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="5"/><path d="m14 14 5 5"/></svg></div><div class="label">Analysis</div><div class="meta">historic NLP avg<br>1.09 s</div><div class="tag">inspection</div></div>
-    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4Z"/><path d="m4 12 8 4 8-4M4 17l8 4 8-4"/></svg></div><div class="label">State Assembly</div><div class="meta">authorized context<br>parallel fan-in</div><div class="tag">staging</div></div>
-    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><div class="label">SSR</div><div class="meta">bounded context<br>composition</div><div class="tag">assembly</div></div>
-    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a3 3 0 0 0 3 3h1V4Zm6 0a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-3 3h-1V4Z"/><path d="M10 8h4M10 12h4M10 16h4"/></svg></div><div class="label">Model Inference</div><div class="meta">historic LLM avg<br>8.50 s</div><div class="tag">inference</div></div>
-    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="m5 19 6-6M14 10l5-5M13 5l6 6M4 9l4-4 4 4-4 4Z"/></svg></div><div class="label">Tool / Proof</div><div class="meta">authorize · execute<br>receipt</div><div class="tag">workcell</div></div>
-    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4Z"/><path d="M8 9h8M8 12h5"/></svg></div><div class="label">Response</div><div class="meta">validate +<br>deliver</div><div class="tag">final inspection</div></div>
-    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 7c0-2 3.6-4 8-4s8 2 8 4-3.6 4-8 4-8-2-8-4Z"/><path d="M4 7v5c0 2 3.6 4 8 4s8-2 8-4V7M4 12v5c0 2 3.6 4 8 4s8-2 8-4v-5"/></svg></div><div class="label">Continuity Update</div><div class="meta">persist + async<br>follow-on work</div><div class="tag">shipping</div></div>
+
+    <div class="station active"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div><div class="label">Receiving</div><div class="meta">request intake<br>actor / scope</div><div class="tag">00 · trust</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="5"/><path d="m14 14 5 5"/></svg></div><div class="label">Analysis</div><div class="meta">historic NLP avg<br>1.09 s</div><div class="tag">01 · inspection</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4Z"/><path d="m4 12 8 4 8-4M4 17l8 4 8-4"/></svg></div><div class="label">Context Kitting</div><div class="meta">authorized context<br>parallel fan-in</div><div class="tag">02 · kitting</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><div class="label">SSR</div><div class="meta">bounded context<br>composition</div><div class="tag">03 · assembly</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a3 3 0 0 0 3 3h1V4Zm6 0a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-3 3h-1V4Z"/><path d="M10 8h4M10 12h4M10 16h4"/></svg></div><div class="label">Forklift</div><div class="meta">route + model<br>inference</div><div class="tag">04 · dispatch</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="m5 19 6-6M14 10l5-5M13 5l6 6M4 9l4-4 4 4-4 4Z"/></svg></div><div class="label">Tool / Proof</div><div class="meta">authorize · execute<br>receipt</div><div class="tag">05 · workcell</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4Z"/><path d="M8 9h8M8 12h5"/></svg></div><div class="label">Final Inspection</div><div class="meta">validate +<br>deliver</div><div class="tag">06 · release</div></div>
+    <div class="station"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 7c0-2 3.6-4 8-4s8 2 8 4-3.6 4-8 4-8-2-8-4Z"/><path d="M4 7v5c0 2 3.6 4 8 4s8-2 8-4V7M4 12v5c0 2 3.6 4 8 4s8-2 8-4v-5"/></svg></div><div class="label">Transaction Close</div><div class="meta">persist + async<br>follow-on work</div><div class="tag">07 · close</div></div>
   </div>
-  <div class="strip"><div><strong id="current">Request</strong> · <span class="summary" id="summary">Resolve trusted actor and session scope.</span></div><div class="historic"><strong>Historic 2026-02-14:</strong> Nexus avg 9.59 s/turn · NLP 1.09 s · LLM 8.50 s</div></div>
+  <div class="strip">
+    <div><strong id="current">Request</strong> · <span class="summary" id="summary">Authenticate principal and release trusted scope.</span></div>
+    <div class="historic"><strong>Historic 2026-02-14:</strong> Nexus avg 9.59 s/turn · NLP 1.09 s · LLM 8.50 s</div>
+  </div>
 </section>
+
 <section class="panel respPanel">
-  <div class="respHead"><div><div class="kicker">Responsibility Status</div><div class="small">Thumbnails show participation only</div></div><div class="small">Active responsibilities illuminate as the request moves</div></div>
+  <div class="respHead">
+    <div><div class="kicker">Responsibility Status</div><div class="small">Thumbnails show participation only</div></div>
+    <div class="small">Active responsibilities illuminate as the request moves</div>
+  </div>
   <div class="thumbs">
-    <div class="thumb active" data-r="actor"><div class="dot"></div><div class="tn">Actor / Scope</div></div><div class="thumb" data-r="nlp"><div class="dot"></div><div class="tn">NLP</div></div><div class="thumb" data-r="focus"><div class="dot"></div><div class="tn">Focus / Salience</div></div><div class="thumb" data-r="identity"><div class="dot"></div><div class="tn">Identity</div></div><div class="thumb" data-r="memory"><div class="dot"></div><div class="tn">Memory</div></div><div class="thumb" data-r="modes"><div class="dot"></div><div class="tn">Modes / Gauges</div></div><div class="thumb" data-r="goals"><div class="dot"></div><div class="tn">Goals / Loops</div></div><div class="thumb" data-r="tools"><div class="dot"></div><div class="tn">Tools / Policy</div></div><div class="thumb" data-r="ssr"><div class="dot"></div><div class="tn">SSR</div></div><div class="thumb" data-r="provider"><div class="dot"></div><div class="tn">Provider</div></div><div class="thumb" data-r="proof"><div class="dot"></div><div class="tn">Evidence / Proof</div></div><div class="thumb" data-r="persist"><div class="dot"></div><div class="tn">Persistence / Async</div></div>
+    <div class="thumb active" data-r="actor"><div class="dot"></div><div class="tn">Actor / Scope</div></div>
+    <div class="thumb" data-r="nlp"><div class="dot"></div><div class="tn">NLP</div></div>
+    <div class="thumb" data-r="focus"><div class="dot"></div><div class="tn">Focus / Salience</div></div>
+    <div class="thumb" data-r="identity"><div class="dot"></div><div class="tn">Identity</div></div>
+    <div class="thumb" data-r="memory"><div class="dot"></div><div class="tn">Memory</div></div>
+    <div class="thumb" data-r="modes"><div class="dot"></div><div class="tn">Modes / Gauges</div></div>
+    <div class="thumb" data-r="goals"><div class="dot"></div><div class="tn">Goals / Loops</div></div>
+    <div class="thumb" data-r="tools"><div class="dot"></div><div class="tn">Tools / Policy</div></div>
+    <div class="thumb" data-r="ssr"><div class="dot"></div><div class="tn">SSR</div></div>
+    <div class="thumb" data-r="provider"><div class="dot"></div><div class="tn">Provider</div></div>
+    <div class="thumb" data-r="proof"><div class="dot"></div><div class="tn">Evidence / Proof</div></div>
+    <div class="thumb" data-r="persist"><div class="dot"></div><div class="tn">Persistence / Async</div></div>
   </div>
 </section>
+
 <section class="panel sign">
-  <div class="signTop"><div class="signBlock"><div class="signLabel">Current Station</div><div class="signValue" id="signStation">REQUEST</div></div><div class="signBlock"><div class="signLabel">What Is Happening</div><div class="signSummary" id="signSummary">Authenticate the request and establish trusted user/team/session scope.</div></div><div class="signBlock"><div class="signLabel">Named Dependencies / Notes</div><div class="signTech" id="signTech">Runtime-owned authentication and scope resolution. Model text is not identity authority.</div></div></div>
-  <div class="rows" id="rows"></div>
-  <div class="footer"><div><strong>Public-safe boundary:</strong> responsibility ownership, flow and named dependencies only. Thresholds, formulas, queries, prompt text and private activation logic withheld.</div><div>Request Watch v0.4.1 · centered presentation-fit</div></div>
+  <div class="signTop">
+    <div class="signBlock">
+      <div class="signLabel">Current Station</div>
+      <div class="signValue" id="signStation">REQUEST</div>
+    </div>
+    <div class="signBlock">
+      <div class="signLabel">What Is Happening</div>
+      <div class="signSummary" id="signSummary">Authenticate the request and establish trusted user/team/session scope.</div>
+    </div>
+    <div class="signBlock">
+      <div class="signLabel">Named Dependencies / Notes</div>
+      <div class="signTech" id="signTech">Runtime-owned authentication and scope resolution. Model text is not identity authority.</div>
+    </div>
+  </div>
+  <div class="signBody">
+    <div class="rows" id="rows"></div>
+    <aside class="govCard active" id="govCard">
+      <div class="govTop"><div class="govKicker">Governance / Quality Control</div><div class="govStatus" id="govStatus">CONTROL ACTIVE</div></div>
+      <div class="govTitle" id="govTitle">Trust / Scope Release</div>
+      <div class="govText" id="govText">Authenticate the principal and release only a trusted user/team/session scope into the runtime.</div>
+      <div class="controlLamps" id="controlLamps"></div>
+      <div class="govRef" id="govRef"><strong>Control family:</strong> CTRL-100<br>Decision-receipt binding to an approved control revision: <strong>V5 TRACEABILITY GAP</strong></div>
+    </aside>
+  </div>
+
+  <div class="footer">
+    <div><strong>Public-safe boundary:</strong> responsibility ownership, flow and named dependencies only. Thresholds, formulas, queries, prompt text and private activation logic withheld.</div>
+    <div>Request Watch v0.6 · governance / quality overlay</div>
+  </div>
 </section>
-</div></div>
+</div>
+</div>
+
 <script>
 const DWELL=2600, MOVE=480, RESET=480;
 const stages=[
- {n:"Request",s:"Authenticate the request and establish trusted user/team/session scope.",t:"Runtime-owned authentication and scope resolution. Model text is not identity authority.",a:{actor:"Resolve trusted actor, user/team/session scope and correlation identity."}},
- {n:"Analysis",s:"Run advisory turn analysis. Independent classifications/signals may execute in parallel and converge into structured turn state.",t:"Current proven dependencies: Stanza · facebook/bart-large-mnli · DistilRoBERTa emotion classifier · VADER · all-MiniLM-L6-v2.",a:{actor:"Carry trusted scope through analysis.",nlp:"Produce intent, topic, emotion-context, confidence and linguistic signals.",focus:"Receive turn/session signals; evaluate focus-state and salience inputs."}},
- {n:"State Assembly",s:"Acquire authorized runtime state in parallel before deterministic composition.",t:"State owners remain independent; acquisition fans in rather than making the model fetch its own operating state.",a:{identity:"Project eligible versioned identity / Character Sheet state.",memory:"Retrieve scoped session continuity and eligible memory evidence.",modes:"Resolve active mode overlay and gauge projection.",goals:"Load eligible goals, tasks, decisions, pins and open loops.",tools:"Build the actor-authorized, dispatchable capability view."}},
- {n:"SSR",s:"Compose the minimum eligible operating state into a bounded context package.",t:"Public view intentionally omits exact ranking, thresholds, prompt text, gauge math and private section-selection logic.",a:{ssr:"Order, budget and compose eligible sections with source/version provenance.",identity:"Supply identity projection.",memory:"Supply scoped continuity/memory.",modes:"Supply behavioral overlay/gauges.",goals:"Supply active-work state.",tools:"Supply authorized capability contract.",nlp:"Supply advisory turn-state signals.",focus:"Supply advisory focus/salience signals."}},
- {n:"Model Inference",s:"Hand the governed operating context to an interchangeable inference engine.",t:"Provider/model is an inference dependency inside the runtime, not owner of identity, memory, authority or canonical state.",a:{provider:"Route to a capability-compatible model/provider and record invocation provenance.",ssr:"Completed operating-context package is consumed by inference.",tools:"Authorized schemas remain available for proposal only."}},
- {n:"Tool / Proof",s:"When action is proposed, runtime policy validates, authorizes, executes and observes the result.",t:"Proposal ≠ authorization ≠ execution ≠ receipt. A model claim cannot substitute for an observed result.",a:{tools:"Validate proposal → authorize → execute → return observed result.",provider:"Continue inference only after actual tool results return.",proof:"Require evidence/receipt before success claims.",actor:"Trusted actor scope remains the execution boundary."}},
- {n:"Response",s:"Validate the draft against available evidence and deliver a truthful final result.",t:"V5 target includes receipt-aware bounded correction before final delivery.",a:{proof:"Check draft/tool/artifact claims against receipts and validators.",provider:"Synthesize the final user-facing response from governed context and observed results.",tools:"Expose verified outcomes to final synthesis when used."}},
- {n:"Continuity Update",s:"Persist the completed turn, then dispatch non-blocking follow-on work asynchronously.",t:"Post-turn work may include summaries, learning, reminders, reflection and maintenance. These should not block the ordinary response.",a:{persist:"Commit turn/receipts and enqueue bounded asynchronous work.",memory:"Update continuity sources/candidates under governed persistence rules.",goals:"Persist actual task/decision/follow-up changes when produced."}}
+ {n:"Receiving",s:"Authenticate the request and establish trusted user/team/session scope.",t:"Runtime-owned authentication and scope resolution. Model text is not identity authority.",g:{ref:"CTRL-100",title:"Trust / Scope Release",text:"Only an authenticated principal and authorized user/team/session scope may enter the governed turn. Ambiguous or unauthorized scope is denied before downstream work.",controls:["AUTH","SCOPE"]},a:{actor:"Resolve trusted actor, user/team/session scope and immutable turn identity."}},
+ {n:"Analysis",s:"Run advisory turn analysis. Independent classifications/signals may execute in parallel and converge into structured turn state.",t:"Current proven dependencies: Stanza · facebook/bart-large-mnli · DistilRoBERTa emotion classifier · VADER · all-MiniLM-L6-v2.",g:{ref:"CTRL-200",title:"Analysis Quality",text:"Analysis is confidence-labeled and advisory. Low-confidence or unavailable NLP may degrade/omit rather than manufacture canonical fact; the focus cascade derives state from available session signals.",controls:["QUALITY","FALLBACK","PROVENANCE"]},a:{actor:"Carry trusted scope through analysis.",nlp:"Produce intent, topic, emotion-context, confidence and linguistic signals.",focus:"Evaluate focus-state and salience inputs from already-available signals."}},
+ {n:"Context Kitting",s:"Acquire authorized runtime state in parallel before deterministic composition.",t:"State owners remain independent; acquisition fans in rather than making the model fetch its own operating state.",g:{ref:"CTRL-300",title:"Context Eligibility / Scope",text:"Each state owner releases only eligible, current and in-scope material. Invalid modes fall back to baseline; unsafe/out-of-scope memory is excluded; undispatchable or unauthorized tools are hidden.",controls:["SCOPE","ELIGIBILITY","POLICY","PROVENANCE"]},a:{identity:"Project eligible versioned identity / Character Sheet state.",memory:"Retrieve scoped session continuity and eligible memory evidence.",modes:"Resolve permitted active mode overlay and gauge projection.",goals:"Load authorized active goals, tasks, decisions, pins and open loops.",tools:"Build the actor-authorized, dispatchable capability view."}},
+ {n:"SSR",s:"Compose the minimum eligible operating state into a bounded context package.",t:"Public view intentionally omits exact ranking, thresholds, prompt text, gauge math and private section-selection logic.",g:{ref:"CTRL-400",title:"Context Release",text:"Required protected sections must be available. Optional sections are evaluated for eligibility and protected budget; omitted material receives a reason/provenance receipt. Advisory cognition may degrade without taking authority.",controls:["ELIGIBILITY","BUDGET","REDACTION","PROVENANCE"]},a:{ssr:"Order, budget and compose eligible sections with source/version provenance.",identity:"Supply identity projection.",memory:"Supply scoped continuity/memory.",modes:"Supply behavioral overlay/gauges.",goals:"Supply active-work state.",tools:"Supply authorized capability contract.",nlp:"Supply advisory turn-state signals.",focus:"Supply advisory focus/salience signals."}},
+ {n:"Forklift",s:"Route the governed operating context to an interchangeable inference engine.",t:"Provider/model is inference equipment inside the runtime, not owner of identity, memory, authority or canonical state.",g:{ref:"CTRL-500",title:"Provider Route Control",text:"The selected route must be known/enabled, capability-compatible, allowlisted and compatible with the data boundary. Fallback is deny-by-default and must preserve the same constraints.",controls:["POLICY","CAPABILITY","DATA BOUNDARY","PROVENANCE"]},a:{provider:"Plan and execute a capability-compatible provider/model route; retain invocation provenance.",ssr:"Completed operating-context package is consumed by inference.",tools:"Authorized schemas remain available to the model for proposal only."}},
+ {n:"Tool / Proof",s:"When action is proposed, runtime policy validates, authorizes, executes and observes the result.",t:"Proposal ≠ authorization ≠ execution ≠ receipt. A model claim cannot substitute for an observed result.",g:{ref:"CTRL-600 / CTRL-610",title:"Execution Authorization / Artifact Verification",text:"A proposed capability must be advertised, dispatchable, actor-authorized and argument/deadline valid. Artifact success additionally requires real bytes plus existence/hash/version verification before a receipt can support a success claim.",controls:["AUTH","POLICY","EVIDENCE","INTEGRITY"]},a:{tools:"Validate proposal → authorize → execute or enqueue → return observed result.",provider:"Continue inference only after actual tool results return.",proof:"Require execution/artifact evidence before success claims.",actor:"Trusted actor scope remains the execution boundary."}},
+ {n:"Final Inspection",s:"Validate the draft against available evidence and deliver a truthful final result.",t:"V5 target includes receipt-aware bounded correction before final delivery; hard unresolved checks become an explicit bounded failure.",g:{ref:"CTRL-700",title:"Response Release",text:"Hard claim/policy checks must pass against available receipts/evidence before release. Failed checks enter bounded correction/reinspection; unresolved hard failures do not silently ship as PASS.",controls:["QUALITY","EVIDENCE","RELEASE","REWORK"]},a:{proof:"Check draft/tool/artifact claims against receipts and validators.",provider:"Synthesize the final user-facing response from governed context and observed results.",tools:"Expose verified outcomes to final synthesis when used."}},
+ {n:"Transaction Close",s:"Persist the completed turn, then dispatch non-blocking follow-on work asynchronously.",t:"Jobs are durable WIP with lease/retry/dead-letter semantics. Candidate-generating workers do not silently mutate protected state.",g:{ref:"CTRL-800",title:"Transaction / Async Control",text:"Turn + receipts + outbox must commit durably. Async work is leased, retryable/idempotent and dead-letterable; learned/reflected changes cross a candidate/proposal boundary before protected state can change.",controls:["DURABILITY","WIP","RETRY","MUTATION"]},a:{persist:"Commit turn/receipts and durable outbox work.",memory:"Update continuity sources/candidates under governed persistence rules.",goals:"Persist actual task/decision/follow-up changes when produced."}}
 ];
 const names={actor:"Trusted Actor / Scope",nlp:"NLP",focus:"Focus / Salience",identity:"Identity / Character Sheet",memory:"Memory / Continuity",modes:"Modes / Gauges",goals:"Goals / Open Loops",tools:"Tools / Capability Policy",ssr:"SSR Composer",provider:"Provider / Inference",proof:"Evidence / Self-Correction",persist:"Persistence / Async Work"};
+const controlNames=["AUTH","SCOPE","QUALITY","FALLBACK","PROVENANCE","ELIGIBILITY","POLICY","BUDGET","REDACTION","CAPABILITY","DATA BOUNDARY","EVIDENCE","INTEGRITY","RELEASE","REWORK","DURABILITY","WIP","RETRY","MUTATION"];
 const stations=[...document.querySelectorAll(".station")], thumbs=[...document.querySelectorAll(".thumb")];
 const tracker=document.getElementById("tracker"),traveler=document.getElementById("traveler"),fill=document.getElementById("fill");
 const cur=document.getElementById("current"),summary=document.getElementById("summary"),rows=document.getElementById("rows");
 const signStation=document.getElementById("signStation"),signSummary=document.getElementById("signSummary"),signTech=document.getElementById("signTech");
+const govCard=document.getElementById("govCard"),govStatus=document.getElementById("govStatus"),govTitle=document.getElementById("govTitle"),govText=document.getElementById("govText"),govRef=document.getElementById("govRef"),controlLamps=document.getElementById("controlLamps");
 let idx=0,timer;
+
 function center(i){const n=stations[i].querySelector(".node"),tr=tracker.getBoundingClientRect(),nr=n.getBoundingClientRect();return nr.left-tr.left+nr.width/2}
-function show(i,instant=false){idx=i;const stage=stages[i];stations.forEach((e,j)=>{e.classList.toggle("active",j===i);e.classList.toggle("done",j<i)});thumbs.forEach(t=>t.classList.toggle("active",!!stage.a[t.dataset.r]));cur.textContent=stage.n;summary.textContent=stage.s;signStation.textContent=stage.n.toUpperCase();signSummary.textContent=stage.s;signTech.textContent=stage.t;rows.innerHTML="";Object.entries(stage.a).forEach(([k,v])=>{const r=document.createElement("div");r.className="row";r.innerHTML=`<div class="rowName"><span class="mini"></span>${names[k]}</div><div class="rowText">${v}</div>`;rows.appendChild(r)});const x=center(i),first=center(0),last=center(stations.length-1),pct=((x-first)/(last-first))*100;traveler.style.transition=instant?"none":`left ${MOVE}ms cubic-bezier(.24,.82,.25,1),opacity .18s ease`;fill.style.transition=instant?"none":`width ${MOVE}ms cubic-bezier(.24,.82,.25,1)`;traveler.style.left=x+"px";fill.style.width=Math.max(0,Math.min(100,pct))+"%"}
-function loop(){clearTimeout(timer);timer=setTimeout(()=>{if(idx<stages.length-1){show(idx+1);loop()}else{setTimeout(()=>{traveler.style.opacity=0;setTimeout(()=>{show(0,true);traveler.style.opacity=1;loop()},170)},RESET)}},DWELL)}
-function fit(){const scale=Math.min(window.innerWidth/1600,window.innerHeight/900);document.getElementById("fit").style.transform=`translate(-50%,-50%) scale(${scale})`;show(idx,true)}
-window.addEventListener("resize",fit);document.addEventListener("visibilitychange",()=>{if(document.hidden)clearTimeout(timer);else loop()});fit();show(0,true);loop();
+function renderStage(i){
+ idx=i;const stage=stages[i];
+ stations.forEach((e,j)=>{e.classList.toggle("active",j===i);e.classList.toggle("done",j<i)});
+ thumbs.forEach(t=>t.classList.toggle("active",!!stage.a[t.dataset.r]));
+ cur.textContent=stage.n;summary.textContent=stage.s;signStation.textContent=stage.n.toUpperCase();signSummary.textContent=stage.s;signTech.textContent=stage.t;
+ govCard.classList.toggle("active",!!stage.g);govStatus.textContent=stage.g?"CONTROL ACTIVE":"NO CONTROL GATE";govTitle.textContent=stage.g?stage.g.title:"No explicit governance gate";govText.textContent=stage.g?stage.g.text:"This station does not apply a material governance / quality decision.";govRef.innerHTML=stage.g?`<strong>Control family:</strong> ${stage.g.ref}<br>Decision-receipt binding to an approved control revision: <strong>V5 TRACEABILITY GAP</strong>`:"";controlLamps.innerHTML="";(stage.g?stage.g.controls:[]).forEach(name=>{const el=document.createElement("div");el.className="controlLamp";el.textContent=name;controlLamps.appendChild(el)});
+ rows.innerHTML="";
+ Object.entries(stage.a).forEach(([k,v])=>{
+   const r=document.createElement("div");r.className="row";
+   r.innerHTML=`<div class="rowName"><span class="mini"></span>${names[k]}</div><div class="rowText">${v}</div>`;
+   rows.appendChild(r);
+ });
+}
+function moveTraveler(i,instant=false){
+ const x=center(i),first=center(0),last=center(stations.length-1),pct=((x-first)/(last-first))*100;
+ traveler.style.transition=instant?"none":`left ${MOVE}ms cubic-bezier(.24,.82,.25,1),opacity .18s ease`;
+ fill.style.transition=instant?"none":`width ${MOVE}ms cubic-bezier(.24,.82,.25,1)`;
+ traveler.style.left=x+"px";fill.style.width=Math.max(0,Math.min(100,pct))+"%";
+}
+function show(i,instant=false){
+ moveTraveler(i,instant);
+ renderStage(i);
+}
+function advance(){
+ if(idx<stages.length-1){
+   const next=idx+1;
+   // The traveler is the WIP token. Move it first; only when it arrives do the
+   // station lights and lower information panels advance to that station.
+   moveTraveler(next,false);
+   timer=setTimeout(()=>{renderStage(next);loop();},MOVE);
+ } else {
+   timer=setTimeout(()=>{
+     traveler.style.opacity=0;
+     setTimeout(()=>{show(0,true);traveler.style.opacity=1;loop()},170);
+   },RESET);
+ }
+}
+function loop(){
+ clearTimeout(timer);
+ timer=setTimeout(advance,DWELL);
+}
+function fit(){
+ const scale=Math.min(window.innerWidth/1600,window.innerHeight/900);
+ document.getElementById("fit").style.transform=`translate(-50%,-50%) scale(${scale})`;
+ show(idx,true)
+}
+window.addEventListener("resize",fit);
+document.addEventListener("visibilitychange",()=>{if(document.hidden)clearTimeout(timer);else loop()});
+fit();show(0,true);loop();
 </script>
 </body>
 </html>
