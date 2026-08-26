@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "reconciled_at": "2026-08-26",
+  "policy": "docs/RECONCILIATION_CONTROL.md",
+  "notes": [
+    "Pinned SHA means last reconciled source revision, not necessarily the repository's semantic release tag.",
+    "Private-source checks require the optional NEXUS_RECONCILE_TOKEN Actions secret with read access to the named private repositories.",
+    "The engineering portfolio main branch is intentionally not self-pinned here; Git history is authoritative for the current portfolio revision."
+  ],
+  "sources": [
+    {
+      "id": "production-runtime",
+      "repository": "ChrisCanadian/nexus-synapse-runtime",
+      "ref": "main",
+      "access": "private",
+      "pinned_sha": "2514a11366f8e7f345bb854c0cfaee8c7b40dddd",
+      "role": "production parity / deployed-code reference",
+      "check_private_when_token_available": true
+    },
+    {
+      "id": "v5-working",
+      "repository": "ChrisCanadian/nexus-v5-reconstruction",
+      "ref": "reconstruction/cloud-benchmark-wrapup-20260824",
+      "access": "private",
+      "pinned_sha": "3c155d1abfbc3945da84c432bb6901212e6a8975",
+      "role": "active V5 target reconstruction branch",
+      "check_private_when_token_available": true,
+      "qualification": {
+        "code_checkpoint_sha": "cea8d9c3cea1c17b4cffc0a70f195582fedd5fb5",
+        "ci_qualified_sha": "3c155d1abfbc3945da84c432bb6901212e6a8975",
+        "ci_run": 32991544397,
+        "staging_accepted_sha": "cea8d9c3cea1c17b4cffc0a70f195582fedd5fb5",
+        "staging_release_run": 32967673812
+      }
+    },
+    {
+      "id": "proof-runtime",
+      "repository": "ChrisCanadian/nexus-proof-runtime",
+      "ref": "main",
+      "access": "public",
+      "pinned_sha": "8660a3c3477d64fe203d5cda8335bbd367c5df9d",
+      "role": "bounded proof/evidence reference kernel",
+      "package_version_path": "pyproject.toml",
+      "expected_package_version": "0.1.1",
+      "expected_release_tag": "v0.1.1"
+    },
+    {
+      "id": "acceptance-rig",
+      "repository": "ChrisCanadian/Live-Runtime-Acceptance-Rig",
+      "ref": "main",
+      "access": "public",
+      "pinned_sha": "db87ff7fb61932379a366fea94035f3134602d4b",
+      "role": "live-boundary acceptance framework",
+      "package_version_path": "pyproject.toml",
+      "expected_package_version": "0.1.1",
+      "expected_release_tag": "v0.1.1"
+    },
+    {
+      "id": "mode-card-creator",
+      "repository": "ChrisCanadian/nexus-mode-card-creator",
+      "ref": "main",
+      "access": "public",
+      "pinned_sha": "468cae066142a73edfc4e9845f4dfd8a2e9e2ccc",
+      "role": "bounded behavioral-authoring surface",
+      "package_version_path": "pyproject.toml",
+      "expected_package_version": "0.1.2"
+    },
+    {
+      "id": "memory-kernel",
+      "repository": "ChrisCanadian/Nexus-Memory-Kernel",
+      "ref": "main",
+      "access": "public",
+      "pinned_sha": "a29bdb88f9569ac416522261deabe27f50226916",
+      "role": "bounded memory reference kernel",
+      "package_version_path": "pyproject.toml",
+      "expected_package_version": "0.1.0"
+    },
+    {
+      "id": "blackbox-gateway",
+      "repository": "ChrisCanadian/nexus-blackbox-validation-gateway",
+      "ref": "main",
+      "access": "public",
+      "pinned_sha": "8dbfc04d40ba068cfd2d0d32a7228ac705db307e",
+      "role": "public opaque-target challenge surface",
+      "package_version_path": "pyproject.toml",
+      "expected_package_version": "0.2.0"
+    },
+    {
+      "id": "provider-router",
+      "repository": "ChrisCanadian/OpenAI-compatible-router",
+      "ref": "main",
+      "access": "public",
+      "pinned_sha": "f7e27f898c16d6b18acb602a448b077bb2844f01",
+      "role": "generic BYO provider transport",
+      "package_version_path": "pyproject.toml",
+      "expected_package_version": "0.2.0"
+    },
+    {
+      "id": "chrisai-runtime",
+      "repository": "ChrisCanadian/chrisai-runtime",
+      "ref": "main",
+      "access": "public",
+      "pinned_sha": "8a692b93824b02c85d4dbafd0f2fcb96690363be",
+      "role": "historical reconstruction",
+      "package_version_path": "pyproject.toml",
+      "expected_package_version": "0.1.0"
+    },
+    {
+      "id": "request-watch-pages",
+      "repository": "ChrisCanadian/nexus-synapse-engineering-portfolio",
+      "ref": "gh-pages",
+      "access": "public",
+      "pinned_sha": "ed56ba52c88961f40a579afc2b92fa68fe9ef2e7",
+      "role": "live public Request Watch presentation",
+      "content_checks": [
+        {"path": "index.html", "must_contain": ["REQUEST WATCH", "v0.6", "GOVERNANCE / QUALITY CONTROL"]}
+      ]
+    }
+  ]
+}
