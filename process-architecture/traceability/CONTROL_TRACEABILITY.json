@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0.0",
+  "traceability_release": "0.1.0",
+  "reconciled_at": "2026-08-26",
+  "purpose": "Public-safe control-to-process-to-capability-to-evidence traceability for Nexus Synapse.",
+  "claim_rule": "A process/control map is navigation evidence. Runtime claims may not exceed the strongest separately retained implementation, test, activation, durability, or independent-verification evidence.",
+  "evidence_vocabulary": [
+    "DOCUMENTED",
+    "CODE_BACKED",
+    "TESTED",
+    "STAGING_ACTIVATED",
+    "PRODUCTION_ACTIVATED",
+    "DURABLE",
+    "INDEPENDENTLY_VERIFIED",
+    "TRACEABILITY_GAP"
+  ],
+  "source_snapshots": {
+    "production_pattern": {
+      "repository": "ChrisCanadian/nexus-synapse-runtime",
+      "ref": "main",
+      "sha": "2514a11366f8e7f345bb854c0cfaee8c7b40dddd",
+      "role": "production parity / exercised responsibility-pattern oracle"
+    },
+    "v5_working": {
+      "repository": "ChrisCanadian/nexus-v5-reconstruction",
+      "ref": "reconstruction/cloud-benchmark-wrapup-20260824",
+      "working_head_sha": "3c155d1abfbc3945da84c432bb6901212e6a8975",
+      "code_checkpoint_sha": "cea8d9c3cea1c17b4cffc0a70f195582fedd5fb5",
+      "capability_registry": "manifests/nexus_v5_complete_scope_registry.json",
+      "ci_qualified_sha": "3c155d1abfbc3945da84c432bb6901212e6a8975",
+      "ci_run": 32991544397,
+      "ci_result": "success",
+      "staging_accepted_sha": "cea8d9c3cea1c17b4cffc0a70f195582fedd5fb5",
+      "staging_release_run": 32967673812,
+      "staging_result": "accepted",
+      "staging_environment": "test.nexussynapse.app",
+      "production_changed": false,
+      "activation_nonclaims": [
+        "Accepted staging is not production deployment.",
+        "Human browser login acceptance remains separate from protected workflow credential acceptance.",
+        "Staging acceptance does not establish long-duration durability or independent verification."
+      ]
+    }
+  },
+  "runtime_traceability_gap": {
+    "status": "OPEN",
+    "requirement": "Material PASS/FAIL or equivalent governed decision receipts should identify the governing control_id plus approved_revision when that control is consequential to the disposition.",
+    "claim_ceiling": "The public process architecture identifies governing control families, but universal runtime binding of control_id + approved_revision into decision receipts is not yet claimed."
+  },
+  "controls": [
+    {
+      "control_id": "CTRL-100",
+      "title": "Trust / Scope Release",
+      "process_id": "100",
+      "process": "Receiving & Trust Boundary",
+      "process_doc": "process-architecture/processes/RECEIVING-TRUST-BOUNDARY.md",
+      "control_doc": "process-architecture/controls/CTRL-100-TRUST-SCOPE-RELEASE.md",
+      "v5_capabilities": [
+        {"id": "CAP-001", "role": "primary"},
+        {"id": "CAP-002", "role": "primary"},
+        {"id": "CAP-039", "role": "supporting"},
+        {"id": "CAP-038", "role": "conditional_supporting"}
+      ],
+      "v5_flows": ["FLOW-001", "FLOW-035", "FLOW-034"],
+      "acceptance_intent": [
+        "Reject model-authored identity or cross-scope authority.",
+        "Release only trusted actor/session/team scope into the governed turn.",
+        "Emit bounded denial/failure when trust or scope cannot be established."
+      ],
+      "family_evidence": ["CURRENT_PROD_PATTERN", "V5_CODE_BACKED", "V5_TESTED"],
+      "activation": "STAGING_ACTIVATED",
+      "traceability": "TRACEABILITY_GAP"
+    },
+    {
+      "control_id": "CTRL-200",
+      "title": "Analysis Quality",
+      "process_id": "200",
+      "process": "Analysis & Inspection",
+      "process_doc": "process-architecture/processes/ANALYSIS-INSPECTION.md",
+      "control_doc": "process-architecture/controls/CTRL-200-ANALYSIS-QUALITY.md",
+      "v5_capabilities": [
+        {"id": "CAP-006", "role": "primary"},
+        {"id": "CAP-017", "role": "supporting"}
+      ],
+      "v5_flows": ["FLOW-005", "FLOW-013"],
+      "acceptance_intent": [
+        "Keep low-confidence analysis advisory rather than canonical.",
+        "Degrade/omit analysis when adapters are unavailable instead of fabricating state.",
+        "Keep learned vocabulary/slang scoped, sourced, correctable and removable."
+      ],
+      "family_evidence": ["CURRENT_PROD_PATTERN", "V5_CODE_BACKED", "V5_TESTED"],
+      "activation": "STAGING_ACTIVATED",
+      "traceability": "TRACEABILITY_GAP"
+    },
+    {
+      "control_id": "CTRL-300",
+      "title": "Context Eligibility / Scope",
+      "process_id": "300",
+      "process": "Context Acquisition & Kitting",
+      "process_doc": "process-architecture/processes/CONTEXT-ACQUISITION-KITTING.md",
+      "control_doc": "process-architecture/controls/CTRL-300-CONTEXT-ELIGIBILITY-SCOPE.md",
+      "v5_capabilities": [
+        {"id": "CAP-003", "role": "primary"},
+        {"id": "CAP-004", "role": "primary"},
+        {"id": "CAP-005", "role": "primary"},
+        {"id": "CAP-008", "role": "primary"},
+        {"id": "CAP-009", "role": "supporting"},
+        {"id": "CAP-010", "role": "supporting"},
+        {"id": "CAP-011", "role": "primary"},
+        {"id": "CAP-012", "role": "supporting"},
+        {"id": "CAP-013", "role": "supporting"},
+        {"id": "CAP-020", "role": "primary"},
+        {"id": "CAP-025", "role": "conditional_supporting"},
+        {"id": "CAP-027", "role": "conditional_supporting"},
+        {"id": "CAP-028", "role": "conditional_supporting"},
+        {"id": "CAP-029", "role": "conditional_supporting"},
+        {"id": "CAP-030", "role": "conditional_supporting"},
+        {"id": "CAP-038", "role": "conditional_supporting"}
+      ],
+      "v5_flows": ["FLOW-002", "FLOW-003", "FLOW-004", "FLOW-007", "FLOW-008", "FLOW-009", "FLOW-010", "FLOW-011", "FLOW-016", "FLOW-021", "FLOW-023", "FLOW-024", "FLOW-025", "FLOW-026", "FLOW-034"],
+      "acceptance_intent": [
+        "Release only current, scoped and eligible identity/memory/work/tool state.",
+        "Prevent cross-scope memory or shared-state bleed.",
+        "Keep candidates/proposals distinct from canonical state."
+      ],
+      "family_evidence": ["CURRENT_PROD_PATTERN", "V5_CODE_BACKED", "V5_TESTED", "V5_HARDENING"],
+      "activation": "STAGING_ACTIVATED",
+      "traceability": "TRACEABILITY_GAP"
+    },
+    {
+      "control_id": "CTRL-400",
+      "title": "Context Release",
+      "process_id": "400",
+      "process": "SSR & Context Assembly",
+      "process_doc": "process-architecture/processes/SSR-CONTEXT-ASSEMBLY.md",
+      "control_doc": "process-architecture/controls/CTRL-400-CONTEXT-RELEASE.md",
+      "v5_capabilities": [
+        {"id": "CAP-007", "role": "primary"},
+        {"id": "CAP-032", "role": "conditional_supporting"}
+      ],
+      "v5_flows": ["FLOW-006", "FLOW-028"],
+      "acceptance_intent": [
+        "Compose deterministic authority-ordered context with section provenance.",
+        "Protect required sections and bounded budget while recording omission/redaction reasons.",
+        "Keep advisory Senate output subordinate to runtime authority and degrade to baseline on bounded failure."
+      ],
+      "family_evidence": ["CURRENT_PROD_PATTERN", "V5_CODE_BACKED", "V5_TESTED", "V5_HARDENING"],
+      "activation": "STAGING_ACTIVATED",
+      "traceability": "TRACEABILITY_GAP"
+    },
+    {
+      "control_id": "CTRL-500",
+      "title": "Provider Route Control",
+      "process_id": "500",
+      "process": "Forklift & Inference Dispatch",
+      "process_doc": "process-architecture/processes/FORKLIFT-INFERENCE-DISPATCH.md",
+      "control_doc": "process-architecture/controls/CTRL-500-PROVIDER-ROUTE-CONTROL.md",
+      "v5_capabilities": [
+        {"id": "CAP-019", "role": "primary"}
+      ],
+      "v5_flows": ["FLOW-015"],
+      "acceptance_intent": [
+        "Route only to known/enabled providers compatible with required capabilities and data boundary.",
+        "Allow fallback only when equivalent constraints remain satisfied.",
+        "Report explicit degradation/failure when a safe compatible route is unavailable."
+      ],
+      "family_evidence": ["CURRENT_PROD_PATTERN", "V5_CODE_BACKED", "V5_TESTED", "V5_HARDENING"],
+      "activation": "STAGING_ACTIVATED",
+      "traceability": "TRACEABILITY_GAP"
+    },
+    {
+      "control_id": "CTRL-600",
+      "title": "Tool Authorization",
+      "process_id": "600",
+      "process": "Tool Workcell & Proof",
+      "process_doc": "process-architecture/processes/TOOL-WORKCELL-PROOF.md",
+      "control_doc": "process-architecture/controls/CTRL-600-TOOL-AUTHORIZATION.md",
+      "v5_capabilities": [
+        {"id": "CAP-020", "role": "primary"},
+        {"id": "CAP-021", "role": "primary"},
+        {"id": "CAP-040", "role": "supporting"}
+      ],
+      "v5_flows": ["FLOW-016", "FLOW-017", "FLOW-036"],
+      "acceptance_intent": [
+        "Advertised tools must equal real dispatchable/authorized capabilities.",
+        "Validate trusted actor/scope, typed arguments, deadlines and execution mode before consequence.",
+        "Keep retry/timeout/cancel/failure state explicit and truthful."
+      ],
+      "family_evidence": ["CURRENT_PROD_PATTERN", "V5_CODE_BACKED", "V5_TESTED", "V5_HARDENING"],
+      "activation": "STAGING_ACTIVATED",
+      "traceability": "TRACEABILITY_GAP"
+    },
+    {
+      "control_id": "CTRL-610",
+      "title": "Artifact Verification",
+      "process_id": "610",
+      "process": "Tool Workcell & Proof",
+      "process_doc": "process-architecture/processes/TOOL-WORKCELL-PROOF.md",
+      "control_doc": "process-architecture/controls/CTRL-610-ARTIFACT-VERIFICATION.md",
+      "v5_capabilities": [
+        {"id": "CAP-022", "role": "primary"},
+        {"id": "CAP-023", "role": "supporting"},
+        {"id": "CAP-024", "role": "supporting"},
+        {"id": "CAP-036", "role": "supporting"}
+      ],
+      "v5_flows": ["FLOW-018", "FLOW-019", "FLOW-020", "FLOW-032"],
+      "acceptance_intent": [
+        "Do not permit an artifact-success claim without observed artifact existence and delivery evidence.",
+        "Keep artifact bytes/version/hash and surface delivery aligned.",
+        "Treat generation as distinct from verification."
+      ],
+      "family_evidence": ["CURRENT_PROD_PATTERN", "V5_CODE_BACKED", "V5_TESTED", "V5_HARDENING"],
+      "activation": "STAGING_ACTIVATED",
+      "traceability": "TRACEABILITY_GAP"
+    },
+    {
+      "control_id": "CTRL-700",
+      "title": "Response Release",
+      "process_id": "700",
+      "process": "Final Inspection & Delivery",
+      "process_doc": "process-architecture/processes/FINAL-INSPECTION-DELIVERY.md",
+      "control_doc": "process-architecture/controls/CTRL-700-RESPONSE-RELEASE.md",
+      "v5_capabilities": [
+        {"id": "CAP-001", "role": "supporting"},
+        {"id": "CAP-033", "role": "primary"},
+        {"id": "CAP-034", "role": "primary"},
+        {"id": "CAP-035", "role": "primary"},
+        {"id": "CAP-036", "role": "primary"}
+      ],
+      "v5_flows": ["FLOW-001", "FLOW-029", "FLOW-030", "FLOW-031", "FLOW-032"],
+      "acceptance_intent": [
+        "Release only after evidence/policy/claim checks or bounded correction/reinspection.",
+        "Do not convert exhausted bounded rework into PASS.",
+        "Preserve ordered/duplicate-safe delivery and truthful reconnect/error state."
+      ],
+      "family_evidence": ["CURRENT_PROD_PATTERN", "V5_CODE_BACKED", "V5_TESTED", "V5_HARDENING"],
+      "activation": "STAGING_ACTIVATED",
+      "traceability": "TRACEABILITY_GAP"
+    },
+    {
+      "control_id": "CTRL-800",
+      "title": "Transaction / Async Control",
+      "process_id": "800",
+      "process": "Transaction Close & Async Continuity",
+      "process_doc": "process-architecture/processes/TRANSACTION-CLOSE-ASYNC-CONTINUITY.md",
+      "control_doc": "process-architecture/controls/CTRL-800-TRANSACTION-ASYNC-CONTROL.md",
+      "v5_capabilities": [
+        {"id": "CAP-008", "role": "primary"},
+        {"id": "CAP-010", "role": "primary"},
+        {"id": "CAP-013", "role": "supporting"},
+        {"id": "CAP-014", "role": "supporting"},
+        {"id": "CAP-015", "role": "supporting"},
+        {"id": "CAP-016", "role": "supporting"},
+        {"id": "CAP-017", "role": "supporting"},
+        {"id": "CAP-018", "role": "supporting"},
+        {"id": "CAP-025", "role": "conditional_supporting"},
+        {"id": "CAP-026", "role": "conditional_supporting"},
+        {"id": "CAP-027", "role": "conditional_supporting"},
+        {"id": "CAP-028", "role": "conditional_supporting"},
+        {"id": "CAP-029", "role": "conditional_supporting"},
+        {"id": "CAP-030", "role": "conditional_supporting"},
+        {"id": "CAP-031", "role": "conditional_supporting"},
+        {"id": "CAP-040", "role": "primary"},
+        {"id": "CAP-041", "role": "supporting"}
+      ],
+      "v5_flows": ["FLOW-007", "FLOW-008", "FLOW-011", "FLOW-012", "FLOW-013", "FLOW-014", "FLOW-021", "FLOW-022", "FLOW-023", "FLOW-024", "FLOW-025", "FLOW-026", "FLOW-027", "FLOW-036", "FLOW-037"],
+      "acceptance_intent": [
+        "Commit turn/receipt/outbox state transactionally before relying on async work.",
+        "Make queue/WIP leasing, retry, stale-lease recovery, dead-letter and idempotency explicit.",
+        "Require candidate/proposal promotion boundaries before protected-state mutation.",
+        "Preserve safe online backup semantics for live SQLite/WAL state."
+      ],
+      "family_evidence": ["CURRENT_PROD_PATTERN", "V5_CODE_BACKED", "V5_TESTED", "V5_HARDENING"],
+      "activation": "STAGING_ACTIVATED",
+      "traceability": "TRACEABILITY_GAP"
+    }
+  ]
+}
