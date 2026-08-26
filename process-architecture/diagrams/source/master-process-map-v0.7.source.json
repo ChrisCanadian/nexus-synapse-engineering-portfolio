@@ -1,17 +1,23 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "artifact_id": "PA-MONSTER",
   "release": "v0.7",
   "representation": "master-process-map-v0.7.svg",
   "encoding": "gzip+base64-chunks",
   "chunks": [
-    "master-process-map-v0.7.svg.gz.b64.part-00",
+    "master-process-map-v0.7.svg.gz.b64.part-00a",
+    "master-process-map-v0.7.svg.gz.b64.part-00b",
+    "master-process-map-v0.7.svg.gz.b64.part-00c",
+    "master-process-map-v0.7.svg.gz.b64.part-00d",
     "master-process-map-v0.7.svg.gz.b64.part-01",
     "master-process-map-v0.7.svg.gz.b64.part-02",
     "master-process-map-v0.7.svg.gz.b64.part-03",
     "master-process-map-v0.7.svg.gz.b64.part-04",
     "master-process-map-v0.7.svg.gz.b64.part-05",
-    "master-process-map-v0.7.svg.gz.b64.part-06",
+    "master-process-map-v0.7.svg.gz.b64.part-06a",
+    "master-process-map-v0.7.svg.gz.b64.part-06b",
+    "master-process-map-v0.7.svg.gz.b64.part-06c",
+    "master-process-map-v0.7.svg.gz.b64.part-06d",
     "master-process-map-v0.7.svg.gz.b64.part-07",
     "master-process-map-v0.7.svg.gz.b64.part-08"
   ],
@@ -19,5 +25,5 @@
   "gzip_sha256": "5fe9269116e9f8a0302a5138873fa1e3c1d7df269905b0e70c31f8eaef5cc81f",
   "svg_sha256": "b4be94e9ae9635b317145d916b168a5213b3f637a57d0fbb712797cd70d68b86",
   "svg_bytes": 261336,
-  "notes": "Controlled public-safe source representation. Materializer must verify all hashes before publishing."
+  "notes": "Controlled public-safe source representation. Materializer must verify all hashes before publishing. Two connector-sensitive 7 KB segments are stored as 1.75 KB subchunks; concatenation reproduces the identical approved v0.7 byte stream."
 }
