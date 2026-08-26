@@ -1,0 +1,59 @@
+name: Publish Process Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "process-architecture/diagrams/source/**"
+      - "scripts/materialize_process_assets.py"
+      - ".github/workflows/publish-process-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-process-assets
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out controlled source
+        uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Materialize release representations
+        run: python source/scripts/materialize_process_assets.py --out "$RUNNER_TEMP/process-assets"
+
+      - name: Check out GitHub Pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: pages
+
+      - name: Install generated assets into Pages
+        run: |
+          cp "$RUNNER_TEMP/process-assets/master-process-map-v0.6.svg" pages/master-process-map-v0.6.svg
+          cp "$RUNNER_TEMP/process-assets/master-process-map-v0.6.html" pages/master-process-map-v0.6.html
+
+      - name: Commit generated release representations
+        working-directory: pages
+        shell: bash
+        run: |
+          if git diff --quiet -- master-process-map-v0.6.svg master-process-map-v0.6.html; then
+            echo "Generated process assets are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add master-process-map-v0.6.svg master-process-map-v0.6.html
+          git commit -m "Publish Master Process Map v0.6"
+          git push origin HEAD:gh-pages
