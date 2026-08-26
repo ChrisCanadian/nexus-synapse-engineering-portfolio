@@ -1,10 +1,16 @@
 {
-  "portfolio_version": "0.3",
+  "portfolio_version": "0.4",
   "generated_from_public_safe_material": true,
+  "reconciliation_date": "2026-08-26",
+  "reconciliation_control": "docs/RECONCILIATION_CONTROL.md",
+  "current_public_snapshot": "docs/CURRENT_PUBLIC_SNAPSHOT.md",
   "evidence_states": {
-    "IMPLEMENTED": "Source code and call-site evidence exist; not necessarily deployed.",
-    "TESTED": "Exercised by retained test, benchmark, CI run, smoke, audit, or acceptance artifact.",
-    "DOCUMENTED": "Design or plan is documented without sufficient implementation evidence at the stated date.",
+    "DOCUMENTED": "Design, responsibility, or claim is recorded without a stronger runtime evidence tier being implied.",
+    "IMPLEMENTED": "Concrete source/schema/call-site evidence materially represents the responsibility; not necessarily exercised or deployed.",
+    "TESTED": "Assertion-bearing tests, retained runs, benchmarks, CI, smoke, audit, or acceptance evidence exercise the bounded claim.",
+    "ACTIVATED": "Evidence shows the identified path is operationally enabled/reachable in the identified environment.",
+    "DURABLE": "Evidence shows relevant state/effects survive the required lifecycle, restart, or time boundary.",
+    "INDEPENDENTLY_VERIFIED": "An applicable external or independent validation event supports the bounded claim.",
     "ARCHIVED_SUPERSEDED": "Path existed but is replaced, disabled, or no longer authoritative.",
     "LINEAGE_INFERRED": "Relationship is reconstructed across sources rather than explicitly stated contemporaneously."
   },
@@ -13,152 +19,130 @@
       "id": "portfolio.private_parent",
       "claim": "Nexus Synapse is the private parent runtime; the public repositories are bounded reference/evidence surfaces rather than a public reconstruction kit.",
       "evidence_state": "DOCUMENTED",
-      "sources": [
-        "README.md",
-        "PUBLIC_BOUNDARY.md",
-        "docs/REPOSITORY_MAP.md"
-      ]
+      "sources": ["README.md", "PUBLIC_BOUNDARY.md", "docs/REPOSITORY_MAP.md"]
     },
     {
       "id": "portfolio.terminology_translation",
       "claim": "Nexus subsystem names are project vocabulary rather than novelty evidence by themselves; the portfolio maps them to closest conventional systems concepts and separates that mapping from Nexus-specific composition/authority decisions.",
       "evidence_state": "DOCUMENTED",
-      "sources": [
-        "docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md",
-        "docs/GLOSSARY.md"
-      ]
+      "sources": ["docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md", "docs/GLOSSARY.md"]
+    },
+    {
+      "id": "portfolio.reconciliation_control",
+      "claim": "Public Nexus claims are governed by change-triggered reconciliation, weekly drift scans, monthly pinned-head reconciliation, and a full reconciliation gate before major public releases/submissions.",
+      "evidence_state": "DOCUMENTED",
+      "sources": ["docs/RECONCILIATION_CONTROL.md", "docs/CURRENT_PUBLIC_SNAPSHOT.md"]
     },
     {
       "id": "portfolio.attribution_operation",
       "claim": "The Nexus public provenance operation was formalized locally with Moon Source's Credits & Attribution Ops Protocol as reference/inspiration, without claiming Moon Source authorship of pre-existing Nexus architecture or code.",
       "evidence_state": "DOCUMENTED",
       "claim_ceiling": "Documentation/governance-practice lineage only; no endorsement, partnership, shared ownership, architectural derivation, reuse permission, or external validation is implied.",
-      "sources": [
-        "CREDITS_AND_ATTRIBUTION.md",
-        "https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md"
-      ]
+      "sources": ["CREDITS_AND_ATTRIBUTION.md", "https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md"]
+    },
+    {
+      "id": "process_architecture.v0_6",
+      "claim": "Process Architecture v0.6 is the canonical approved public process-documentation release in the engineering portfolio, with Request Watch, Master Process Map, Value Stream, linked process WIs, governing control families, and explicit evidence-tier labels.",
+      "evidence_state": "DOCUMENTED",
+      "claim_ceiling": "The process map is navigation/documentation evidence. Its production/V5 badges reference separately pinned evidence and do not by themselves establish activation or durability.",
+      "sources": ["process-architecture/README.md", "process-architecture/RELEASE_v0.6.md", "process-architecture/EVIDENCE_STATUS.md"]
+    },
+    {
+      "id": "process_architecture.v5_code_test_snapshot",
+      "claim": "The V5 target process families shown in Process Architecture v0.6 are code-backed in the pinned V5 reconstruction snapshot and carry acceptance-test evidence from the cited green CI run.",
+      "evidence_state": "TESTED",
+      "claim_ceiling": "V5 code/test evidence only; it does not by itself establish controlled dogfood activation, sustained durability, or production deployment.",
+      "sources": ["process-architecture/EVIDENCE_STATUS.md", "docs/CURRENT_PUBLIC_SNAPSHOT.md"]
+    },
+    {
+      "id": "process_architecture.control_revision_traceability",
+      "claim": "The public process architecture identifies governing CTRL-* control families for material decision families.",
+      "evidence_state": "DOCUMENTED",
+      "claim_ceiling": "V5 is not yet claimed to bind control_id + approved_revision into every runtime PASS/FAIL decision receipt; that remains an explicit traceability requirement.",
+      "sources": ["process-architecture/controls/CONTROL_REGISTER.md", "process-architecture/EVIDENCE_STATUS.md"]
     },
     {
       "id": "proof.reference_kernel",
-      "claim": "Nexus Proof Runtime is a standalone receipt-backed execution/evidence reference kernel, not a production Nexus subsystem.",
+      "claim": "Nexus Proof Runtime v0.1.1 is a standalone receipt-backed execution/evidence reference kernel, not a production Nexus subsystem.",
       "evidence_state": "TESTED",
-      "sources": [
-        "https://github.com/ChrisCanadian/nexus-proof-runtime",
-        "case-studies/proof-runtime.md"
-      ]
+      "claim_ceiling": "Published security-hardening reference release; not a third-party security audit, production certification, or proof of the full production Nexus execution path.",
+      "sources": ["https://github.com/ChrisCanadian/nexus-proof-runtime", "case-studies/proof-runtime.md", "docs/REPOSITORY_MAP.md"]
     },
     {
       "id": "rig.acceptance_framework",
-      "claim": "Live Runtime Acceptance Rig is a reusable live-boundary acceptance framework with durable readback and retained evidence, not a Nexus subsystem.",
+      "claim": "Live Runtime Acceptance Rig v0.1.1 is a reusable live-boundary acceptance framework with durable readback and retained evidence, not a Nexus subsystem.",
       "evidence_state": "TESTED",
-      "sources": [
-        "https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig",
-        "case-studies/acceptance-rig.md"
-      ]
+      "claim_ceiling": "Framework execution success does not itself certify a target or convert a failed target invariant into PASS.",
+      "sources": ["https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig", "case-studies/acceptance-rig.md"]
     },
     {
       "id": "mode_card.authoring_boundary",
-      "claim": "Nexus Mode Card Creator exposes behavioral-profile authoring while intentionally excluding private activation, weighting, persistence, and runtime integration.",
+      "claim": "Nexus Mode Card Creator 0.1.2 exposes behavioral-profile authoring while intentionally excluding private activation, weighting, persistence, and runtime integration.",
       "evidence_state": "TESTED",
-      "sources": [
-        "https://github.com/ChrisCanadian/nexus-mode-card-creator",
-        "case-studies/mode-card-creator.md"
-      ]
+      "sources": ["https://github.com/ChrisCanadian/nexus-mode-card-creator", "case-studies/mode-card-creator.md"]
     },
     {
       "id": "memory_kernel.reference_boundary",
-      "claim": "Nexus Memory Kernel is a standalone bounded reference implementation for scoped persistence, recall, correction/supersession, provenance, and memory-capability execution; it does not expose the private production memory/query or general-purpose execution layers.",
+      "claim": "Nexus Memory Kernel 0.1.0 is a standalone bounded reference implementation for scoped persistence, recall, correction/supersession, provenance, and memory-capability execution; it does not expose the private production memory/query or general-purpose execution layers.",
       "evidence_state": "TESTED",
       "claim_ceiling": "Public kernel behavior only; not current production Nexus memory behavior or private SSR memory selection/composition.",
-      "sources": [
-        "https://github.com/ChrisCanadian/Nexus-Memory-Kernel",
-        "case-studies/memory-kernel.md"
-      ]
+      "sources": ["https://github.com/ChrisCanadian/Nexus-Memory-Kernel", "case-studies/memory-kernel.md"]
     },
     {
       "id": "validation.blackbox_gateway",
-      "claim": "Nexus Black-Box Validation Gateway v0.2 is a standalone public challenge surface for opaque targets with BYO OpenAI-compatible inference handoff, public artifact submission, evaluator-authored challenge contracts, the nexus-blackbox-core-v1 suite, router-use verification, and sanitized evidence envelopes.",
+      "claim": "Nexus Black-Box Validation Gateway 0.2.0 is a standalone public challenge surface for opaque targets with BYO OpenAI-compatible inference handoff, public artifact submission, evaluator-authored challenge contracts, the nexus-blackbox-core-v1 suite, router-use verification, and sanitized evidence envelopes.",
       "evidence_state": "TESTED",
       "claim_ceiling": "Public gateway behavior and a failed August 18 deployed-target campaign only; not evidence that deployed Nexus passed the fixed invariants or any broader validation.",
-      "sources": [
-        "https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway",
-        "case-studies/blackbox-validation-and-byo-router.md",
-        "docs/PRODUCTION_EVIDENCE_STATUS.md",
-        "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"
-      ]
+      "sources": ["https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway", "case-studies/blackbox-validation-and-byo-router.md", "docs/PRODUCTION_EVIDENCE_STATUS.md", "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"]
     },
     {
       "id": "router.openai_compatible_byo",
-      "claim": "OpenAI-compatible Router v0.2 is reusable standalone infrastructure for short-lived BYO provider routing, model locking, streaming, tools pass-through, route lifecycle controls, SSRF protection, secret-safe failures, and secret-free usage readback without embedding Nexus-specific runtime logic.",
+      "claim": "OpenAI-compatible Router 0.2.0 is reusable standalone infrastructure for short-lived BYO provider routing, model locking, streaming, tools pass-through, route lifecycle controls, SSRF protection, secret-safe failures, and secret-free usage readback without embedding Nexus-specific runtime logic.",
       "evidence_state": "TESTED",
       "claim_ceiling": "Standalone router behavior only; not evidence of private Nexus routing policy, runtime composition, or deployed integration.",
-      "sources": [
-        "https://github.com/ChrisCanadian/OpenAI-compatible-router",
-        "case-studies/blackbox-validation-and-byo-router.md",
-        "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"
-      ]
+      "sources": ["https://github.com/ChrisCanadian/OpenAI-compatible-router", "case-studies/blackbox-validation-and-byo-router.md", "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"]
     },
     {
       "id": "chrisai.historical_reconstruction",
-      "claim": "ChrisAI Runtime is a historically grounded executable reconstruction of the flat-file, pre-database, pre-SSR runtime lineage that preceded Nexus Synapse.",
+      "claim": "ChrisAI Runtime 0.1.0 is a historically grounded executable reconstruction of the flat-file, pre-database, pre-SSR runtime lineage that preceded Nexus Synapse.",
       "evidence_state": "TESTED",
       "claim_ceiling": "Historical reconstruction only; not a byte-for-byte original checkout, not proof that every reconstructed line existed verbatim, and not evidence of modern or deployed Nexus internals.",
-      "sources": [
-        "https://github.com/ChrisCanadian/chrisai-runtime",
-        "case-studies/chrisai-runtime.md",
-        "docs/REPOSITORY_MAP.md"
-      ]
+      "sources": ["https://github.com/ChrisCanadian/chrisai-runtime", "case-studies/chrisai-runtime.md", "docs/REPOSITORY_MAP.md"]
     },
     {
       "id": "validation.private_target_candidate",
       "claim": "A private Nexus validation-target integration has isolated CI evidence and was exercised against the existing deployment in a retained August 18, 2026 campaign.",
       "evidence_state": "TESTED",
       "claim_ceiling": "The fixed-invariant campaign failed. Integration reachability, passing persistence barriers, and a separate unseen challenge pass do not establish suite success, model-swap parity, or independent certification.",
-      "sources": [
-        "case-studies/blackbox-validation-and-byo-router.md",
-        "docs/PRODUCTION_EVIDENCE_STATUS.md",
-        "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"
-      ]
+      "sources": ["case-studies/blackbox-validation-and-byo-router.md", "docs/PRODUCTION_EVIDENCE_STATUS.md", "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"]
     },
     {
       "id": "validation.deployed_target_2026_08_18",
       "claim": "The retained August 18, 2026 deployed-target campaign observed deterministic session mapping and six persistence barriers, but cross-conversation continuity and correction persistence failed; a separate unseen challenge passed through all-session CAG behavior.",
       "evidence_state": "TESTED",
       "claim_ceiling": "FAILED fixed-invariant result. The separate unseen pass and mechanism-level subchecks must not be reported as a deployed Nexus validation pass.",
-      "sources": [
-        "case-studies/blackbox-validation-and-byo-router.md",
-        "docs/PRODUCTION_EVIDENCE_STATUS.md",
-        "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"
-      ]
+      "sources": ["case-studies/blackbox-validation-and-byo-router.md", "docs/PRODUCTION_EVIDENCE_STATUS.md", "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"]
     },
     {
       "id": "ssr.historical_lineage",
       "claim": "Historical SSR work used structured SQL filtering/scoping before selective context injection and is an ancestor of broader later context reconstruction.",
       "evidence_state": "TESTED",
       "claim_ceiling": "Historical benchmark/lineage only; not current private SSR performance.",
-      "sources": [
-        "https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752",
-        "case-studies/ssr-v1-warehouse-rag.md"
-      ]
+      "sources": ["https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752", "case-studies/ssr-v1-warehouse-rag.md"]
     },
     {
-      "id": "technical_reference.current_state",
-      "claim": "The Public Technical Reference v1.1 separates current deployed-code/read-only-state findings from older isolated execution receipts and reflects the August 14, 2026 production-state audit at a public-safe responsibility level.",
+      "id": "technical_reference.production_snapshot",
+      "claim": "Public Technical Reference v1.1 separates August 14, 2026 deployed-code/read-only-state findings from older isolated execution receipts at a public-safe responsibility level.",
       "evidence_state": "TESTED",
-      "claim_ceiling": "Current-state code/data inspection plus dated execution evidence; not independent certification or full production E2E execution.",
-      "sources": [
-        "https://drive.google.com/file/d/1KWoHkrHek5o_3T-FGKK7qLbRgb9Oi19N/view",
-        "docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md"
-      ]
+      "claim_ceiling": "Dated production code/data inspection plus dated execution evidence; not a live August 26 trace, independent certification, or current V5 implementation status.",
+      "sources": ["docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md", "docs/reference/README.md"]
     },
     {
-      "id": "v5.isolated_reconstruction",
-      "claim": "The V5 line described in the public evolution record is an isolated reconstruction with substantial implementation/testing evidence, not a production V5 release.",
+      "id": "v5.target_reconstruction",
+      "claim": "V5 is the target Nexus runtime reconstruction line: the production responsibility pattern is the parity source, while V5 introduces clearer contracts and approved hardening around those responsibilities.",
       "evidence_state": "TESTED",
-      "sources": [
-        "docs/ARCHITECTURAL_EVOLUTION.md",
-        "docs/GLOSSARY.md"
-      ]
+      "claim_ceiling": "Pinned V5 code/test evidence exists; controlled dogfood activation, sustained durability, and production replacement remain separate evidence claims.",
+      "sources": ["process-architecture/EVIDENCE_STATUS.md", "docs/CURRENT_PUBLIC_SNAPSHOT.md", "docs/ARCHITECTURAL_EVOLUTION.md", "docs/GLOSSARY.md"]
     }
   ]
 }
