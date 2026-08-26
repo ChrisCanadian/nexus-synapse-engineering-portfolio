@@ -16,7 +16,7 @@ The portfolio documents and evidence files remain the claim-bearing source. Thes
 
 The current process-architecture release set gives three complementary views:
 
-- **[Master Process Map v0.7](../https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html)** — the deliberately monstrous full topology, including governing control families, material decision trees, and evidence-tier badges.
+- **[Master Process Map v0.7](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html)** — the deliberately monstrous full topology, including governing control families, material decision trees, and evidence-tier badges.
 - **[Value Stream v0.2](../process-architecture/diagrams/value-stream-v0.2.svg)** — compact governed-turn + WIP/outbox + async-support view.
 - **[000 — Governed Turn — Scope & Process Index](../process-architecture/processes/000-GOVERNED-TURN.md)** — ISO-style hyperlink navigation through the eight process families.
 

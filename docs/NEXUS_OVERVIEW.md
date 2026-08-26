@@ -85,7 +85,7 @@ This is the V5 target process architecture, reconciled against the current-produ
 For the actual visual hierarchy, use:
 
 - [Request Watch v0.6](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/)
-- [Master Process Map v0.7](../https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html)
+- [Master Process Map v0.7](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html)
 - [Value Stream v0.2](../process-architecture/diagrams/value-stream-v0.2.svg)
 - [000 — Governed Turn — Scope & Process Index](../process-architecture/processes/000-GOVERNED-TURN.md)
 
