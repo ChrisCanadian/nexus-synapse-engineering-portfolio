@@ -64,6 +64,7 @@ This is a reconciliation snapshot, not a claim that every repository changed on 
 23. Corrected the process-asset publisher so brand-new/untracked generated SVG/HTML files are staged before change detection; the earlier implementation incorrectly treated untracked assets as “already current.”
 24. Corrected the process-pointer reconciler after it generated malformed `process-architecture/diagrams/https://...` links; the primary Master Process Map link now targets the GitHub Pages HTML viewer while the raw SVG remains a separate released vector representation.
 25. Reconciled V5 evidence to the current working/qualified head and current-head green CI, and separately recorded the accepted protected staging release without promoting it to production or durability evidence.
+26. Closed the remaining `../https://...` pointer defect caught by Portfolio Integrity and hardened the reconciler against both relative-prefix malformed URL forms; this correction is the post-publication gate trigger for the final integrity check.
 
 ## Reconciliation conclusion
 
