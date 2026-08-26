@@ -25,7 +25,7 @@ Request Watch is an explanatory presentation artifact. Its dwell/transition timi
 | View | Purpose | Open |
 |---|---|---|
 | **Request Watch v0.6** | Presentation-scale view of a request moving through the top-level runtime stations while active responsibilities and Governance / Quality controls light up | [Live GitHub Pages](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/) |
-| **Master Process Map v0.7** | Full public-safe topology with workcells, equipment, material/state, governing controls, inspection gates, evidence tiers, WIP, custody, forks/joins, fallbacks and rework | [SVG](../process-architecture/diagrams/https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.svg) · [Interactive HTML](../process-architecture/diagrams/https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html) |
+| **Master Process Map v0.7** | Full public-safe topology with workcells, equipment, material/state, governing controls, inspection gates, evidence tiers, WIP, custody, forks/joins, fallbacks and rework | [SVG](../https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html) · [Interactive HTML](../https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html) |
 | **Value Stream v0.2** | Compact Lean/process view of the governed turn, transaction close, WIP/outbox and async support lane | [SVG](../process-architecture/diagrams/value-stream-v0.2.svg) |
 
 ## ISO-style process library

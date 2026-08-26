@@ -15,7 +15,7 @@
 
 <p align="center">
   <a href="docs/PROCESS_ARCHITECTURE.md"><strong>Process Architecture</strong></a> ·
-  <a href="process-architecture/diagrams/https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.svg"><strong>Master Process Map</strong></a> ·
+  <a href="https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html"><strong>Master Process Map</strong></a> ·
   <a href="process-architecture/diagrams/value-stream-v0.2.svg"><strong>Value Stream</strong></a> ·
   <a href="process-architecture/processes/000-GOVERNED-TURN.md"><strong>000 Scope / Process Index</strong></a> ·
   <a href="process-architecture/EVIDENCE_STATUS.md"><strong>Evidence Status</strong></a>
