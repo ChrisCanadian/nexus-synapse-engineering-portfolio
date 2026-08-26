@@ -80,12 +80,12 @@ transaction close + durable outbox
 asynchronous continuity / learning / support work
 ```
 
-This is the V5 target process architecture, reconciled against the current-production responsibility pattern. It is not a claim that V5 code/test evidence automatically equals dogfood activation, sustained durability, or production deployment.
+This is the V5 target process architecture, reconciled against the current-production responsibility pattern. It is not a claim that V5 code/test evidence automatically equals staging activation, sustained durability, or production deployment.
 
 For the actual visual hierarchy, use:
 
 - [Request Watch v0.6](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/)
-- [Master Process Map v0.6](../process-architecture/diagrams/master-process-map-v0.6.svg)
+- [Master Process Map v0.7](../process-architecture/diagrams/https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.svg)
 - [Value Stream v0.2](../process-architecture/diagrams/value-stream-v0.2.svg)
 - [000 — Governed Turn — Scope & Process Index](../process-architecture/processes/000-GOVERNED-TURN.md)
 
@@ -158,7 +158,7 @@ The public architecture now deliberately separates several evidence questions:
 - **V5 code-backed** — what exists in the pinned V5 reconstruction;
 - **V5 acceptance-tested** — what the pinned CI/acceptance evidence has exercised;
 - **V5 hardening** — explicit guards/recovery/receipt/authority treatment added beyond production parity;
-- **dogfood activation / durability** — separate operational claims requiring deployment evidence.
+- **staging activation / durability** — separate operational claims requiring deployment evidence.
 
 See [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md), [Production Evidence Status](PRODUCTION_EVIDENCE_STATUS.md), and [Current Public Snapshot](CURRENT_PUBLIC_SNAPSHOT.md).
 

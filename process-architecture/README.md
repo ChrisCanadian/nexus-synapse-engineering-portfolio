@@ -8,7 +8,7 @@ This directory is the **canonical approved public record** for the Nexus Synapse
 
 1. **[Watch Request Watch v0.6](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/)** — presentation-scale runtime journey with a Governance / Quality card that lights up per station.
 2. **[Open the Value Stream](./diagrams/value-stream-v0.2.svg)** — compact main governed turn + async support lane.
-3. **[Open the Monster v0.6](https://drive.google.com/file/d/101Sgnz2eD5c4zHYq49Hu-d2LBuDHmyAR/view)** — full public-safe decision/subprocess topology.
+3. **[Open the Monster v0.6](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html)** — full public-safe decision/subprocess topology.
 4. **[Use the 000 Scope / Process Index](./processes/000-GOVERNED-TURN.md)** — ISO-style process navigation.
 5. **[Open the Governing Control Register](./controls/CONTROL_REGISTER.md)** — which public control family governs each material decision family.
 6. **[Read Evidence Status](./EVIDENCE_STATUS.md)** — production-pattern, V5-code, V5-test, hardening, activation and traceability claim ceilings.
@@ -25,7 +25,7 @@ CANONICAL PUBLIC GITHUB RECORD
 GITHUB PAGES / README / DISTRIBUTION COPIES
 ```
 
-## v0.6 evidence + governance release
+## v0.7 evidence + governance release
 
 The Monster no longer treats governance as one central box. It also no longer asks the reader to guess whether a process family is merely documented, code-backed, tested, or production-derived. Each major family carries evidence-tier labels; the definitions and exact source snapshots are in **[Evidence Status](./EVIDENCE_STATUS.md)**. Governance is distributed across the actual authorization, inspection, release, fallback, retry and promotion decision trees. Major process families point to their applicable `CTRL-*` public control family.
 

@@ -15,7 +15,7 @@
 
 <p align="center">
   <a href="docs/PROCESS_ARCHITECTURE.md"><strong>Process Architecture</strong></a> ·
-  <a href="process-architecture/diagrams/master-process-map-v0.6.svg"><strong>Master Process Map</strong></a> ·
+  <a href="process-architecture/diagrams/https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.svg"><strong>Master Process Map</strong></a> ·
   <a href="process-architecture/diagrams/value-stream-v0.2.svg"><strong>Value Stream</strong></a> ·
   <a href="process-architecture/processes/000-GOVERNED-TURN.md"><strong>000 Scope / Process Index</strong></a> ·
   <a href="process-architecture/EVIDENCE_STATUS.md"><strong>Evidence Status</strong></a>
@@ -123,7 +123,7 @@ Start with:
 
 Start with **[Request Watch](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/)**, then **[Public Process Architecture](docs/PROCESS_ARCHITECTURE.md)** and the **[Visual Gallery](docs/NEXUS_VISUAL_GALLERY.md)**.
 
-The process-architecture set includes Request Watch v0.6, the full Master Process Map v0.6, the compact Value Stream v0.2, an ISO-style linked Process Library, governing control families, and explicit evidence-tier labels.
+The process-architecture set includes Request Watch v0.6, the full Master Process Map v0.7, the compact Value Stream v0.2, an ISO-style linked Process Library, governing control families, and explicit evidence-tier labels.
 
 ![Nexus Synapse visual tour](https://drive.google.com/uc?export=view&id=1OM2jeCOqsgvPKtwLNkFtp2cLGchtY7BY)
 
@@ -427,7 +427,7 @@ This portfolio does **not** claim:
 - that every implemented subsystem is fully tested;
 - independent certification of the private runtime;
 - that the retained August 18, 2026 deployed-target campaign passed the fixed-invariant suite;
-- that V5 code/test evidence automatically means controlled dogfood activation, sustained durability, or production deployment;
+- that V5 code/test evidence automatically means controlled staging activation, sustained durability, or production deployment;
 - that the public Proof Runtime, Memory Kernel, Acceptance Rig, Validation Gateway, Router, or ChrisAI reconstruction reproduces the private parent system;
 - that public artifacts are complete representations of Nexus Synapse;
 - that receipt/hash verification establishes semantic truth;

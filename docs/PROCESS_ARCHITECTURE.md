@@ -25,7 +25,7 @@ Request Watch is an explanatory presentation artifact. Its dwell/transition timi
 | View | Purpose | Open |
 |---|---|---|
 | **Request Watch v0.6** | Presentation-scale view of a request moving through the top-level runtime stations while active responsibilities and Governance / Quality controls light up | [Live GitHub Pages](https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/) |
-| **Master Process Map v0.6** | Full public-safe topology with workcells, equipment, material/state, governing controls, inspection gates, evidence tiers, WIP, custody, forks/joins, fallbacks and rework | [SVG](../process-architecture/diagrams/master-process-map-v0.6.svg) · [Interactive HTML](../process-architecture/diagrams/master-process-map-v0.6.html) |
+| **Master Process Map v0.7** | Full public-safe topology with workcells, equipment, material/state, governing controls, inspection gates, evidence tiers, WIP, custody, forks/joins, fallbacks and rework | [SVG](../process-architecture/diagrams/https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.svg) · [Interactive HTML](../process-architecture/diagrams/https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.html) |
 | **Value Stream v0.2** | Compact Lean/process view of the governed turn, transaction close, WIP/outbox and async support lane | [SVG](../process-architecture/diagrams/value-stream-v0.2.svg) |
 
 ## ISO-style process library
@@ -82,7 +82,7 @@ The Monster itself is documentation/navigation evidence, not automatic proof tha
 - **V5 CODE-BACKED** — the responsibility family exists in the pinned V5 reconstruction snapshot.
 - **V5 ACCEPTANCE-TESTED** — the pinned V5 snapshot has green behavioral/failure/container/contract evidence.
 - **V5 HARDENING** — V5 adds an explicit guard, receipt, recovery path, authority boundary or failure treatment beyond the production parity shape.
-- **DOGFOOD ACTIVATION** — separate operational claim; code/test evidence does not imply controlled deployment activation or durability.
+- **V5 STAGING ACTIVATED** — separate operational claim; code/test evidence does not imply production activation or sustained durability; a separate accepted V5 staging release now exists.
 - **TRACEABILITY GAP** — governing control family is identifiable, but exact approved-revision binding in every decision receipt is not yet claimed.
 
 See **[Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md)** for the pinned source revisions and claim ceiling.

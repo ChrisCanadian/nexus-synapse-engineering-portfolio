@@ -16,7 +16,7 @@ The portfolio documents and evidence files remain the claim-bearing source. Thes
 
 The current process-architecture release set gives three complementary views:
 
-- **[Master Process Map v0.6](../process-architecture/diagrams/master-process-map-v0.6.svg)** — the deliberately monstrous full topology, including governing control families, material decision trees, and evidence-tier badges.
+- **[Master Process Map v0.7](../process-architecture/diagrams/https://chriscanadian.github.io/nexus-synapse-engineering-portfolio/master-process-map-v0.7.svg)** — the deliberately monstrous full topology, including governing control families, material decision trees, and evidence-tier badges.
 - **[Value Stream v0.2](../process-architecture/diagrams/value-stream-v0.2.svg)** — compact governed-turn + WIP/outbox + async-support view.
 - **[000 — Governed Turn — Scope & Process Index](../process-architecture/processes/000-GOVERNED-TURN.md)** — ISO-style hyperlink navigation through the eight process families.
 
@@ -24,7 +24,7 @@ For notation, governing controls, evidence tiers, publication boundaries, and th
 
 ## Process-architecture evidence rule
 
-The Monster is a navigation/documentation artifact; it does not promote itself into runtime evidence. v0.6 therefore shows separate evidence classes such as **CURRENT-PROD PATTERN**, **V5 CODE-BACKED**, **V5 ACCEPTANCE-TESTED**, and **V5 HARDENING**, while keeping dogfood activation/durability as a separate operational claim.
+The Monster is a navigation/documentation artifact; it does not promote itself into runtime evidence. v0.6 therefore shows separate evidence classes such as **CURRENT-PROD PATTERN**, **V5 CODE-BACKED**, **V5 ACCEPTANCE-TESTED**, and **V5 HARDENING**, while keeping staging activation/durability as a separate operational claim.
 
 See **[Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md)**.
 
