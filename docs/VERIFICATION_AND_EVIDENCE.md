@@ -178,7 +178,26 @@ The portfolio now uses the following broad claim ladder:
 
 A higher tier is not inferred from a lower tier.
 
-For V5/process architecture specifically, public labels such as `CURRENT-PROD PATTERN`, `V5 CODE-BACKED`, `V5 ACCEPTANCE-TESTED`, `V5 HARDENING`, `DOGFOOD ACTIVATION`, and `TRACEABILITY GAP` are defined in [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md).
+### Evidence states are claim dimensions, not one project status
+
+The labels above must not be read as mutually exclusive phases where the entire project occupies exactly one state.
+
+A bounded path can be `TESTED` and also `ACTIVATED` in a named environment. A deployed path can have bounded persistence evidence while still failing a specific continuity invariant. A staging deployment can be activated without being production. None of those facts establish independent third-party verification.
+
+The machine-readable `evidence_state` field is retained as a compact primary index for individual claims. **Counts of that scalar field are not a valid system-wide deployment summary.** In particular, absence of an `ACTIVATED`, `DURABLE`, or `INDEPENDENTLY_VERIFIED` label on unrelated records must not be interpreted as proof that no bounded target satisfies that dimension.
+
+The authoritative interpretation rules and deployment-status matrix are in [Evidence Interpretation Contract](EVIDENCE_INTERPRETATION.md). The machine-readable ledger now carries the same warning plus explicit activation claims for the existing production runtime and V5 staging.
+
+Current high-level status, without collapsing claim ceilings:
+
+- **existing Nexus production runtime:** activated/deployed at the retained evidence boundary;
+- **existing production persistence:** bounded persistence effects observed, with fixed continuity/correction failures still controlling their specific claims;
+- **V5 working/qualified line:** code-backed and tested;
+- **V5 accepted staging release:** staging activated;
+- **V5 production replacement:** not claimed;
+- **independent third-party verification of the private Nexus runtime:** not demonstrated.
+
+For V5/process architecture specifically, public labels such as `CURRENT-PROD PATTERN`, `V5 CODE-BACKED`, `V5 ACCEPTANCE-TESTED`, `V5 HARDENING`, `V5 STAGING ACTIVATED`, `PRODUCTION ACTIVATION`, `DURABILITY`, and `TRACEABILITY GAP` are defined in [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md).
 
 ## The verification through-line
 
@@ -192,6 +211,7 @@ The newer documentation-control layer applies the same rule to public claims: an
 
 ## Related public artifacts
 
+- [Evidence Interpretation Contract](EVIDENCE_INTERPRETATION.md)
 - [Nexus Proof Runtime](https://github.com/ChrisCanadian/nexus-proof-runtime)
 - [Live Runtime Acceptance Rig](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig)
 - [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md)
