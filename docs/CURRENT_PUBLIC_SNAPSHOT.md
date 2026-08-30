@@ -2,15 +2,31 @@
 
 **Snapshot date:** 2026-08-26  
 **Classification:** PUBLIC-SAFE  
-**Purpose:** pin the repository/evidence revisions used by the latest public-documentation reconciliation
+**Purpose:** pin the repository/evidence revisions used by the latest public-documentation reconciliation  
+**Evidence-ontology clarification:** 2026-08-30
 
 This is a reconciliation snapshot, not a claim that every repository changed on this date. A later repository head makes this snapshot historical until the next reconciliation pass.
+
+The 2026-08-30 evidence-ontology clarification does not pretend a new full cross-repository reconciliation occurred. It corrects how the already-published evidence is represented and interpreted by humans and machine readers.
+
+## Deployment-status summary
+
+| Target | Environment | Status at the retained public evidence boundary | Claim ceiling |
+|---|---|---|---|
+| Existing Nexus runtime | Production / existing deployment | **ACTIVATED / DEPLOYED** | Actual deployed code/state were inspected and the August 18 campaign traversed the existing deployment. This does not mean every subsystem is active, every invariant passes, or the runtime is independently certified. |
+| Existing Nexus persistence | Production / existing deployment | **Bounded persistence effects observed** | Deterministic session mapping and six persistence barriers were observed; cross-conversation continuity and correction persistence still failed the fixed-invariant suite. No blanket durability claim. |
+| V5 working/qualified line | CI / reconstruction | **CODE-BACKED + TESTED** | Qualification is not deployment. |
+| V5 accepted staging release | Controlled staging/test | **STAGING ACTIVATED** | `deploy-production` was skipped; staging activation is not production replacement or sustained durability. |
+| V5 production replacement | Production | **NOT CLAIMED** | Existing production remains a separate line. |
+| Independent third-party verification of private Nexus | External / independent | **NOT DEMONSTRATED** | Operator-run and externally authored challenge evidence are not third-party certification or replication. |
+
+The evidence states are claim dimensions, not one mutually exclusive project maturity score. Do not infer system-wide absence from counts of the legacy `evidence_state` field in the machine-readable ledger. See [Evidence Interpretation Contract](EVIDENCE_INTERPRETATION.md) and `evidence/claims-and-evidence.json` v0.5.
 
 ## Runtime / reconstruction evidence anchors
 
 | Surface | Pinned revision / evidence | Interpretation |
 |---|---|---|
-| Current production runtime code | `ChrisCanadian/nexus-synapse-runtime@2514a11366f8e7f345bb854c0cfaee8c7b40dddd` | Production parity/code reference. Live deployment claims still require live/deployment evidence. |
+| Current production runtime code | `ChrisCanadian/nexus-synapse-runtime@2514a11366f8e7f345bb854c0cfaee8c7b40dddd` | Production parity/code reference. The existing runtime is separately evidenced as deployed/reachable; stronger behavioral, durability, and certification claims remain claim-specific. |
 | V5 authoritative working/qualified line | `reconstruction/cloud-benchmark-wrapup-20260824` at reconciled head `3c155d1abfbc3945da84c432bb6901212e6a8975` | Current V5 working/qualified evidence anchor used by Process Architecture v0.7. |
 | V5 current-head CI evidence | GitHub Actions run `32991544397` — `success` | Green validation and container evidence across the current V5 head. Code/test qualification remains distinct from deployment activation. |
 | V5 accepted staging release | `cea8d9c3cea1c17b4cffc0a70f195582fedd5fb5`; protected Actions run `32967673812` | `build-test-image`, `validate`, `prod-parity-gate`, and `deploy-test` succeeded; `deploy-production` was skipped. Supports **STAGING ACTIVATED**, not production activation or durability. |
@@ -66,6 +82,22 @@ This is a reconciliation snapshot, not a claim that every repository changed on 
 25. Reconciled V5 evidence to the current working/qualified head and current-head green CI, and separately recorded the accepted protected staging release without promoting it to production or durability evidence.
 26. Closed the remaining `../https://...` pointer defect caught by Portfolio Integrity and hardened the reconciler against both relative-prefix malformed URL forms; this correction is the post-publication gate trigger for the final integrity check.
 
+## 2026-08-30 evidence-ontology correction
+
+This targeted correction was triggered by a machine-reading failure mode: a reader counted the single `evidence_state` field across claim records and incorrectly treated zero `ACTIVATED` records as proof that Nexus had no active/deployed runtime.
+
+The correction therefore:
+
+1. added [Evidence Interpretation Contract](EVIDENCE_INTERPRETATION.md);
+2. updated the machine-readable ledger to v0.5 with explicit target/environment interpretation rules;
+3. added an explicit `ACTIVATED` claim for the existing production runtime;
+4. added an explicit `ACTIVATED` claim for the accepted V5 staging release;
+5. represented the August 18 persistence evidence as bounded rather than as universal durability;
+6. corrected stale machine-readable Process Architecture references from v0.6 to v0.7;
+7. preserved the existing negative evidence and claim ceilings, including the failed August 18 fixed invariants and the absence of independent third-party certification.
+
+This is a representation/interpretation correction over already-published evidence, not a retroactive upgrade of failed tests or a claim of a new production release.
+
 ## Reconciliation conclusion
 
 This pass found and corrected **status drift, architecture-document drift, and release-pipeline defects**. The portfolio now distinguishes:
@@ -76,6 +108,8 @@ This pass found and corrected **status drift, architecture-document drift, and r
 - public process documentation from runtime proof;
 - GitHub-controlled public records from Pages presentation and Drive distribution/working copies;
 - historical truth from current-summary language.
+
+The 2026-08-30 evidence-ontology clarification additionally makes explicit that the existing production runtime is activated/deployed at its retained evidence boundary and that evidence labels are claim dimensions rather than one scalar project status.
 
 The next full pass should begin from the pinned evidence inputs above and the then-current portfolio head rather than reconstructing the baseline from memory.
 
@@ -90,4 +124,4 @@ This snapshot should be refreshed immediately if any of the following changes ma
 - public technical reference revision;
 - validation/benchmark result that changes a claim ceiling.
 
-See [Reconciliation and Publication Control](RECONCILIATION_CONTROL.md).
+See [Evidence Interpretation Contract](EVIDENCE_INTERPRETATION.md) and [Reconciliation and Publication Control](RECONCILIATION_CONTROL.md).

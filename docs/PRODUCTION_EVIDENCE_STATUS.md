@@ -12,6 +12,26 @@ The answer is intentionally mixed. That is the point of the evidence labels.
 
 This page is production-focused. Newer V5 code/test evidence is tracked separately in [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md) and [Current Public Snapshot](CURRENT_PUBLIC_SNAPSHOT.md). A newer V5 test does not silently upgrade an older production-deployment claim, and an older production audit does not cap what exists in V5 code.
 
+## Deployment status — read this before counting evidence labels
+
+**The existing Nexus production runtime is ACTIVATED / DEPLOYED at the retained public evidence boundary.**
+
+That statement is narrower than certification and stronger than “code exists.” The August 14 audit inspected the actual deployed Python and production state, and the August 18 black-box campaign traversed the existing deployment through the private validation-target integration.
+
+Activation/reachability does **not** mean:
+
+- every optional subsystem is active on every turn;
+- every fixed invariant passes;
+- every state or effect is durable across every lifecycle boundary;
+- V5 has replaced the existing production runtime;
+- the private runtime has been independently certified or replicated.
+
+The August 18 campaign also provides **bounded persistence evidence**: deterministic session mapping and six persistence barriers were observed, with expected interactions and summaries present before the following turn. That evidence must remain bounded because cross-conversation continuity and correction persistence still failed the fixed-invariant suite.
+
+Evidence labels in this portfolio are claim dimensions, not a single mutually exclusive project state. A claim can be tested and activated in a named environment while still lacking a stronger durability or independent-verification claim.
+
+See [Evidence Interpretation Contract](EVIDENCE_INTERPRETATION.md) for the machine-reader rules and deployment-status matrix.
+
 ## Evidence classes used here
 
 ### A. Deployed production inspection
@@ -91,11 +111,11 @@ The most defensible production claim is **not** “the entire runtime has been i
 
 It is narrower:
 
-> **The deployed implementation and state were inspected deeply enough at the retained audit boundary to distinguish populated, degraded, disconnected, omitted, and conditional responsibilities; selected runtime behaviors have separate isolated/deployed-target diagnostic evidence; bounded public projects independently exercise narrower architectural claims.**
+> **The existing production runtime is deployed/reachable at the retained evidence boundary; its deployed implementation and state were inspected deeply enough to distinguish populated, degraded, disconnected, omitted, and conditional responsibilities; selected runtime behaviors have separate isolated/deployed-target diagnostic evidence; bounded public projects independently exercise narrower architectural claims.**
 
 The black-box stack is stronger than a standalone gateway mock: the public gateway and router are implemented/tested, the private target integration has isolated CI evidence, and a retained August 18 campaign traversed the existing deployment. That campaign produced useful root-cause evidence but **did not pass** its fixed invariants. The separate unseen challenge pass is recorded without being promoted into suite success.
 
-That is stronger evidence than a diagram or self-description and weaker than acceptance, model-swap parity, independent validation, or live-production certification.
+That is stronger evidence than a diagram or self-description and weaker than full acceptance, model-swap parity, independent validation, or live-production certification.
 
 ## V5 is a separate evidence question
 
@@ -106,7 +126,7 @@ Do not infer either direction:
 - production evidence does not prove a V5 path is implemented/tested;
 - V5 code/test evidence does not prove that path is activated/durable in dogfood or deployed production.
 
-Use [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md) for the V5/process evidence snapshot.
+V5 staging activation is separately evidenced and does not alter the existing production-runtime activation claim. Use [Process Architecture Evidence Status](../process-architecture/EVIDENCE_STATUS.md) for the V5/process evidence snapshot.
 
 ## Why the raw terminal dump is not the publication artifact
 
@@ -139,4 +159,4 @@ For a question about V5, route to V5 code/test/deployment evidence instead of me
 
 The lower categories are not “bad evidence.” They simply answer different questions.
 
-See [Reconciliation and Publication Control](RECONCILIATION_CONTROL.md) for the cross-surface source-routing rule.
+See [Evidence Interpretation Contract](EVIDENCE_INTERPRETATION.md) for cross-target interpretation and [Reconciliation and Publication Control](RECONCILIATION_CONTROL.md) for the cross-surface source-routing rule.
