@@ -96,6 +96,34 @@ If you only want the current production responsibility chain without the project
 
 ---
 
+## Why does Nexus Synapse keep sounding like a warehouse?
+
+Nexus Synapse did not begin with the language of context engineering.
+
+I came to the problem through warehouse operations, SQL, material flow, routing, kitting, controlled handoffs, cycle counts, and audit trails. Those were the systems I already understood, so they became the language I used to reason about memory, context, tools, authority, continuity, and evidence.
+
+Over time, the terminology became more precise:
+
+| Warehouse language | Engineering responsibility |
+|---|---|
+| Receiving | request intake, trusted user/session/scope |
+| Pick planning | context eligibility and retrieval |
+| Kitting | Structured State Reconstruction / context construction |
+| Workstation | language-model inference |
+| Controlled handoff | governed capability execution |
+| Transaction receipt | persistence, durable effects, and evidence |
+| Cycle count | reconciliation, drift review, and correction |
+
+The engineering portfolio shows what those responsibilities became.
+
+***From Warehouse Logic to Context Engineering: How Operational Thinking Became an AI Runtime*** tells the other half of the story: why I started thinking about AI this way, what broke, what survived, and how warehouse language gradually became runtime architecture.
+
+**[Why Nexus Synapse Looks Like a Warehouse →](WHY_NEXUS_SYNAPSE_LOOKS_LIKE_A_WAREHOUSE.md)**
+
+**[Read the book on Amazon.ca →](https://a.co/d/011whivx)**
+
+---
+
 ## Choose your entry point
 
 ### I come from operations, manufacturing, logistics, quality, healthcare, finance, legal, research, or another domain

@@ -34,7 +34,7 @@ I tend to reason in terms of:
 - inventories of available information;
 - proof that a requested operation actually completed.
 
-Those habits show up throughout Nexus.
+Those habits show up throughout Nexus Synapse.
 
 The early SSR work, for example, used a warehouse-style idea: do not send the worker through the entire warehouse. Narrow the eligible inventory, assemble the relevant pick list, and send only what is needed to the workstation.
 
@@ -58,7 +58,7 @@ The Rocket League overlay is still unfinished.
 
 ## How I build
 
-Nexus is an AI-assisted engineering project. I have used coding models and general-purpose AI systems for implementation help, debugging, review, research organization, and iteration.
+Nexus Synapse is an AI-assisted engineering project. I have used coding models and general-purpose AI systems for implementation help, debugging, review, research organization, and iteration.
 
 I do not present that assistance as invisible. The architecture, system boundaries, problem selection, acceptance criteria, and decisions documented in this portfolio are the work I am accountable for.
 
@@ -78,5 +78,16 @@ I am especially interested in collaboration and technical discussion around:
 - systems-engineering approaches to AI.
 
 The best way to evaluate this work is through the artifacts and evidence attached to the claims, not through biography alone.
+
+## The longer story
+
+This portfolio focuses on the engineering artifacts and evidence behind Nexus Synapse.
+
+The longer story of how warehouse operations, SQL, material flow, cycle counts, routing, repeated architectural failures, and systems thinking eventually became Nexus Synapse is told in:
+
+***From Warehouse Logic to Context Engineering: How Operational Thinking Became an AI Runtime***
+
+- [Why Nexus Synapse Looks Like a Warehouse](WHY_NEXUS_SYNAPSE_LOOKS_LIKE_A_WAREHOUSE.md)
+- [Read the book on Amazon.ca](https://a.co/d/011whivx)
 
 Return to the [portfolio README](README.md).
